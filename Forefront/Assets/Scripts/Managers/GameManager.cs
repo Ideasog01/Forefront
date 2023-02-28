@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public static PlayerEntity playerEntity;
 
+    public static GUIManager guiManager;
+
     private void Awake()
     {
         InitialiseManager();
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         controllerManager = this.GetComponent<ControllerManager>();
         spawnManager = this.GetComponent<SpawnManager>();
+        guiManager = this.GetComponent<GUIManager>();
 
         playerEntity = GameObject.Find("XR Origin").GetComponent<PlayerEntity>();
     }

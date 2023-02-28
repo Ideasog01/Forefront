@@ -21,7 +21,8 @@ public class InputManager : MonoBehaviour
         customInput.XRILeftHandInteraction.WeaponSelectMenu.started += ctx => GameManager.controllerManager.DisplayWeaponSelect(true); //The left hand primary button
         customInput.XRILeftHandInteraction.WeaponSelectMenu.canceled += ctx => GameManager.controllerManager.DisplayWeaponSelect(false); //The left hand primary button
 
-        customInput.XRIRightHandInteraction.Activate.performed += ctx => GameManager.playerEntity.FireCannon(); //The right hand trigger
+        customInput.XRIRightHandInteraction.Activate.started += ctx => GameManager.playerEntity.FireCannon(false); //The right hand trigger
+        customInput.XRIRightHandInteraction.Activate.canceled += ctx => GameManager.playerEntity.FireCannon(true); //The right hand trigger
 
         customInput.XRILeftHandInteraction.Activate.started += ctx => GameManager.playerEntity.FireLaser(true); //The left hand trigger
         customInput.XRILeftHandInteraction.Activate.canceled += ctx => GameManager.playerEntity.FireLaser(false); //The left hand trigger

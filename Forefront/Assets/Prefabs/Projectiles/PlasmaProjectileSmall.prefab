@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6735663199621694635}
   - component: {fileID: 5328241953185989434}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: PlasmaProjectileSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,10 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89932d98373392440b00a87b4e2862be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileMovementSpeed: 2
+  projectileMovementSpeed: 9
   projectileDamage: 10
   projectileType: 0
-  projectileDuration: 4
+  projectileDuration: 3
 --- !u!33 &6595297634566185813
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField]
     private float projectileDuration;
 
-    public enum ProjectileType { PlasmaProjectile, DroneProjectile };
+    public enum ProjectileType { PlasmaProjectileSmall, PlasmaProjectileMedium, PlasmaProjectileLarge, DroneProjectile };
 
     public ProjectileType ProjectileTypeRef
     {
