@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private Transform projectileParent;
 
+    public static int activeHostiles;
+
     private List<ProjectileController> _activeProjectiles = new List<ProjectileController>();
 
     public void SpawnProjectile(Transform prefab, Vector3 position, Quaternion rotation)

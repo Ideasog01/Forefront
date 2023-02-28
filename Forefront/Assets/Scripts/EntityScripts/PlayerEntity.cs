@@ -10,6 +10,10 @@ public class PlayerEntity : BaseEntity
 
     public static float plasmaCharge;
 
+    public static int scoreAmount;
+
+    public static float powerChargeAmount;
+
     [Header("Plasma Cannon")]
 
     [SerializeField]
@@ -21,6 +25,9 @@ public class PlayerEntity : BaseEntity
     [SerializeField]
     private float plasmaChargeRate = 30;
 
+    [SerializeField]
+    private float plasmaChargeCost = 30;
+
     [Header("Laser")]
 
     [SerializeField]
@@ -28,6 +35,14 @@ public class PlayerEntity : BaseEntity
 
     [SerializeField]
     private LineRenderer laserLineRenderer;
+
+    [SerializeField]
+    private float laserChargeCost;
+
+    [Header("General")]
+
+    [SerializeField]
+    private float powerRechargeRate;
 
     private bool _isPlasmaCharging;
 
@@ -38,6 +53,12 @@ public class PlayerEntity : BaseEntity
             if(plasmaCharge < 100) //Increment the plasma charge to 100
             {
                 plasmaCharge += Time.deltaTime * plasmaChargeRate;
+                powerChargeAmount -= Time.deltaTime * plasmaChargeCost;
+
+                if(powerChargeAmount <= 0)
+                {
+                    FireCannon(true);
+                }
             }
             else //Once the charge reaches 100, fire a projectile and reset
             {
@@ -45,6 +66,21 @@ public class PlayerEntity : BaseEntity
             }
 
             GameManager.guiManager.DisplayPlasmaCharge(); //Continue to display the charge when trigger is pressed and is charging
+        }
+
+        if(laserLineRenderer.enabled)
+        {
+            powerChargeAmount -= Time.deltaTime * laserChargeCost;
+
+            if(powerChargeAmount <= 0)
+            {
+                FireLaser(false);
+            }
+        }
+
+        if(powerChargeAmount < 100)
+        {
+            powerChargeAmount += Time.deltaTime * powerRechargeRate;
         }
     }
 
