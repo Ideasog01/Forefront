@@ -46,6 +46,8 @@ public class PlayerEntity : BaseEntity
 
     private bool _isPlasmaCharging;
 
+    private bool _isLaserFiring;
+
     private void Update()
     {
         if(_isPlasmaCharging)
@@ -68,7 +70,7 @@ public class PlayerEntity : BaseEntity
             GameManager.guiManager.DisplayPlasmaCharge(); //Continue to display the charge when trigger is pressed and is charging
         }
 
-        if(laserLineRenderer.enabled)
+        if(_isLaserFiring)
         {
             powerChargeAmount -= Time.deltaTime * laserChargeCost;
 
@@ -128,16 +130,8 @@ public class PlayerEntity : BaseEntity
     {
         if(laserActive)
         {
-            if(active)
-            {
-                //Debug.Log("Laser Started");
-            }
-            else
-            {
-                //Debug.Log("Laser Stopped");
-            }
+            _isLaserFiring = active;
+            laserLineRenderer.enabled = active;
         }
-
-        laserLineRenderer.enabled = active;
     }
 }
