@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GUIManager : MonoBehaviour
 {
@@ -28,6 +29,19 @@ public class GUIManager : MonoBehaviour
 
     [SerializeField]
     private Slider powerChargeSlider;
+
+    [Header("Movement Transition")]
+
+    [SerializeField]
+    private Animator movementTransitionAnimator;
+
+    [SerializeField]
+    private TeleportationProvider teleportationProvider;
+
+    private void Start()
+    {
+        teleportationProvider.beginLocomotion += ctx => PerformTransition();
+    }
 
     private void Update()
     {
@@ -64,5 +78,10 @@ public class GUIManager : MonoBehaviour
     {
         powerChargeText.text = "Power Charge: " + PlayerEntity.powerChargeAmount.ToString("F0") + "%";
         powerChargeSlider.value = PlayerEntity.powerChargeAmount;
+    }
+
+    public void PerformTransition()
+    {
+        movementTransitionAnimator.SetTrigger("transition");
     }
 }
