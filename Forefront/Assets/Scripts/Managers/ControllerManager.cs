@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ControllerManager : MonoBehaviour
 {
+    public static bool bladeInReach; //Is a controller inside the blade interaction bounds
+
     [Header("Teleportation")]
 
     [SerializeField]
@@ -22,6 +24,9 @@ public class ControllerManager : MonoBehaviour
 
     [SerializeField]
     private SelectorController selectorController;
+
+    [SerializeField]
+    private GameObject bladeObj;
 
     [Header("General")]
 
@@ -56,9 +61,12 @@ public class ControllerManager : MonoBehaviour
 
     public void EnablePlasmaCannon(bool active)
     {
-        plasmaCannonObj.SetActive(active);
-        rightHandMeshObj.SetActive(!active);
-        PlayerEntity.plasmaActive = active;
+        if(!bladeObj.activeSelf)
+        {
+            plasmaCannonObj.SetActive(active);
+            rightHandMeshObj.SetActive(!active);
+            PlayerEntity.plasmaActive = active;
+        }
     }
 
     public void EnableLaser(bool active)
@@ -70,6 +78,12 @@ public class ControllerManager : MonoBehaviour
 
     public void EnableBlade(bool active)
     {
+        //The blade can only be enabled/disabled when in reach. Meaning that the player's right hand must be behind them and right hand grip is being performed.
 
+        if(bladeInReach && !plasmaCannonObj.activeSelf)
+        {
+            bladeObj.SetActive(active);
+            rightHandMeshObj.SetActive(!active);
+        }
     }
 }

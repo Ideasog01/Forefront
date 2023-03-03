@@ -26,6 +26,9 @@ public class InputManager : MonoBehaviour
 
         customInput.XRILeftHandInteraction.Activate.started += ctx => GameManager.playerEntity.FireLaser(true); //The left hand trigger
         customInput.XRILeftHandInteraction.Activate.canceled += ctx => GameManager.playerEntity.FireLaser(false); //The left hand trigger
+
+        customInput.XRIRightHandInteraction.Select.started += ctx => GameManager.controllerManager.EnableBlade(true);
+        customInput.XRIRightHandInteraction.Select.canceled += ctx => GameManager.controllerManager.EnableBlade(false);
     }
 
     private void OnEnable()
