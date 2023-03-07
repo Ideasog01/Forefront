@@ -38,6 +38,17 @@ public class GUIManager : MonoBehaviour
     [SerializeField]
     private TeleportationProvider teleportationProvider;
 
+    [Header("Player Health Display")]
+
+    [SerializeField]
+    private Slider playerHealthSlider;
+
+    [SerializeField]
+    private TextMeshProUGUI playerHealthText;
+
+    [SerializeField]
+    private GameObject damageCriticalText;
+
     private void Start()
     {
         teleportationProvider.beginLocomotion += ctx => PerformTransition();
@@ -83,5 +94,15 @@ public class GUIManager : MonoBehaviour
     public void PerformTransition()
     {
         movementTransitionAnimator.SetTrigger("transition");
+    }
+
+    public void DisplayPlayerHealth()
+    {
+        int health = GameManager.playerEntity.EntityHealth;
+
+        playerHealthSlider.value = health;
+        playerHealthText.text = health.ToString();
+
+        damageCriticalText.gameObject.SetActive(health < 30);
     }
 }

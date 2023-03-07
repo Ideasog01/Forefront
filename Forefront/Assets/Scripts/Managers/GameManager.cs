@@ -13,8 +13,20 @@ public class GameManager : MonoBehaviour
 
     public static GUIManager guiManager;
 
+    public static GameSettings gameSettings;
+
+    public static WaveManager waveManager;
+
+    [SerializeField]
+    private GameSettings testSettings;
+
     private void Awake()
     {
+        if (gameSettings == null)
+        {
+            gameSettings = testSettings;
+        }
+
         InitialiseManager();
     }
 
@@ -23,6 +35,7 @@ public class GameManager : MonoBehaviour
         controllerManager = this.GetComponent<ControllerManager>();
         spawnManager = this.GetComponent<SpawnManager>();
         guiManager = this.GetComponent<GUIManager>();
+        waveManager = GameObject.FindObjectOfType<WaveManager>(); //Find type as this is a prefab for multiple difficulty levels with different names
 
         playerEntity = GameObject.Find("XR Origin").GetComponent<PlayerEntity>();
     }

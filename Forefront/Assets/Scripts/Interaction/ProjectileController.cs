@@ -42,6 +42,11 @@ public class ProjectileController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(collision.collider.CompareTag("Enemy"))
+        {
+            collision.collider.GetComponent<BaseEntity>().TakeDamage(projectileDamage);
+        }
+
         this.gameObject.SetActive(false);
     }
 

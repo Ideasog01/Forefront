@@ -46,7 +46,6 @@ public class HandAnimations : MonoBehaviour
         if(_targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
         {
             _handAnimator.SetFloat("triggerValue", triggerValue);
-            Debug.Log(triggerValue);
         }
         else
         {
@@ -56,7 +55,6 @@ public class HandAnimations : MonoBehaviour
         if (_targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
         {
             _handAnimator.SetFloat("gripValue", gripValue);
-            Debug.Log(gripValue);
         }
         else
         {
