@@ -1629,6 +1629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Device Simulator
       objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
@@ -1713,6 +1717,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 461888896}
     m_Modifications:
+    - target: {fileID: 6419130501905588360, guid: f9ef28a149d68504ea29c9108dc65c6e, type: 3}
+      propertyPath: m_prefabsToSpawn.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419130501905588360, guid: f9ef28a149d68504ea29c9108dc65c6e, type: 3}
+      propertyPath: m_prefabsToSpawn.Array.data[0]
+      value: 
+      objectReference: {fileID: 7546048097596870757, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+    - target: {fileID: 6419130501905588360, guid: f9ef28a149d68504ea29c9108dc65c6e, type: 3}
+      propertyPath: m_prefabsToSpawn.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419130501905588360, guid: f9ef28a149d68504ea29c9108dc65c6e, type: 3}
+      propertyPath: m_prefabsToSpawn.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6419130501905588363, guid: f9ef28a149d68504ea29c9108dc65c6e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
