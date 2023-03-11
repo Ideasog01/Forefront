@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ae271191979b314f873a47bbd50fe46, type: 3}
-  m_Name: RecruitDifficulty
+  m_Name: HeroDifficulty
   m_EditorClassIdentifier: 
-  difficultyLevel: 0
+  difficultyLevel: 1
   spawnPrefab: {fileID: 3924233307356937705, guid: 706b6a90190cb69489b79c00f68e4327, type: 3}
   droneHealth: 50
   droneDamage: 20
