@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7202138089265187551}
   - component: {fileID: 6079008450387985786}
   - component: {fileID: 8338430874956181936}
-  - component: {fileID: 6919935743114324560}
+  - component: {fileID: 2954968281410496253}
   m_Layer: 0
-  m_Name: Drone_Enemy
+  m_Name: Drone_SpawnObject
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cc57381bb9ed81846a149c6a1d5f18df, type: 2}
+  - {fileID: 2100000, guid: 21653ed355333fa42ab9bca9b868ba83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6919935743114324560
-MeshCollider:
+--- !u!65 &2954968281410496253
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2403283451262950110, guid: 28d909faf2a3b9840b57c680b8e540e0, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.37339342, y: 0.1290674, z: 0.31036377}
+  m_Center: {x: -0.0018917248, y: -0.01921787, z: 0.024985977}
