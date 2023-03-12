@@ -25,6 +25,13 @@ public class GeneralSettings : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI totalPowerChargeText;
 
+    [Header("Loadout Display")]
+
+    [SerializeField]
+    private TextMeshProUGUI slotNameText;
+
+    private Loadout _selectedLoadout;
+
     public void DisplaySettingValues() //Via Inspector
     {
         int totalPowerUsed = 0;
@@ -69,6 +76,38 @@ public class GeneralSettings : MonoBehaviour
             }
 
             totalPowerChargeText.text = totalPowerUsed.ToString() + "/10";
+        }
+    }
+
+    public void SelectSlot(int index)
+    {
+        _selectedLoadout = loadoutArray[index];
+        slotNameText.text = "Loadout " + (index + 1);
+    }
+
+    public void EquipLoadoutSlot()
+    {
+        if(_selectedLoadout != null)
+        {
+            mainLoadout.GeneralSettingsValueArray = _selectedLoadout.GeneralSettingsValueArray;
+
+            if (valueSliderArray[0].isActiveAndEnabled) //Is general settings menu enabled?
+            {
+                DisplaySettingValues();
+            }
+        }
+    }
+
+    public void OverwriteLoadoutSlot()
+    {
+        if (_selectedLoadout != null)
+        {
+            _selectedLoadout.GeneralSettingsValueArray = mainLoadout.GeneralSettingsValueArray;
+
+            if (valueSliderArray[0].isActiveAndEnabled) //Is general settings menu enabled?
+            {
+                DisplaySettingValues();
+            }
         }
     }
 }

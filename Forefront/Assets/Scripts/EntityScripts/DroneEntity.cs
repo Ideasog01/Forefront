@@ -12,9 +12,12 @@ public class DroneEntity : EnemyEntity
 
     private void Awake()
     {
-        _dodgeCooldown = GameManager.gameSettings.DroneDodgeCooldown;
-        _attackCooldown = GameManager.gameSettings.DroneAttackCooldown;
-        _droneDamage = GameManager.gameSettings.DroneDamage;
-        EntityHealth = GameManager.gameSettings.DroneHealth;
+        if(GameManager.gameSettings != null)
+        {
+            _dodgeCooldown = GameManager.gameSettings.DroneDodgeCooldown;
+            _attackCooldown = GameManager.gameSettings.DroneAttackCooldown;
+            _droneDamage = GameManager.gameSettings.DroneDamage;
+            EntityHealth = GameManager.gameSettings.DroneHealth;
+        }
     }
 }

@@ -1,16 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyEntity : BaseEntity
 {
     public enum EnemyType { Drone };
+
+    [Header("Enemy Properties")]
 
     [SerializeField]
     private EnemyType enemyType;
 
     [SerializeField]
     private int enemyDamage;
+
+    [Header("Health Display")]
+
+    [SerializeField]
+    private Slider enemySlider;
 
     public EnemyType EnemyTypeRef
     { 
@@ -25,5 +31,22 @@ public class EnemyEntity : BaseEntity
     public void ResetEnemy()
     {
         EntityHealth = GameManager.gameSettings.DroneHealth;
+        DisplayHealth();
+    }
+
+    public void DisplayHealth()
+    {
+        enemySlider.maxValue = EntityMaxHealth;
+        enemySlider.value = EntityHealth;
+    }
+
+    public void OnEnemyDeath()
+    {
+        if (CompareTag("Enemy"))
+        {
+            SpawnManager.activeHostiles--;
+        }
+
+        this.gameObject.SetActive(false);
     }
 }

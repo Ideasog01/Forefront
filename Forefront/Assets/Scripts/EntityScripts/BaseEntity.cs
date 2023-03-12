@@ -1,9 +1,11 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BaseEntity : MonoBehaviour
 {
+    [SerializeField]
+    private int entityMaxHealth;
+
     [SerializeField]
     private int entityHealth;
 
@@ -12,6 +14,11 @@ public class BaseEntity : MonoBehaviour
 
     [SerializeField]
     private UnityEvent onDeathEvent;
+
+    public int EntityMaxHealth
+    {
+        get { return entityMaxHealth; }
+    }
 
     public int EntityHealth
     {
@@ -23,11 +30,11 @@ public class BaseEntity : MonoBehaviour
     {
         entityHealth -= amount;
 
-        if (CompareTag("Enemy"))
-        {
-            SpawnManager.activeHostiles--;
-        }
+        onTakeDamageEvent.Invoke();
 
-        this.gameObject.SetActive(false);
+        if(entityHealth <= 0)
+        {
+            onDeathEvent.Invoke();
+        }
     }
 }

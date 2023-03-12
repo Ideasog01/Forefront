@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: MainLoadout
   m_EditorClassIdentifier: 
   generalSettingsValueArray: 0000000000000000000000000000000000000000
+  perk1: {fileID: 0}
+  perk2: {fileID: 0}
