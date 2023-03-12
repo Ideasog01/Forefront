@@ -63,9 +63,10 @@ public class GUIManager : MonoBehaviour
     {
         if(plasmaChargeCanvas.activeSelf)
         {
-            float charge = PlayerEntity.plasmaCharge;
+            float charge = (PlayerEntity.plasmaCharge / GameManager.playerEntity.PlasmaChargeTime) * 100;
 
             plasmaChargeText.text = "Plasma Charge: " + charge.ToString("F0") + "%";
+            plasmaChargeSlider.maxValue = 100;
             plasmaChargeSlider.value = charge;
         }
     }

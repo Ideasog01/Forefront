@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class SpawnManager : MonoBehaviour
 
     private List<EnemyEntity> _enemyList = new List<EnemyEntity>();
 
-    private List<ProjectileController> _activeProjectiles = new List<ProjectileController>();
+    private List<PlayerProjectileController> _activePlayerProjectiles = new List<PlayerProjectileController>();
 
     private void Start()
     {
@@ -26,30 +27,25 @@ public class SpawnManager : MonoBehaviour
         GameManager.waveManager = Instantiate(GameManager.gameSettings.SpawnPrefab.GetComponent<WaveManager>(), Vector3.zero, Quaternion.identity); //Spawn the WaveManager dependent on the selected game settings (difficulty level)
     }
 
-    public void SpawnProjectile(Transform prefab, Vector3 position, Quaternion rotation)
+    public void SpawnPlayerProjectile(Transform prefab, Vector3 position, Quaternion rotation)
     {
-        ProjectileController projectileToUse = null;
+        PlayerProjectileController projectileToUse = null;
 
-        foreach(ProjectileController projectile in _activeProjectiles) //Reuse projectile (avoids uneccessary use of memory)
+        foreach (PlayerProjectileController projectile in _activePlayerProjectiles) //Reuse projectile (avoids uneccessary use of memory)
         {
-            if(!projectile.gameObject.activeSelf)
+            if (!projectile.gameObject.activeSelf)
             {
-                ProjectileController.ProjectileType projectileType = prefab.GetComponent<ProjectileController>().ProjectileTypeRef;
-
-                if(projectileType == projectile.ProjectileTypeRef) //Type matches
-                {
-                    projectile.gameObject.SetActive(true);
-                    projectileToUse = projectile;
-                    break;
-                }
+                projectile.gameObject.SetActive(true);
+                projectileToUse = projectile;
+                break;
             }
         }
 
-        if(projectileToUse == null) //Projectile not found, create a new one
+        if (projectileToUse == null) //Projectile not found, create a new one
         {
-            projectileToUse = Instantiate(prefab.GetComponent<ProjectileController>(), position, rotation);
+            projectileToUse = Instantiate(prefab.GetComponent<PlayerProjectileController>(), position, rotation);
             projectileToUse.transform.parent = projectileParent;
-            _activeProjectiles.Add(projectileToUse);
+            _activePlayerProjectiles.Add(projectileToUse);
         }
 
         projectileToUse.InitialiseProjectile(position, rotation); //Reset the projectile

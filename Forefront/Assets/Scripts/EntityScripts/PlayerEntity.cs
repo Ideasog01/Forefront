@@ -20,13 +20,16 @@ public class PlayerEntity : BaseEntity
     private Transform plasmaSpawnPos;
 
     [SerializeField]
-    private Transform[] plasmaProjectilePrefab;
+    private Transform plasmaProjectilePrefab;
 
     [SerializeField]
-    private float plasmaChargeRate = 30;
+    private float plasmaChargeRate;
 
     [SerializeField]
-    private float plasmaChargeCost = 30;
+    private float plasmaChargeCost;
+
+    [SerializeField]
+    private float plasmaChargeTime;
 
     [Header("Laser")]
 
@@ -48,26 +51,52 @@ public class PlayerEntity : BaseEntity
 
     private bool _isLaserFiring;
 
+    #region HandCannonSettings
+
+    [Header("Hand Cannon Settings")]
+
+    [SerializeField]
+    private float[] projectileBlastRadius;
+
+    [SerializeField]
+    private float[] projectileVelocity;
+
+    [SerializeField]
+    private float[] powerEffectiveness;
+
+    [SerializeField]
+    private float[] chargeTime;
+
+    [SerializeField]
+    private int[] damageOutput;
+
+    public float[] ProjectileBlastRadius
+    {
+        get { return projectileBlastRadius; }
+    }
+
+    public float[] ProjectileVelocity
+    {
+        get { return projectileVelocity; }
+    }
+
+    public int[] DamageOutput
+    {
+        get { return damageOutput; }
+    }
+
+    public float PlasmaChargeTime
+    {
+        get { return plasmaChargeTime; }
+    }
+
+    #endregion
+
     private void Update()
     {
         if(_isPlasmaCharging)
         {
-            if(plasmaCharge < 100) //Increment the plasma charge to 100
-            {
-                plasmaCharge += Time.deltaTime * plasmaChargeRate;
-                powerChargeAmount -= Time.deltaTime * plasmaChargeCost;
-
-                if(powerChargeAmount <= 0)
-                {
-                    FireCannon(true);
-                }
-            }
-            else //Once the charge reaches 100, fire a projectile and reset
-            {
-                FireCannon(true);
-            }
-
-            GameManager.guiManager.DisplayPlasmaCharge(); //Continue to display the charge when trigger is pressed and is charging
+            ChargePlasmaCannon();
         }
 
         if(_isLaserFiring)
@@ -92,34 +121,23 @@ public class PlayerEntity : BaseEntity
         {
             if(release)
             {
-                if(plasmaCharge > 0)
+                if(plasmaCharge >= plasmaChargeTime)
                 {
-                    Transform prefab = null;
-
-                    if(plasmaCharge < 50)
-                    {
-                        prefab = plasmaProjectilePrefab[0];
-                    }
-                    else if(plasmaCharge < 90)
-                    {
-                        prefab = plasmaProjectilePrefab[1];
-                    }
-                    else
-                    {
-                        prefab = plasmaProjectilePrefab[2];
-                    }   
-
-                    GameManager.spawnManager.SpawnProjectile(prefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
+                    GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
                     Debug.Log("Cannon Fired");
-                    plasmaCharge = 0;
-                    _isPlasmaCharging = false;
-
-                    GameManager.guiManager.DisplayPlasmaCharge();
-                    GameManager.guiManager.TogglePlasmaCharge(false);
                 }
+
+                plasmaCharge = 0;
+                _isPlasmaCharging = false;
+
+                GameManager.guiManager.DisplayPlasmaCharge();
+                GameManager.guiManager.TogglePlasmaCharge(false);
             }
             else
             {
+                plasmaChargeTime = chargeTime[GameManager.mainLoadout.GeneralSettingsValueArray[3]];
+                plasmaChargeCost = powerEffectiveness[GameManager.mainLoadout.GeneralSettingsValueArray[2]];
+
                 _isPlasmaCharging = true;
                 GameManager.guiManager.TogglePlasmaCharge(true);
             }
@@ -133,5 +151,30 @@ public class PlayerEntity : BaseEntity
             _isLaserFiring = active;
             laserLineRenderer.enabled = active;
         }
+    }
+
+    private void ChargePlasmaCannon()
+    {
+        if (plasmaCharge < plasmaChargeTime) //Increment the plasma charge to the charge time
+        {
+            plasmaCharge += Time.deltaTime * plasmaChargeRate;
+            powerChargeAmount -= Time.deltaTime * plasmaChargeCost;
+
+            if (powerChargeAmount <= 0)
+            {
+                Debug.Log("Cannon ran out of charge");
+                plasmaCharge = 0;
+                _isPlasmaCharging = false;
+
+                GameManager.guiManager.DisplayPlasmaCharge();
+                GameManager.guiManager.TogglePlasmaCharge(false);
+            }
+        }
+        else //Once the charge reaches the charge time, fire a projectile and reset
+        {
+            FireCannon(true);
+        }
+
+        GameManager.guiManager.DisplayPlasmaCharge(); //Continue to display the charge when trigger is pressed and is charging
     }
 }

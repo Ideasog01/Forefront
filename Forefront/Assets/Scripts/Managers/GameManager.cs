@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
 
     public static WaveManager waveManager;
 
+    public static Loadout mainLoadout;
+
+    [SerializeField]
+    private Loadout mainLoadoutRef;
+
     [SerializeField]
     private GameSettings testSettings;
 
@@ -26,6 +31,8 @@ public class GameManager : MonoBehaviour
         {
             gameSettings = testSettings;
         }
+
+        mainLoadout = mainLoadoutRef;
 
         InitialiseManager();
     }
