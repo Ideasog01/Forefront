@@ -39,6 +39,11 @@ public class LaserController : MonoBehaviour
         {
             Debug.Log("Laser Collision Detected! Object Hit: " + hit.collider.gameObject.name);
 
+            if(hit.collider.CompareTag("Projectile"))
+            {
+                hit.collider.gameObject.SetActive(false);
+            }
+
             _lineRenderer.SetPosition(1, hit.point);
         }
         else

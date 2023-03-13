@@ -12,7 +12,7 @@ public class PlayerEntity : BaseEntity
 
     public static int scoreAmount;
 
-    public static float powerChargeAmount;
+    public static float powerChargeAmount = 100;
 
     [Header("Plasma Cannon")]
 
@@ -41,6 +41,12 @@ public class PlayerEntity : BaseEntity
 
     [SerializeField]
     private float laserChargeCost;
+
+    [SerializeField]
+    private Transform laserEnd;
+
+    [SerializeField]
+    private float laserRotationSpeed;
 
     [Header("General")]
 
@@ -92,6 +98,11 @@ public class PlayerEntity : BaseEntity
 
     #endregion
 
+    private void Awake()
+    {
+        powerChargeAmount = 100;
+    }
+
     private void Update()
     {
         if(_isPlasmaCharging)
@@ -107,6 +118,8 @@ public class PlayerEntity : BaseEntity
             {
                 FireLaser(false);
             }
+
+            laserEnd.Rotate(new Vector3(0, 0, 1) * laserRotationSpeed);
         }
 
         if(powerChargeAmount < 100)

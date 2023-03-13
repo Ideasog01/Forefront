@@ -773,6 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0d3c54a9420154db75260435f4b2e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainLoadoutRef: {fileID: 11400000, guid: 90b4023066b217d42b5d21683712f45c, type: 2}
   testSettings: {fileID: 11400000, guid: 78c0ddd77ee45804592c768c8b8dfd2a, type: 2}
 --- !u!114 &5073328639373400715
 MonoBehaviour:
@@ -853,7 +854,7 @@ MonoBehaviour:
   scoreText: {fileID: 5073328639341002976}
   powerChargeText: {fileID: 5073328641117829815}
   powerChargeSlider: {fileID: 5073328641100414786}
-  movementTransitionAnimator: {fileID: 0}
+  movementTransitionAnimator: {fileID: 2563734270110709185}
   teleportationProvider: {fileID: 5073328639207214956}
   playerHealthSlider: {fileID: 5073328640515702529}
   playerHealthText: {fileID: 5073328640218173081}
@@ -1445,7 +1446,7 @@ Transform:
   - {fileID: 5073328640687196508}
   - {fileID: 5073328640460095860}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5073328639995311362
 GameObject:
@@ -3244,7 +3245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5073328640612193498
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4945,6 +4946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbefcd974783a643a11c37c9dd352c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityMaxHealth: 100
   entityHealth: 100
   onTakeDamageEvent:
     m_PersistentCalls:
@@ -4965,16 +4967,43 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   plasmaSpawnPos: {fileID: 5073328640628735724}
-  plasmaProjectilePrefab:
-  - {fileID: 6595297634566185815, guid: 785217ec88d51664483b94edaa0824bd, type: 3}
-  - {fileID: 6595297634566185815, guid: 1049dfdc48594bc47a3c8d7e2489d445, type: 3}
-  - {fileID: 6595297634566185815, guid: 009267b5b4b0e3f4ab662005b6de804c, type: 3}
-  plasmaChargeRate: 60
-  plasmaChargeCost: 50
-  laserOrigin: {fileID: 5073328640367068059}
+  plasmaProjectilePrefab: {fileID: 6595297634566185815, guid: 009267b5b4b0e3f4ab662005b6de804c, type: 3}
+  plasmaChargeRate: 1
+  plasmaChargeCost: 0
+  plasmaChargeTime: 0
+  laserOrigin: {fileID: 5073328640550217422}
   laserLineRenderer: {fileID: 5073328639234606477}
   laserChargeCost: 30
-  powerRechargeRate: 10
+  powerRechargeRate: 2
+  projectileBlastRadius:
+  - 0
+  - 1.5
+  - 2.5
+  - 5
+  - 7.5
+  - 10
+  projectileVelocity:
+  - 2
+  - 4
+  - 6
+  - 8
+  - 10
+  - 12
+  powerEffectiveness:
+  - 10
+  - 8
+  - 6
+  - 4
+  - 3
+  - 2.5
+  chargeTime:
+  - 2
+  - 1.5
+  - 1
+  - 0.75
+  - 0.5
+  - 0.15
+  damageOutput: 0a0000000f00000019000000320000004b00000064000000
 --- !u!1 &6736485292921607253
 GameObject:
   m_ObjectHideFlags: 0
@@ -5841,7 +5870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

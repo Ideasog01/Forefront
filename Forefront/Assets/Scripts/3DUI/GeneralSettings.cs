@@ -30,6 +30,9 @@ public class GeneralSettings : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI slotNameText;
 
+    [SerializeField]
+    private PerksMenu perkMenu;
+
     private Loadout _selectedLoadout;
 
     public void DisplaySettingValues() //Via Inspector
@@ -79,34 +82,63 @@ public class GeneralSettings : MonoBehaviour
         }
     }
 
-    public void SelectSlot(int index)
+    public void SelectSlot(int index) //Via Inspector
     {
         _selectedLoadout = loadoutArray[index];
         slotNameText.text = "Loadout " + (index + 1);
     }
 
-    public void EquipLoadoutSlot()
+    public void EquipLoadoutSlot() //Via Inspector
     {
         if(_selectedLoadout != null)
         {
-            mainLoadout.GeneralSettingsValueArray = _selectedLoadout.GeneralSettingsValueArray;
+            for(int i = 0; i < mainLoadout.GeneralSettingsValueArray.Length; i++)
+            {
+                mainLoadout.GeneralSettingsValueArray[i] = _selectedLoadout.GeneralSettingsValueArray[i];
+            }
 
-            if (valueSliderArray[0].isActiveAndEnabled) //Is general settings menu enabled?
+            if(mainLoadout.Perk1 != null && _selectedLoadout.Perk1 != null)
+            {
+                mainLoadout.Perk1 = _selectedLoadout.Perk1;
+            }
+
+            if (mainLoadout.Perk2 != null && _selectedLoadout.Perk2 != null)
+            {
+                mainLoadout.Perk2 = _selectedLoadout.Perk2;
+            }
+
+            //Checks if objects are active before modifying display
+
+            if (valueSliderArray[0].isActiveAndEnabled)
             {
                 DisplaySettingValues();
             }
+            
+            if(perkMenu.isActiveAndEnabled)
+            {
+                perkMenu.DisplaySlot();
+            }
+            
         }
     }
 
-    public void OverwriteLoadoutSlot()
+    public void OverwriteLoadoutSlot() //Via Inspector
     {
         if (_selectedLoadout != null)
         {
-            _selectedLoadout.GeneralSettingsValueArray = mainLoadout.GeneralSettingsValueArray;
-
-            if (valueSliderArray[0].isActiveAndEnabled) //Is general settings menu enabled?
+            for (int i = 0; i < mainLoadout.GeneralSettingsValueArray.Length; i++)
             {
-                DisplaySettingValues();
+                _selectedLoadout.GeneralSettingsValueArray[i] = mainLoadout.GeneralSettingsValueArray[i];
+            }
+
+            if (mainLoadout.Perk1 != null && _selectedLoadout.Perk1 != null)
+            {
+                _selectedLoadout.Perk1 = mainLoadout.Perk1;
+            }
+
+            if (mainLoadout.Perk2 != null && _selectedLoadout.Perk2 != null)
+            {
+                _selectedLoadout.Perk2 = mainLoadout.Perk2;
             }
         }
     }

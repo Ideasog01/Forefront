@@ -13,13 +13,19 @@ public class WaveManager : MonoBehaviour
     [SerializeField]
     private float startDistanceThreshold;
 
+    [SerializeField]
+    private bool startWave;
+
     private bool _enemiesSpawned;
 
     private bool _playerIsNear;
 
     private void Start()
     {
-        StartWave();
+        if(startWave)
+        {
+            StartWave();
+        }
     }
 
     private void Update()

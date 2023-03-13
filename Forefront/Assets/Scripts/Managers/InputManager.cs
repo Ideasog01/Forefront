@@ -25,16 +25,16 @@ public class InputManager : MonoBehaviour
 
             customInput.XRILeftHandLocomotion.TeleportModeActivate.started += ctx => GameManager.controllerManager.DisplayTeleportRay(true); //The left hand stick forward
             customInput.XRILeftHandLocomotion.TeleportModeActivate.canceled += ctx => GameManager.controllerManager.DisplayTeleportRay(false); //The left hand stick forward
+
+            customInput.XRILeftHandInteraction.Activate.started += ctx => GameManager.playerEntity.FireLaser(true); //The left hand trigger
+            customInput.XRILeftHandInteraction.Activate.canceled += ctx => GameManager.playerEntity.FireLaser(false); //The left hand trigger
+
+            customInput.XRIRightHandInteraction.Select.started += ctx => GameManager.controllerManager.EnableBlade(true);
+            customInput.XRIRightHandInteraction.Select.canceled += ctx => GameManager.controllerManager.EnableBlade(false);
         }
 
         customInput.XRIRightHandInteraction.Activate.started += ctx => GameManager.playerEntity.FireCannon(false); //The right hand trigger
         customInput.XRIRightHandInteraction.Activate.canceled += ctx => GameManager.playerEntity.FireCannon(true); //The right hand trigger
-
-        customInput.XRILeftHandInteraction.Activate.started += ctx => GameManager.playerEntity.FireLaser(true); //The left hand trigger
-        customInput.XRILeftHandInteraction.Activate.canceled += ctx => GameManager.playerEntity.FireLaser(false); //The left hand trigger
-
-        customInput.XRIRightHandInteraction.Select.started += ctx => GameManager.controllerManager.EnableBlade(true);
-        customInput.XRIRightHandInteraction.Select.canceled += ctx => GameManager.controllerManager.EnableBlade(false);
     }
 
     private void OnEnable()
