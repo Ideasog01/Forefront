@@ -39,6 +39,14 @@ public class ControllerManager : MonoBehaviour
     [SerializeField]
     private GameObject leftHandMeshObj;
 
+    [Header("Sounds")]
+
+    [SerializeField]
+    private Sound swordEquipSound;
+
+    [SerializeField]
+    private Sound swordUnequipSound;
+
     public void DisplayTeleportRay(bool active)
     {
         teleportRay.SetActive(active);
@@ -82,6 +90,18 @@ public class ControllerManager : MonoBehaviour
 
         if(bladeInReach && !plasmaCannonObj.activeSelf)
         {
+            if (active)
+            {
+                if(!bladeObj.activeSelf) //Ensures the blade is not already active to avoid playing the equip sound when putting the sword away
+                {
+                    GameManager.audioManager.PlaySound(swordEquipSound);
+                }
+            }
+            else
+            {
+                GameManager.audioManager.PlaySound(swordUnequipSound);
+            }
+
             bladeObj.SetActive(active);
             rightHandMeshObj.SetActive(!active);
         }

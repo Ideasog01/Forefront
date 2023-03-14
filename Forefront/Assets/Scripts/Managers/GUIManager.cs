@@ -49,6 +49,14 @@ public class GUIManager : MonoBehaviour
     [SerializeField]
     private GameObject damageCriticalText;
 
+    [Header("UI Sounds")]
+
+    [SerializeField]
+    private Sound positiveButtonSound;
+
+    [SerializeField]
+    private Sound negativeButtonSound;
+
     private void Start()
     {
         teleportationProvider.beginLocomotion += ctx => PerformTransition();
@@ -97,7 +105,7 @@ public class GUIManager : MonoBehaviour
         movementTransitionAnimator.SetTrigger("transition");
     }
 
-    public void DisplayPlayerHealth()
+    public void DisplayPlayerHealth() //Via Inspector
     {
         int health = GameManager.playerEntity.EntityHealth;
 
@@ -105,5 +113,15 @@ public class GUIManager : MonoBehaviour
         playerHealthText.text = health.ToString();
 
         damageCriticalText.gameObject.SetActive(health < 30);
+    }
+
+    public void PlayButtonPositiveSound() //Via Inspector
+    {
+        GameManager.audioManager.PlaySound(positiveButtonSound);
+    }
+
+    public void PlayButtonNegativeSound() //Via Inspector
+    {
+        GameManager.audioManager.PlaySound(negativeButtonSound);
     }
 }

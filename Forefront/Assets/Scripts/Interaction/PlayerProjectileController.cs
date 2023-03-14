@@ -23,6 +23,9 @@ public class PlayerProjectileController : MonoBehaviour
     [SerializeField]
     private Sound collisionSound;
 
+    [SerializeField]
+    private VisualEffect collisionVisualEffect;
+
     public void InitialiseProjectile(Vector3 position, Quaternion rotation) //Reset projectile values
     {
         this.transform.position = position;
@@ -74,6 +77,9 @@ public class PlayerProjectileController : MonoBehaviour
                 collider.GetComponent<BaseEntity>().TakeDamage(projectileDamage);
             }
         }
+
+        GameManager.audioManager.PlaySound(collisionSound);
+        GameManager.visualEffectManager.StartVFX(collisionVisualEffect);
 
         this.gameObject.SetActive(false);
     }
