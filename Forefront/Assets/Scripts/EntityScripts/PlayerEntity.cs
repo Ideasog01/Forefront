@@ -56,7 +56,13 @@ public class PlayerEntity : BaseEntity
     private Transform laserEnd;
 
     [SerializeField]
+    private GameObject laserEndVFX;
+
+    [SerializeField]
     private float laserRotationSpeed;
+
+    [SerializeField]
+    private Sound laserSound;
 
     [Header("General")]
 
@@ -181,6 +187,16 @@ public class PlayerEntity : BaseEntity
         {
             _isLaserFiring = active;
             laserLineRenderer.enabled = active;
+            
+            if(active)
+            {
+                GameManager.audioManager.PlaySound(laserSound);
+            }
+            else
+            {
+                GameManager.audioManager.StopSound(laserSound);
+                laserEndVFX.SetActive(false); //As the laser is now disabled, and laser end vfx is activated when the laser collides with an object and deactivated when not.
+            }
         }
     }
 

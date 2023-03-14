@@ -20,6 +20,9 @@ public class PlayerProjectileController : MonoBehaviour
     [SerializeField]
     private float projectileDuration;
 
+    [SerializeField]
+    private Sound collisionSound;
+
     public void InitialiseProjectile(Vector3 position, Quaternion rotation) //Reset projectile values
     {
         this.transform.position = position;

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class LaserController : MonoBehaviour
 {
-    [SerializeField]
-    private LayerMask collisionLayer;
 
     [SerializeField]
     private Transform lineOrigin;
+
+    [SerializeField]
+    private GameObject laserEndVfx;
 
     private LineRenderer _lineRenderer;
 
@@ -35,7 +36,7 @@ public class LaserController : MonoBehaviour
         Vector3 end = this.transform.position + this.transform.forward * 5;
         Vector3 direction = end - origin;
 
-        if(Physics.Raycast(origin, direction, out hit, direction.magnitude, collisionLayer))
+        if(Physics.Raycast(origin, direction, out hit, direction.magnitude))
         {
             Debug.Log("Laser Collision Detected! Object Hit: " + hit.collider.gameObject.name);
 
@@ -44,11 +45,15 @@ public class LaserController : MonoBehaviour
                 hit.collider.gameObject.SetActive(false);
             }
 
+            laserEndVfx.transform.position = hit.point;
+            laserEndVfx.SetActive(true);
+
             _lineRenderer.SetPosition(1, hit.point);
         }
         else
         {
             _lineRenderer.SetPosition(1, end);
+            laserEndVfx.SetActive(false);
         }
     }
 }
