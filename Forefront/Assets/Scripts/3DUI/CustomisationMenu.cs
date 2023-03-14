@@ -20,9 +20,6 @@ public class CustomisationMenu : MonoBehaviour
     [SerializeField]
     private GameObject loadoutMenu;
 
-    [SerializeField]
-    private GameObject loadoutSelectMenu;
-
     public void SpawnGeneralSettingsMenu() //Via Inspector
     {
         generalSettingsMenu.SetActive(true);
@@ -38,9 +35,6 @@ public class CustomisationMenu : MonoBehaviour
     public void SpawnLoadoutMenus()
     {
         loadoutMenu.SetActive(true);
-        loadoutSelectMenu.SetActive(true);
-
         loadoutMenu.transform.position = rightHandController.transform.position;
-        loadoutSelectMenu.transform.position = rightHandController.transform.position;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     public static GameSettings gameSettings;
 
     public static WaveManager waveManager;
+
+    public static AudioManager audioManager;
 
     public static Loadout mainLoadout;
 
@@ -42,8 +45,21 @@ public class GameManager : MonoBehaviour
         controllerManager = this.GetComponent<ControllerManager>();
         spawnManager = this.GetComponent<SpawnManager>();
         guiManager = this.GetComponent<GUIManager>();
+        audioManager = this.GetComponent<AudioManager>();
         waveManager = GameObject.FindObjectOfType<WaveManager>(); //Find type as this is a prefab for multiple difficulty levels with different names
 
         playerEntity = GameObject.Find("XR Origin").GetComponent<PlayerEntity>();
+    }
+
+    public void ReturnMainMenu() //Via Inspector
+    {
+        SceneManager.LoadScene(0);
+        Debug.Log("Return to Main Menu");
+    }
+
+    public void RestartGame() //Via Inspector
+    {
+        SceneManager.LoadScene(1);
+        Debug.Log("Game Restarted");
     }
 }
