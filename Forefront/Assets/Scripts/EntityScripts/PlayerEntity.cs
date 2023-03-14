@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerEntity : BaseEntity
@@ -30,6 +28,18 @@ public class PlayerEntity : BaseEntity
 
     [SerializeField]
     private float plasmaChargeTime;
+
+    [SerializeField]
+    private VisualEffect plasmaChargeEffect;
+
+    [SerializeField]
+    private VisualEffect plasmaFireEffect;
+
+    [SerializeField]
+    private Sound plasmaChargeSound;
+
+    [SerializeField]
+    private Sound plasmaFireSound;
 
     [Header("Laser")]
 
@@ -137,11 +147,16 @@ public class PlayerEntity : BaseEntity
                 if(plasmaCharge >= plasmaChargeTime)
                 {
                     GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
+                    GameManager.visualEffectManager.StartVFX(plasmaFireEffect);
+                    GameManager.audioManager.PlaySound(plasmaFireSound);
+                    GameManager.audioManager.StopSound(plasmaChargeSound);
                     Debug.Log("Cannon Fired");
                 }
 
                 plasmaCharge = 0;
                 _isPlasmaCharging = false;
+
+                GameManager.visualEffectManager.StopVFX(plasmaChargeEffect);
 
                 GameManager.guiManager.DisplayPlasmaCharge();
                 GameManager.guiManager.TogglePlasmaCharge(false);
@@ -153,6 +168,9 @@ public class PlayerEntity : BaseEntity
 
                 _isPlasmaCharging = true;
                 GameManager.guiManager.TogglePlasmaCharge(true);
+
+                GameManager.visualEffectManager.StartVFX(plasmaChargeEffect);
+                GameManager.audioManager.PlaySound(plasmaChargeSound);
             }
         }
     }
@@ -180,7 +198,10 @@ public class PlayerEntity : BaseEntity
                 _isPlasmaCharging = false;
 
                 GameManager.guiManager.DisplayPlasmaCharge();
+
                 GameManager.guiManager.TogglePlasmaCharge(false);
+                GameManager.visualEffectManager.StopVFX(plasmaChargeEffect);
+                GameManager.audioManager.StopSound(plasmaChargeSound);
             }
         }
         else //Once the charge reaches the charge time, fire a projectile and reset
