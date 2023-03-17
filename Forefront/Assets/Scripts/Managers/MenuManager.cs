@@ -9,13 +9,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private GameSettings[] difficultyLevels;
 
-    private ControllerManager _controllerManager;
-
-    private void Awake()
-    {
-        _controllerManager = GameObject.Find("GameManager").GetComponent<ControllerManager>();
-    }
-
     public void SelectDifficulty(int index) //Via Inspector
     {
         GameManager.gameSettings = difficultyLevels[index]; //Select difficulty level
@@ -26,11 +19,6 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("EXIT GAME");
-    }
-
-    public void EnableCombatMode() //Via Inspector
-    {
-        _controllerManager.EnablePlasmaCannon(!PlayerEntity.plasmaActive);
     }
 
     private void LoadMainLevel()
