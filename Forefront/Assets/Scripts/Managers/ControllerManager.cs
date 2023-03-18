@@ -11,6 +11,9 @@ public class ControllerManager : MonoBehaviour
     [SerializeField]
     private GameObject teleportRay;
 
+    [SerializeField]
+    private GameObject teleportRecticle;
+
     [Header("Weapons")]
 
     [SerializeField]
@@ -50,6 +53,20 @@ public class ControllerManager : MonoBehaviour
     public void DisplayTeleportRay(bool active)
     {
         teleportRay.SetActive(active);
+
+        if(teleportRecticle == null)
+        {
+            teleportRecticle = GameObject.Find("LocomotionRecticle(Clone)");
+
+            if(teleportRecticle != null)
+            {
+                teleportRecticle.SetActive(active);
+            }
+        }
+        else
+        {
+            teleportRecticle.SetActive(active);
+        }
     }
 
     public void DisplayWeaponSelect(bool active)

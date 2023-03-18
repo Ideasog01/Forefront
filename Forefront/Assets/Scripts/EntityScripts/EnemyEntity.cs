@@ -30,7 +30,8 @@ public class EnemyEntity : BaseEntity
 
     public void ResetEnemy()
     {
-        EntityHealth = GameManager.gameSettings.DroneHealth;
+        EntityMaxHealth = GameManager.gameSettings.DroneHealth;
+        EntityHealth = EntityMaxHealth;
         DisplayHealth();
     }
 
