@@ -13,13 +13,19 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private Transform enemyParent;
 
+    [SerializeField]
+    private bool activateGameMode;
+
     private List<EnemyEntity> _enemyList = new List<EnemyEntity>();
 
     private List<PlayerProjectileController> _activePlayerProjectiles = new List<PlayerProjectileController>();
 
     private void Start()
     {
-        SpawnWaveManager();
+        if(activateGameMode)
+        {
+            SpawnWaveManager();
+        }
     }
 
     public void SpawnWaveManager()
