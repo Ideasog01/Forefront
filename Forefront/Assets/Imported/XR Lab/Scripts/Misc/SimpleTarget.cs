@@ -40,11 +40,12 @@ namespace XRLab
         /// TargetHit function for additional functionality
         /// </summary>
         /// <param name="collision">The collision data from the intersecting object</param>
-        private void OnTriggerEnter(Collider collision)
+
+        private void OnCollisionEnter(Collision collision)
         {
             m_hitPos = collision.transform.position;
             //only destroy the object if it is part of the target layer mask
-            if (XRLabLib.IsInLayerMask(collision.gameObject.layer, m_destroyObjectsLayerMask)) 
+            if (XRLabLib.IsInLayerMask(collision.gameObject.layer, m_destroyObjectsLayerMask))
             {
                 //destroying the intersecting object
                 Destroy(collision.gameObject);

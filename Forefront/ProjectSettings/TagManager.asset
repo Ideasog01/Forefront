@@ -7,7 +7,6 @@ TagManager:
   - Floor
   - Enemy
   - Projectile
-  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -19,7 +18,7 @@ TagManager:
   - ValidCollision
   - GrabIgnoreRay
   - ClipThroughWalls
-  - PostProcessing
+  - 
   - 
   - 
   - 
