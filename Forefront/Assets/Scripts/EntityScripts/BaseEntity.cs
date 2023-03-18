@@ -18,6 +18,7 @@ public class BaseEntity : MonoBehaviour
     public int EntityMaxHealth
     {
         get { return entityMaxHealth; }
+        set { entityMaxHealth = value; }
     }
 
     public int EntityHealth

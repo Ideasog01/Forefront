@@ -41,7 +41,7 @@ RectTransform:
   - {fileID: 9112582883726359357}
   - {fileID: 9112582885033192325}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6124972252868210687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +325,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_prefabsToSpawn:
-  - {fileID: 7546048097596870757, guid: 5990180883714394da81fbb46eb3f6f6, type: 3}
+  - {fileID: 6696819094805308021, guid: ec586682d9f847349972ab8be2de155e, type: 3}
+  - {fileID: 9031071255784923177, guid: b8053abe6123a7c4da91d09816f0df16, type: 3}
+  - {fileID: 2599443751971196836, guid: 47ca6d533a70ad5439d63847e6502f18, type: 3}
   m_preview: {fileID: 9112582885033192328}
   m_prefabIndexReadout: {fileID: 9112582883632554485}
   m_spawnPrefabButton: {fileID: 9112582884100225622}
@@ -1132,7 +1134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: 115}
+  m_AnchoredPosition: {x: 4, y: 665}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &9112582885033192326

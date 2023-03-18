@@ -155,17 +155,17 @@ public class PlayerEntity : BaseEntity
                     GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
                     GameManager.visualEffectManager.StartVFX(plasmaFireEffect);
                     GameManager.audioManager.PlaySound(plasmaFireSound);
-                    GameManager.audioManager.StopSound(plasmaChargeSound);
                     Debug.Log("Cannon Fired");
                 }
 
                 plasmaCharge = 0;
                 _isPlasmaCharging = false;
 
-                GameManager.visualEffectManager.StopVFX(plasmaChargeEffect);
-
                 GameManager.guiManager.DisplayPlasmaCharge();
                 GameManager.guiManager.TogglePlasmaCharge(false);
+
+                GameManager.visualEffectManager.StopVFX(plasmaChargeEffect);
+                GameManager.audioManager.StopSound(plasmaChargeSound);
             }
             else
             {
