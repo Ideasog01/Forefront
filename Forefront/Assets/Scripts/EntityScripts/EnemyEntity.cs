@@ -5,13 +5,21 @@ public class EnemyEntity : BaseEntity
 {
     public enum EnemyType { Drone };
 
+    public enum AIState { Idle, Chase, Attack}
+
     [Header("Enemy Properties")]
 
     [SerializeField]
     private EnemyType enemyType;
 
     [SerializeField]
+    private AIState aiState;
+
+    [SerializeField]
     private int enemyDamage;
+
+    [SerializeField]
+    private float attackThreshold;
 
     [Header("Health Display")]
 
@@ -23,9 +31,20 @@ public class EnemyEntity : BaseEntity
         get { return enemyType; }
     }
 
+    public AIState AIStateRef
+    {
+        get { return aiState; }
+        set { aiState = value; }
+    }
+
     public int EnemyDamage
     {
         get { return enemyDamage; }
+    }
+
+    public float AttackThreshold
+    {
+        get { return attackThreshold; }
     }
 
     public void ResetEnemy()

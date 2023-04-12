@@ -23,6 +23,11 @@ public class ProjectileController : MonoBehaviour
         get { return projectileType; }
     }
 
+    public int ProjectileDamage
+    {
+        get { return projectileDamage; }
+    }
+
     public void InitialiseProjectile(Vector3 position, Quaternion rotation) //Reset projectile values
     {
         this.transform.position = position;
@@ -38,16 +43,6 @@ public class ProjectileController : MonoBehaviour
     private void ProjectileMovement()
     {
         this.transform.position += this.transform.forward * Time.deltaTime * projectileMovementSpeed;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.CompareTag("Enemy"))
-        {
-            collision.collider.GetComponent<BaseEntity>().TakeDamage(projectileDamage);
-        }
-
-        this.gameObject.SetActive(false);
     }
 
     private IEnumerator DelayDisable()

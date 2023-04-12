@@ -15,6 +15,8 @@ public class BaseEntity : MonoBehaviour
     [SerializeField]
     private UnityEvent onDeathEvent;
 
+    private Transform _playerCameraTransform;
+
     public int EntityMaxHealth
     {
         get { return entityMaxHealth; }
@@ -27,6 +29,11 @@ public class BaseEntity : MonoBehaviour
         set { entityHealth = value; }
     }
 
+    public Transform PlayerCameraTransform
+    {
+        get { return _playerCameraTransform; }
+    }    
+
     public void TakeDamage(int amount)
     {
         entityHealth -= amount;
@@ -37,5 +44,10 @@ public class BaseEntity : MonoBehaviour
         {
             onDeathEvent.Invoke();
         }
+    }
+
+    private void Awake()
+    {
+        _playerCameraTransform = GameObject.Find("Main Camera").transform;
     }
 }

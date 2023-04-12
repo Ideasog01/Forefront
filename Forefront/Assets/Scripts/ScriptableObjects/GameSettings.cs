@@ -17,10 +17,7 @@ public class GameSettings : ScriptableObject
     private int droneHealth;
 
     [SerializeField]
-    private int droneDamage;
-
-    [SerializeField]
-    private float droneDodgeCooldown;
+    private Transform droneProjectilePrefab;
 
     [SerializeField]
     private float droneAttackCooldown;
@@ -44,19 +41,14 @@ public class GameSettings : ScriptableObject
         get { return droneHealth; }
     }
 
-    public int DroneDamage
-    {
-        get { return droneDamage; }
-    }
-
-    public float DroneDodgeCooldown
-    {
-        get { return droneDodgeCooldown; }
-    }
-
     public float DroneAttackCooldown
     {
         get { return droneAttackCooldown; }
+    }
+
+    public Transform DroneProjectilePrefab
+    {
+        get { return droneProjectilePrefab; }
     }
 
     public Transform SpawnPrefab

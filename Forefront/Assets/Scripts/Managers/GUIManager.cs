@@ -57,6 +57,11 @@ public class GUIManager : MonoBehaviour
     [SerializeField]
     private Sound negativeButtonSound;
 
+    [Header("Defeat & Victory Canvas")]
+
+    [SerializeField]
+    private GameObject defeatCanvas;
+
     private void Start()
     {
         teleportationProvider.beginLocomotion += ctx => PerformTransition();
@@ -109,10 +114,23 @@ public class GUIManager : MonoBehaviour
     {
         int health = GameManager.playerEntity.EntityHealth;
 
+        playerHealthSlider.maxValue = GameManager.playerEntity.EntityMaxHealth;
         playerHealthSlider.value = health;
+
         playerHealthText.text = health.ToString();
 
         damageCriticalText.gameObject.SetActive(health < 30);
+
+        if(health <= 0)
+        {
+            DisplayDefeatCanvas();
+        }
+    }
+
+    public void DisplayDefeatCanvas()
+    {
+        defeatCanvas.SetActive(true);
+        defeatCanvas.transform.position = GameObject.Find("Main Camera").transform.position + new Vector3(0, 1, 2);
     }
 
     public void PlayButtonPositiveSound() //Via Inspector

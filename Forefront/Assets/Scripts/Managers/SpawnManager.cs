@@ -20,6 +20,8 @@ public class SpawnManager : MonoBehaviour
 
     private List<PlayerProjectileController> _activePlayerProjectiles = new List<PlayerProjectileController>();
 
+    private List<ProjectileController> _activeProjectiles = new List<ProjectileController>();
+
     private void Start()
     {
         if(activateGameMode)
@@ -52,6 +54,30 @@ public class SpawnManager : MonoBehaviour
             projectileToUse = Instantiate(prefab.GetComponent<PlayerProjectileController>(), position, rotation);
             projectileToUse.transform.parent = projectileParent;
             _activePlayerProjectiles.Add(projectileToUse);
+        }
+
+        projectileToUse.InitialiseProjectile(position, rotation); //Reset the projectile
+    }
+
+    public void SpawnEnemyProjectile(Transform prefab, Vector3 position, Quaternion rotation)
+    {
+        ProjectileController projectileToUse = null;
+
+        foreach (ProjectileController projectile in _activeProjectiles) //Reuse projectile (avoids uneccessary use of memory)
+        {
+            if(!projectile.gameObject.activeSelf)
+            {
+                projectile.gameObject.SetActive(true);
+                projectileToUse = projectile;
+                break;
+            }
+        }
+
+        if(projectileToUse == null) //Projectile not found, create a new one
+        {
+            projectileToUse = Instantiate(prefab.GetComponent<ProjectileController>(), position, rotation);
+            projectileToUse.transform.parent = projectileParent;
+            _activeProjectiles.Add(projectileToUse);
         }
 
         projectileToUse.InitialiseProjectile(position, rotation); //Reset the projectile
