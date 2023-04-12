@@ -49,6 +49,7 @@ public class WaveManager : MonoBehaviour
                 _playerIsNear = true;
                 BeginEncounter();
                 Debug.Log("New Wave Started!");
+                waveArray[waveIndex].EncounterTrigger.gameObject.SetActive(false);
             }
         }
     }
