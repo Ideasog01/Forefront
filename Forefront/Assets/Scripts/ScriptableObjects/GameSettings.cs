@@ -22,6 +22,14 @@ public class GameSettings : ScriptableObject
     [SerializeField]
     private float droneAttackCooldown;
 
+    [Header("Exploder Properties")]
+
+    [SerializeField]
+    private int exploderHealth;
+
+    [SerializeField]
+    private int exploderAttackDamage;
+
     [Header("High Score & Statistics")]
 
     [SerializeField]
@@ -36,6 +44,8 @@ public class GameSettings : ScriptableObject
     [SerializeField]
     private string dateCompleted;
 
+    //Drone Properties
+
     public int DroneHealth
     {
         get { return droneHealth; }
@@ -49,6 +59,18 @@ public class GameSettings : ScriptableObject
     public Transform DroneProjectilePrefab
     {
         get { return droneProjectilePrefab; }
+    }
+
+    //Exploder Properties
+
+    public int ExploderHealth
+    {
+        get { return exploderHealth; }
+    }
+
+    public int ExploderAttackDamage
+    {
+        get { return exploderAttackDamage; }
     }
 
     public Transform SpawnPrefab

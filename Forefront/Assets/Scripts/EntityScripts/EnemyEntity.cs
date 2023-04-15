@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class EnemyEntity : BaseEntity
 {
-    public enum EnemyType { Drone };
+    public enum EnemyType { Drone, Exploder };
 
     public enum AIState { Idle, Chase, Attack}
 
@@ -43,6 +43,7 @@ public class EnemyEntity : BaseEntity
     public int EnemyDamage
     {
         get { return enemyDamage; }
+        set { enemyDamage = value; }
     }
 
     public float AttackThreshold
