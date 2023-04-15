@@ -24,6 +24,9 @@ public class PlayerProjectileController : MonoBehaviour
     private Sound collisionSound;
 
     [SerializeField]
+    private Sound criticalHitSound;
+
+    [SerializeField]
     private VisualEffect collisionVisualEffect;
 
     public void InitialiseProjectile(Vector3 position, Quaternion rotation) //Reset projectile values
@@ -52,27 +55,22 @@ public class PlayerProjectileController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        ProjectileCollision(collision);
-    }
-
-    private IEnumerator DelayDisable()
-    {
-        yield return new WaitForSeconds(projectileDuration);
-        this.gameObject.SetActive(false);
-    }
-
-    private void ProjectileCollision(Collision collision)
-    {
-        if (collision.collider.CompareTag("Enemy"))
+        if (collision.collider.CompareTag("EnemyDefault"))
         {
-            collision.collider.GetComponent<BaseEntity>().TakeDamage(projectileDamage);
+            collision.transform.parent.GetComponent<BaseEntity>().TakeDamage(projectileDamage);
+        }
+
+        if (collision.collider.CompareTag("EnemyCritical"))
+        {
+            collision.transform.parent.GetComponent<BaseEntity>().TakeDamage(projectileDamage * 2);
+            GameManager.audioManager.PlaySound(criticalHitSound);
         }
 
         Collider[] enemyColliders = Physics.OverlapSphere(this.transform.position, projectileBlastRadius);
 
-        foreach(Collider collider in enemyColliders)
+        foreach (Collider collider in enemyColliders)
         {
-            if(collider.CompareTag("Enemy") && collider != collision.collider)
+            if (collider.CompareTag("Enemy") && collider != collision.collider)
             {
                 collider.GetComponent<BaseEntity>().TakeDamage(projectileDamage);
             }
@@ -81,6 +79,12 @@ public class PlayerProjectileController : MonoBehaviour
         GameManager.audioManager.PlaySound(collisionSound);
         GameManager.visualEffectManager.StartVFX(collisionVisualEffect);
 
+        this.gameObject.SetActive(false);
+    }
+
+    private IEnumerator DelayDisable()
+    {
+        yield return new WaitForSeconds(projectileDuration);
         this.gameObject.SetActive(false);
     }
 }

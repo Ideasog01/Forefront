@@ -576,6 +576,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1572517385}
     m_Modifications:
     - target: {fileID: 868264508172783688, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+      propertyPath: disableEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 868264508172783688, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1003,6 +1007,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2160503284428973880, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5073328639373400725, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
       propertyPath: teleportRecticle
       value: 
@@ -2055,6 +2063,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1572517385}
     m_Modifications:
+    - target: {fileID: 868264508172783688, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+      propertyPath: disableEnemy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 868264508172783688, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -5734,6 +5746,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1572517385}
     m_Modifications:
     - target: {fileID: 868264508172783688, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+      propertyPath: disableEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 868264508172783688, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -5788,6 +5804,10 @@ PrefabInstance:
     - target: {fileID: 868264508172783688, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697765005357492106, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2896913124239066476, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
       propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.size

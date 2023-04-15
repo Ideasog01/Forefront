@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6595297634566185815}
   - component: {fileID: 1452990462082750716}
-  - component: {fileID: 5328241953185989434}
+  - component: {fileID: 7375772249004919241}
   - component: {fileID: 3648988674769895245}
   m_Layer: 0
   m_Name: PlayerProjectile
@@ -137,6 +137,13 @@ MonoBehaviour:
   collisionSound:
     audioClip: {fileID: 8300000, guid: df0e60887b63f45c7801a38fccae1f8f, type: 3}
     audioSource: {fileID: 0}
+    volume: 0.1
+    pitch: 1
+    delayTime: 0
+    soundTransform: {fileID: 6595297634566185815}
+  criticalHitSound:
+    audioClip: {fileID: 8300000, guid: 792a6e132d38a4f70bbae7f091a6cab3, type: 3}
+    audioSource: {fileID: 0}
     volume: 1
     pitch: 1
     delayTime: 0
@@ -146,7 +153,7 @@ MonoBehaviour:
     vfxSystem: {fileID: 0}
     spawnPos: {fileID: 6595297634566185815}
     vfxDuration: 0
---- !u!54 &5328241953185989434
+--- !u!54 &7375772249004919241
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +168,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!135 &3648988674769895245
 SphereCollider:
   m_ObjectHideFlags: 0

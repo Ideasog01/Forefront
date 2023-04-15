@@ -30,7 +30,7 @@ public class DroneEntity : EnemyEntity
 
     private void Update()
     {
-        if(_projectilePrefab != null)
+        if(_projectilePrefab != null && !DisableEnemy)
         {
             if (AIStateRef != AIState.Idle)
             {
@@ -79,7 +79,7 @@ public class DroneEntity : EnemyEntity
 
     private void LookAtPlayer()
     {
-        this.transform.LookAt(PlayerCameraTransform.transform.position - new Vector3(0, 1, 0));
+        this.transform.LookAt(PlayerCameraTransform.transform.position);
     }
 
     private IEnumerator ProjectileAttack()

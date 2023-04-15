@@ -63,10 +63,10 @@ public struct Sound
     private AudioSource audioSource;
 
     [SerializeField]
-    private int volume;
+    private float volume;
 
     [SerializeField]
-    private int pitch;
+    private float pitch;
 
     [SerializeField]
     private float delayTime;
@@ -85,12 +85,12 @@ public struct Sound
         set { audioSource = value; }
     }
 
-    public int Volume
+    public float Volume
     {
         get { return volume; }
     }
 
-    public int Pitch
+    public float Pitch
     {
         get { return pitch; }
     }

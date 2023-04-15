@@ -26,6 +26,9 @@ public class EnemyEntity : BaseEntity
     [SerializeField]
     private Slider enemySlider;
 
+    [SerializeField]
+    private bool disableEnemy;
+
     public EnemyType EnemyTypeRef
     { 
         get { return enemyType; }
@@ -47,11 +50,18 @@ public class EnemyEntity : BaseEntity
         get { return attackThreshold; }
     }
 
+    public bool DisableEnemy
+    {
+        get { return disableEnemy; }
+        set { disableEnemy = value; }
+    }
+
     public void ResetEnemy()
     {
         EntityMaxHealth = GameManager.gameSettings.DroneHealth;
         EntityHealth = EntityMaxHealth;
         DisplayHealth();
+        disableEnemy = false;
     }
 
     public void DisplayHealth()
@@ -67,6 +77,7 @@ public class EnemyEntity : BaseEntity
             SpawnManager.activeHostiles--;
         }
 
+        disableEnemy = true;
         this.gameObject.SetActive(false);
     }
 }
