@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class EnemyEntity : BaseEntity
 {
-    public enum EnemyType { Drone, Exploder };
+    public enum EnemyType { Drone, Exploder, Tank };
 
     public enum AIState { Idle, Chase, Attack}
 
