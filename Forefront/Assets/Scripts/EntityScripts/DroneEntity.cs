@@ -93,6 +93,7 @@ public class DroneEntity : EnemyEntity
         else
         {
             GameManager.spawnManager.SpawnEnemyProjectile(_projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
+            GameManager.audioManager.PlaySound(AttackSound);
 
             if (_attackActivated)
             {

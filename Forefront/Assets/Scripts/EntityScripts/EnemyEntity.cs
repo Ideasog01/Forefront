@@ -29,6 +29,14 @@ public class EnemyEntity : BaseEntity
     [SerializeField]
     private bool disableEnemy;
 
+    [Header("Enemy Sounds")]
+
+    [SerializeField]
+    private Sound destroySound;
+
+    [SerializeField]
+    private Sound attackSound;
+
     public EnemyType EnemyTypeRef
     { 
         get { return enemyType; }
@@ -57,6 +65,11 @@ public class EnemyEntity : BaseEntity
         set { disableEnemy = value; }
     }
 
+    public Sound AttackSound
+    {
+        get { return attackSound; }
+    }
+
     public void ResetEnemy()
     {
         EntityMaxHealth = GameManager.gameSettings.DroneHealth;
@@ -77,6 +90,8 @@ public class EnemyEntity : BaseEntity
         {
             SpawnManager.activeHostiles--;
         }
+
+        GameManager.audioManager.PlaySound(destroySound);
 
         disableEnemy = true;
         this.gameObject.SetActive(false);

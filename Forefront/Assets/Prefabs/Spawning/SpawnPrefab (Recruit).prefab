@@ -43,8 +43,10 @@ GameObject:
   - component: {fileID: 3363686019455869454}
   - component: {fileID: 7366224716550716732}
   - component: {fileID: 5976541414226617730}
+  - component: {fileID: 739431162874023881}
+  - component: {fileID: 2744713108592511898}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: WaveTrigger (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +130,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &739431162874023881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055046386388781566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa4291d3986462479970c6bb7fe9e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &2744713108592511898
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055046386388781566}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3044349712309554402
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +315,6 @@ MonoBehaviour:
     - 3
     maxEnemyCount: 3
     encounterTrigger: {fileID: 3268464513409786100}
-  startDistanceThreshold: 1
-  startWave: 1
 --- !u!1 &4390507530682616457
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,8 +327,9 @@ GameObject:
   - component: {fileID: 8941913966571699682}
   - component: {fileID: 2606665795086697225}
   - component: {fileID: 4968291441004397797}
+  - component: {fileID: 2074934350264587714}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: WaveTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,6 +413,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2074934350264587714
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4390507530682616457}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4908867588182698344
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,8 +441,9 @@ GameObject:
   - component: {fileID: 4065039095241107523}
   - component: {fileID: 5750832191425242057}
   - component: {fileID: 9217423985040580611}
+  - component: {fileID: 2211838104865150031}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: WaveTrigger (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,6 +527,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2211838104865150031
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908867588182698344}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8020597635092502821
 GameObject:
   m_ObjectHideFlags: 0

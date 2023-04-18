@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
+    [SerializeField]
+    private Sound projectileDamageSound;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,6 +14,7 @@ public class PlayerDamage : MonoBehaviour
         {
             ProjectileController projectile = other.gameObject.GetComponent<ProjectileController>();
             GameManager.playerEntity.TakeDamage(projectile.ProjectileDamage);
+            GameManager.audioManager.PlaySound(projectileDamageSound);
             other.gameObject.SetActive(false);
         }
     }

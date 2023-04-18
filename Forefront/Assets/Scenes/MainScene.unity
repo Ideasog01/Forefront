@@ -4826,6 +4826,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 465744, guid: f3a954679d4d04b49953424fc6bf526c, type: 3}
   m_PrefabInstance: {fileID: 210150608}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &210491509 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 210491509, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+  m_PrefabInstance: {fileID: 11870139705447647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &215764981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40154,6 +40159,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 439240, guid: 548a40efc092c6f408cc4d1691b171cc, type: 3}
   m_PrefabInstance: {fileID: 2010030020}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2017336727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1931490899, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+  m_PrefabInstance: {fileID: 11870139705447647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2021289275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43517,10 +43527,42 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2160503284428973880, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 210491509, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490898, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490900, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490900, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490901, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: projectileDamageSound.pitch
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1931490901, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: projectileDamageSound.volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490901, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: projectileDamageSound.audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a0ce1b3be119945678e20f87d908d853, type: 3}
+    - target: {fileID: 1931490901, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: projectileDamageSound.audioSource
+      value: 
+      objectReference: {fileID: 210491509}
+    - target: {fileID: 1931490901, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: projectileDamageSound.soundTransform
+      value: 
+      objectReference: {fileID: 2017336727}
     - target: {fileID: 5073328639373400718, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
       propertyPath: activateGameMode
       value: 1

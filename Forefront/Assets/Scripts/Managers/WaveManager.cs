@@ -1,30 +1,27 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class WaveManager : MonoBehaviour
 {
     public int waveIndex; //The current wave the player is on (Starts at wave 0)
 
-    public int spawnIndex; //The current spawn setting
+    public int spawnIndex; //The current enemy being spawned
 
     [SerializeField]
     private WaveDetails[] waveArray;
 
-    [SerializeField]
-    private float startDistanceThreshold;
-
-    [SerializeField]
-    private bool startWave;
-
     private bool _enemiesSpawned;
 
-    private bool _playerIsNear;
+    private bool _encounterInProgress;
 
-    private void Start()
+    public void BeginEncounter()
     {
-        if(startWave)
+        if(!_encounterInProgress)
         {
-            StartWave();
+            spawnIndex = 0;
+            _encounterInProgress = true;
+            StartCoroutine(DelaySpawn());
         }
     }
 
@@ -35,54 +32,24 @@ public class WaveManager : MonoBehaviour
         {
             if(SpawnManager.activeHostiles == 0)
             {
+                if(waveIndex == waveArray.Length - 1)
+                {
+                    _encounterInProgress = false;
+                    Debug.Log("Wave Complete!");
+                }
+                else
+                {
+                    EndGame();
+                }
+
                 _enemiesSpawned = false;
-                WaveComplete();
             }
-        }
-
-        if(!_playerIsNear)
-        {
-            float distanceToStartLocation = Vector3.Distance(GameManager.playerEntity.transform.position, waveArray[waveIndex].EncounterTrigger.position);
-
-            if (distanceToStartLocation < startDistanceThreshold)
-            {
-                _playerIsNear = true;
-                BeginEncounter();
-                Debug.Log("New Wave Started!");
-                waveArray[waveIndex].EncounterTrigger.gameObject.SetActive(false);
-            }
-        }
-    }
-
-    public void BeginEncounter()
-    {
-        StartCoroutine(DelaySpawn());
-    }
-
-    private void StartWave()
-    {
-        Debug.Log("New Wave Started");
-        _playerIsNear = false;
-    }
-
-    private void WaveComplete()
-    {
-        waveIndex++;
-        spawnIndex = 0;
-        
-        if(waveIndex >= waveArray.Length)
-        {
-            EndGame();
-        }
-        else
-        {
-            StartWave();
         }
     }
 
     private void EndGame()
     {
-        Debug.Log("Game Ended");
+        Debug.Log("GameMode Ended");
     }
 
     private IEnumerator DelaySpawn()
