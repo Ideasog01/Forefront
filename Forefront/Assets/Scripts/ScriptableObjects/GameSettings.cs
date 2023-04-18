@@ -22,6 +22,9 @@ public class GameSettings : ScriptableObject
     [SerializeField]
     private float droneAttackCooldown;
 
+    [SerializeField]
+    private int droneScoreAmount;
+
     [Header("Exploder Properties")]
 
     [SerializeField]
@@ -29,6 +32,14 @@ public class GameSettings : ScriptableObject
 
     [SerializeField]
     private int exploderAttackDamage;
+
+    [SerializeField]
+    private int exploderScoreAmount;
+
+    [Header("Tank Properties")]
+
+    [SerializeField]
+    private int tankScoreAmount;
 
     [Header("High Score & Statistics")]
 
@@ -61,6 +72,11 @@ public class GameSettings : ScriptableObject
         get { return droneProjectilePrefab; }
     }
 
+    public int DroneScoreAmount
+    {
+        get { return droneScoreAmount; }
+    }
+
     //Exploder Properties
 
     public int ExploderHealth
@@ -72,6 +88,20 @@ public class GameSettings : ScriptableObject
     {
         get { return exploderAttackDamage; }
     }
+
+    public int ExploderScoreAmount
+    {
+        get { return exploderScoreAmount; }
+    }
+
+    //Tank Properties
+
+    public int TankScoreAmount
+    {
+        get { return tankScoreAmount; }
+    }
+
+    //Other
 
     public Transform SpawnPrefab
     {

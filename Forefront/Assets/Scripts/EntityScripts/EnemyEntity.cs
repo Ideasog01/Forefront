@@ -91,6 +91,21 @@ public class EnemyEntity : BaseEntity
             SpawnManager.activeHostiles--;
         }
 
+        switch(EnemyTypeRef)
+        {
+            case EnemyType.Drone:
+                GameManager.waveManager.playerScore += GameManager.gameSettings.DroneScoreAmount;
+                break;
+            case EnemyType.Exploder:
+                GameManager.waveManager.playerScore += GameManager.gameSettings.ExploderScoreAmount;
+                break;
+            case EnemyType.Tank:
+                GameManager.waveManager.playerScore += GameManager.gameSettings.TankScoreAmount;
+                break;
+        }
+
+        GameManager.guiManager.DisplayScore();
+
         GameManager.audioManager.PlaySound(destroySound);
 
         disableEnemy = true;

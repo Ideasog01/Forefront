@@ -8,6 +8,8 @@ public class WaveManager : MonoBehaviour
 
     public int spawnIndex; //The current enemy being spawned
 
+    public int playerScore;
+
     [SerializeField]
     private WaveDetails[] waveArray;
 

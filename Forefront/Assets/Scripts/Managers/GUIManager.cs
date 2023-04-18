@@ -91,12 +91,12 @@ public class GUIManager : MonoBehaviour
 
     public void DisplayHostileCount()
     {
-        hostilesRemainingText.text = SpawnManager.activeHostiles.ToString();
+        hostilesRemainingText.text = "Hostiles Remaining: " + SpawnManager.activeHostiles.ToString();
     }
 
     public void DisplayScore()
     {
-        scoreText.text = PlayerEntity.scoreAmount.ToString();
+        scoreText.text = "Score: " + PlayerEntity.scoreAmount.ToString();
     }
 
     public void DisplayPowerCharge()
