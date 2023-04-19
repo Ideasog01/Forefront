@@ -56,12 +56,14 @@ public class GameManager : MonoBehaviour
 
     public void ReturnMainMenu() //Via Inspector
     {
+        WaveManager.missionFails = 0;
         SceneManager.LoadScene(0);
         Debug.Log("Return to Main Menu");
     }
 
     public void RestartGame() //Via Inspector
     {
+        WaveManager.missionFails++;
         SceneManager.LoadScene(1);
         Debug.Log("Game Restarted");
     }

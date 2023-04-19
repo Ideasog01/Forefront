@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public class GUIManager : MonoBehaviour
 {
@@ -57,10 +58,21 @@ public class GUIManager : MonoBehaviour
     [SerializeField]
     private Sound negativeButtonSound;
 
-    [Header("Defeat & Victory Canvas")]
+    [Header("Defeat Canvas")]
 
     [SerializeField]
     private GameObject defeatCanvas;
+
+    [Header("Victory Canvas")]
+
+    [SerializeField]
+    private GameObject victoryCanvas;
+
+    [SerializeField]
+    private TextMeshProUGUI victoryStatisticsText;
+
+    [SerializeField]
+    private TextMeshProUGUI victoryAdditionalDetailsText;
 
     private void Start()
     {
@@ -127,7 +139,16 @@ public class GUIManager : MonoBehaviour
         }
     }
 
-    public void DisplayDefeatCanvas()
+    public void DisplayVictoryCanvas() //Display/Position the canvas and game statistics
+    {
+        victoryCanvas.SetActive(true);
+        victoryStatisticsText.text = "SCORE: " + GameManager.waveManager.playerScore.ToString() + "\nHOSTILES DEFEATED: " + GameManager.waveManager.hostilesDefeated.ToString()
+            + "\nMISSION FAILS: " + WaveManager.missionFails.ToString();
+        victoryCanvas.transform.position = GameObject.Find("Main Camera").transform.position + new Vector3(0, 1, 2);
+        victoryAdditionalDetailsText.text = "Level: " + SceneManager.GetActiveScene().name + "\nHigh Score: " + GameManager.gameSettings.HighScore.ToString();
+    }
+
+    public void DisplayDefeatCanvas() //Display/Position the canvas
     {
         defeatCanvas.SetActive(true);
         defeatCanvas.transform.position = GameObject.Find("Main Camera").transform.position + new Vector3(0, 1, 2);

@@ -111,6 +111,7 @@ public class GameSettings : ScriptableObject
     public int HighScore
     {
         get { return highScore; }
+        set { highScore = value; }
     }
 
     public int HostilesDefeated

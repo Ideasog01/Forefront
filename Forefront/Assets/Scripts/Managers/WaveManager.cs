@@ -4,11 +4,15 @@ using UnityEngine.Rendering;
 
 public class WaveManager : MonoBehaviour
 {
+    public static int missionFails; //static variable as seen is reset on player defeat. (Needs to be reset on return to main menu)
+
     public int waveIndex; //The current wave the player is on (Starts at wave 0)
 
     public int spawnIndex; //The current enemy being spawned
 
     public int playerScore;
+
+    public int hostilesDefeated;
 
     [SerializeField]
     private WaveDetails[] waveArray;
@@ -51,6 +55,12 @@ public class WaveManager : MonoBehaviour
 
     private void EndGame()
     {
+        if(playerScore > GameManager.gameSettings.HighScore)
+        {
+            GameManager.gameSettings.HighScore = playerScore;
+        }
+
+        GameManager.guiManager.DisplayVictoryCanvas();
         Debug.Log("GameMode Ended");
     }
 

@@ -43,7 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a0ce1b3be119945678e20f87d908d853, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4134,6 +4134,9 @@ MonoBehaviour:
     delayTime: 0
     soundTransform: {fileID: 0}
   defeatCanvas: {fileID: 7169882382669371935}
+  victoryCanvas: {fileID: 7169882383231723074}
+  victoryStatisticsText: {fileID: 7169882382510844497}
+  victoryAdditionalDetailsText: {fileID: 7169882384354042387}
 --- !u!1 &5073328639403520177
 GameObject:
   m_ObjectHideFlags: 0
@@ -19912,7 +19915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7169882383231723075
 RectTransform:
   m_ObjectHideFlags: 0
