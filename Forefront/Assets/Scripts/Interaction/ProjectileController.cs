@@ -16,6 +16,12 @@ public class ProjectileController : MonoBehaviour
     [SerializeField]
     private float projectileDuration;
 
+    [SerializeField]
+    private VisualEffect destroyVfx;
+
+    [SerializeField]
+    private Sound destroySound;
+
     public enum ProjectileType { PlasmaProjectileSmall, PlasmaProjectileMedium, PlasmaProjectileLarge, DroneProjectile };
 
     public ProjectileType ProjectileTypeRef
@@ -49,5 +55,15 @@ public class ProjectileController : MonoBehaviour
     {
         yield return new WaitForSeconds(projectileDuration);
         this.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.gameObject.CompareTag("Player"))
+        {
+            GameManager.visualEffectManager.StartVFX(destroyVfx);
+            GameManager.audioManager.PlaySound(destroySound);
+            this.gameObject.SetActive(false);
+        }
     }
 }

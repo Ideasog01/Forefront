@@ -86,12 +86,12 @@ public class EnemyEntity : BaseEntity
 
     public void OnEnemyDeath()
     {
-        if (CompareTag("Enemy"))
-        {
-            SpawnManager.activeHostiles--;
-        }
+        SpawnManager.activeHostiles--;
+        GameManager.waveManager.hostilesDefeated++;
 
-        switch(EnemyTypeRef)
+        Debug.Log(SpawnManager.activeHostiles);
+
+        switch (EnemyTypeRef)
         {
             case EnemyType.Drone:
                 GameManager.waveManager.playerScore += GameManager.gameSettings.DroneScoreAmount;

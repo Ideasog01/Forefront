@@ -23,7 +23,7 @@ public class WaveManager : MonoBehaviour
 
     public void BeginEncounter()
     {
-        if(!_encounterInProgress)
+        if(!_encounterInProgress && waveIndex < waveArray.Length)
         {
             spawnIndex = 0;
             _encounterInProgress = true;
@@ -38,10 +38,11 @@ public class WaveManager : MonoBehaviour
         {
             if(SpawnManager.activeHostiles == 0)
             {
-                if(waveIndex == waveArray.Length - 1)
+                if(waveIndex < waveArray.Length - 1)
                 {
                     _encounterInProgress = false;
                     Debug.Log("Wave Complete!");
+                    waveIndex++;
                 }
                 else
                 {
@@ -85,6 +86,7 @@ public class WaveManager : MonoBehaviour
         else
         {
             _enemiesSpawned = true; //Allows for the game to wait until all enemies have been defeated
+            Debug.Log("All enemies spawned!");
         }
     }
 }
