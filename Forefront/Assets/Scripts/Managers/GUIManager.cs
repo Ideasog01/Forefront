@@ -74,11 +74,6 @@ public class GUIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI victoryAdditionalDetailsText;
 
-    private void Start()
-    {
-        teleportationProvider.beginLocomotion += ctx => PerformTransition();
-    }
-
     private void Update()
     {
         DisplayPowerCharge();

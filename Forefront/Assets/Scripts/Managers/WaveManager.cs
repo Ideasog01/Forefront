@@ -67,6 +67,13 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator DelaySpawn()
     {
+        if(spawnIndex >= waveArray[waveIndex].SpawnCooldownArray.Length)
+        {
+            _enemiesSpawned = true; //Allows for the game to wait until all enemies have been defeated
+            Debug.Log("All enemies spawned!");
+            yield return null;
+        }
+
         WaveDetails currentWave = waveArray[waveIndex];
 
         yield return new WaitForSeconds(currentWave.SpawnCooldownArray[spawnIndex]); //Wait for the cooldown
@@ -78,15 +85,10 @@ public class WaveManager : MonoBehaviour
 
         Debug.Log("Enemy Spawned!");
 
-        if(spawnIndex < currentWave.SpawnCooldownArray.Length - 1) //Is NOT the end of the wave
+        if(spawnIndex < currentWave.SpawnCooldownArray.Length) //Is NOT the end of the wave
         {
             spawnIndex++;
             StartCoroutine(DelaySpawn());
-        }
-        else
-        {
-            _enemiesSpawned = true; //Allows for the game to wait until all enemies have been defeated
-            Debug.Log("All enemies spawned!");
         }
     }
 }
