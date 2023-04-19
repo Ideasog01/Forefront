@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,6 +17,8 @@ public class BaseEntity : MonoBehaviour
     private UnityEvent onDeathEvent;
 
     private Transform _playerCameraTransform;
+
+    private int _damageTimes;
 
     public int EntityMaxHealth
     {
@@ -44,6 +47,23 @@ public class BaseEntity : MonoBehaviour
         {
             onDeathEvent.Invoke();
         }
+        else
+        {
+            _damageTimes = 0;
+
+            if (_damageTimes > 0)
+            {
+                Invoke("DamageOvertime", 2f);
+                _damageTimes--;
+            }
+        }
+    }
+
+    public void DamageOvertime()
+    {
+        _damageTimes = 3;
+        TakeDamage(10);
+        Invoke("DamageOvertime", 1f);
     }
 
     private void Awake()

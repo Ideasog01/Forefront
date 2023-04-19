@@ -55,15 +55,29 @@ public class PlayerProjectileController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Perk fireProtocol = GameManager.perkManager.fireProtocol; //Damages enemy overtime
+
         if (collision.collider.CompareTag("EnemyDefault"))
         {
-            collision.transform.parent.GetComponent<BaseEntity>().TakeDamage(projectileDamage);
+            EnemyEntity enemy = collision.transform.parent.GetComponent<EnemyEntity>();
+            enemy.TakeDamage(projectileDamage);
+
+            if(fireProtocol.IsActive)
+            {
+                enemy.DamageOvertime();
+            }
         }
 
         if (collision.collider.CompareTag("EnemyCritical"))
         {
-            collision.transform.parent.GetComponent<BaseEntity>().TakeDamage(projectileDamage * 2);
+            EnemyEntity enemy = collision.transform.parent.GetComponent<EnemyEntity>();
+            enemy.TakeDamage(projectileDamage * 2);
             GameManager.audioManager.PlaySound(criticalHitSound);
+
+            if (fireProtocol.IsActive)
+            {
+                enemy.DamageOvertime();
+            }
         }
 
         Collider[] enemyColliders = Physics.OverlapSphere(this.transform.position, projectileBlastRadius);
@@ -72,7 +86,13 @@ public class PlayerProjectileController : MonoBehaviour
         {
             if (collider.CompareTag("Enemy") && collider != collision.collider)
             {
-                collider.GetComponent<BaseEntity>().TakeDamage(projectileDamage);
+                EnemyEntity enemy = collider.GetComponent<EnemyEntity>();
+                enemy.TakeDamage(projectileDamage);
+
+                if (fireProtocol.IsActive)
+                {
+                    enemy.DamageOvertime();
+                }
             }
         }
 

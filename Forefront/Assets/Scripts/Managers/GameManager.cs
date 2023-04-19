@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public static VisualEffectManager visualEffectManager;
 
+    public static PerkManager perkManager;
+
     public static Loadout mainLoadout;
 
     [SerializeField]
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
         guiManager = this.GetComponent<GUIManager>();
         audioManager = this.GetComponent<AudioManager>();
         visualEffectManager = this.GetComponent<VisualEffectManager>();
+        perkManager = this.GetComponent<PerkManager>();
         waveManager = GameObject.FindObjectOfType<WaveManager>(); //Find type as this is a prefab for multiple difficulty levels with different names
 
         playerEntity = GameObject.Find("XR Origin").GetComponent<PlayerEntity>();
