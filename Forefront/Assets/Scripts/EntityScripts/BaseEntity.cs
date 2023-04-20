@@ -16,6 +16,9 @@ public class BaseEntity : MonoBehaviour
     [SerializeField]
     private UnityEvent onDeathEvent;
 
+    [SerializeField]
+    private VisualEffect burningVisualEffect;
+
     private Transform _playerCameraTransform;
 
     private int _damageTimes;
@@ -45,15 +48,18 @@ public class BaseEntity : MonoBehaviour
 
         if(entityHealth <= 0)
         {
+            if (_damageTimes > 0)
+            {
+                GameManager.visualEffectManager.StopVFX(burningVisualEffect);
+            }
+
             onDeathEvent.Invoke();
         }
         else
         {
-            _damageTimes = 0;
-
             if (_damageTimes > 0)
             {
-                Invoke("DamageOvertime", 2f);
+                Invoke("DamageOvertime", 1f);
                 _damageTimes--;
             }
         }
@@ -61,9 +67,13 @@ public class BaseEntity : MonoBehaviour
 
     public void DamageOvertime()
     {
-        _damageTimes = 3;
+        if(_damageTimes == 0)
+        {
+            _damageTimes = 3;
+            GameManager.visualEffectManager.StartVFX(burningVisualEffect);
+        }
+
         TakeDamage(10);
-        Invoke("DamageOvertime", 1f);
     }
 
     private void Awake()

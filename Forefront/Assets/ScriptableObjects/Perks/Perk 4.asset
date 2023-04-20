@@ -16,4 +16,4 @@ MonoBehaviour:
   perkDescription: With a full charge, the enemy being aimed at is targeted. The
     projectile then seeks the targeted enemy.
   perkIcon: {fileID: 21300000, guid: 4f61544908dd21c4b8398ba50b63a0d5, type: 3}
-  isActive: 0
+  isActive: 1

@@ -25,7 +25,10 @@ public class VisualEffectManager : MonoBehaviour
 
     public void StopVFX(VisualEffect visualEffect)
     {
-        visualEffect.VFXSystem.Stop();
+        if(visualEffect.VFXSystem != null)
+        {
+            visualEffect.VFXSystem.Stop();
+        }
     }
 
     private IEnumerator DelayVFXStop(VisualEffect visualEffect)

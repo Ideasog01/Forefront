@@ -148,6 +148,13 @@ MonoBehaviour:
     pitch: 1
     delayTime: 0
     soundTransform: {fileID: 6595297634566185815}
+  bounceSound:
+    audioClip: {fileID: 8300000, guid: 201cfd6b00d124092b0f9810e5699d90, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    delayTime: 0
+    soundTransform: {fileID: 6595297634566185815}
   collisionVisualEffect:
     vfxPrefab: {fileID: 8908821665875586058, guid: 809ccf3f72defec48a65eb0bc1bee5b5, type: 3}
     vfxSystem: {fileID: 0}
@@ -167,7 +174,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!135 &3648988674769895245
 SphereCollider:

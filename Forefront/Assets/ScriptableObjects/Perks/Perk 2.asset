@@ -16,4 +16,4 @@ MonoBehaviour:
   perkDescription: After collision with an enemy occurs, additional projectiles are
     released that seek nearby enemies.
   perkIcon: {fileID: 21300000, guid: 5af30a90f007422428869fd97dbd7113, type: 3}
-  isActive: 0
+  isActive: 1

@@ -709,6 +709,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  burningVisualEffect:
+    vfxPrefab: {fileID: 1906707347795268070, guid: 9426b8e127539f244b0d095ade86f0c2, type: 3}
+    vfxSystem: {fileID: 0}
+    spawnPos: {fileID: 7202138089265187551}
+    vfxDuration: 3
   enemyType: 0
   aiState: 1
   enemyDamage: 10
