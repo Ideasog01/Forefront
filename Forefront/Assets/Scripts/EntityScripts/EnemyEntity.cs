@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -110,5 +111,20 @@ public class EnemyEntity : BaseEntity
 
         disableEnemy = true;
         this.gameObject.SetActive(false);
+    }
+
+    public void Disable(float duration)
+    {
+        if(this.isActiveAndEnabled)
+        {
+            StartCoroutine(DisableEnemyForSeconds(duration));
+        }
+    }
+
+    private IEnumerator DisableEnemyForSeconds(float duration)
+    {
+        disableEnemy = true;
+        yield return new WaitForSeconds(duration);
+        disableEnemy = false;
     }
 }

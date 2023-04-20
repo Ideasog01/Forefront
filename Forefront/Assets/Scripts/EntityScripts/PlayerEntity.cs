@@ -14,11 +14,10 @@ public class PlayerEntity : BaseEntity
 
     [Header("Plasma Cannon")]
 
-    [SerializeField]
-    private Transform plasmaSpawnPos;
+    public Transform plasmaProjectilePrefab;
 
     [SerializeField]
-    private Transform plasmaProjectilePrefab;
+    private Transform plasmaSpawnPos;
 
     [SerializeField]
     private float plasmaChargeRate;
@@ -152,10 +151,37 @@ public class PlayerEntity : BaseEntity
             {
                 if(plasmaCharge >= plasmaChargeTime)
                 {
-                    GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
+                    if(!GameManager.perkManager.perkArray[4])
+                    {
+                        GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
+                    }
+                    else
+                    {
+                        RaycastHit hit;
+
+                        if(Physics.Raycast(plasmaSpawnPos.position, plasmaSpawnPos.forward, out hit, 40))
+                        {
+                            if(hit.collider.CompareTag("EnemyDefault") || hit.collider.CompareTag("EnemyCritical"))
+                            {
+                                PlayerProjectileController projectile = GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
+                                projectile.ProjectileTarget = hit.transform;
+                                Debug.Log("Tracking Enemy");
+                            }
+                            else
+                            {
+                                GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
+                            }
+                        }
+                        else
+                        {
+                            GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
+                        }
+                    }
+
                     GameManager.visualEffectManager.StartVFX(plasmaFireEffect);
                     GameManager.audioManager.PlaySound(plasmaFireSound);
                     Debug.Log("Cannon Fired");
+
                 }
 
                 plasmaCharge = 0;

@@ -35,7 +35,7 @@ public class SpawnManager : MonoBehaviour
         GameManager.waveManager = Instantiate(GameManager.gameSettings.SpawnPrefab.GetComponent<WaveManager>(), Vector3.zero, Quaternion.identity); //Spawn the WaveManager dependent on the selected game settings (difficulty level)
     }
 
-    public void SpawnPlayerProjectile(Transform prefab, Vector3 position, Quaternion rotation)
+    public PlayerProjectileController SpawnPlayerProjectile(Transform prefab, Vector3 position, Quaternion rotation)
     {
         PlayerProjectileController projectileToUse = null;
 
@@ -57,6 +57,8 @@ public class SpawnManager : MonoBehaviour
         }
 
         projectileToUse.InitialiseProjectile(position, rotation); //Reset the projectile
+
+        return projectileToUse;
     }
 
     public void SpawnEnemyProjectile(Transform prefab, Vector3 position, Quaternion rotation)
