@@ -9,14 +9,11 @@ public class ExploderEntity : EnemyEntity
     private VisualEffect explodeVisualEffect;
 
     [SerializeField]
-    private Sound explodeSound;
-
-    [SerializeField]
     private GameObject enemyMesh;
 
     private NavMeshAgent _navMeshAgent;
 
-    private float _attackDamage;
+    private bool _explosionActivated;
 
     private void Start()
     {
@@ -31,7 +28,7 @@ public class ExploderEntity : EnemyEntity
 
     private void Update()
     {
-        if (!DisableEnemy)
+        if (!DisableEnemy && !_explosionActivated)
         {
             _navMeshAgent.SetDestination(PlayerCameraTransform.position);
 
@@ -43,17 +40,33 @@ public class ExploderEntity : EnemyEntity
     {
         float distanceToPlayer = Vector3.Distance(this.transform.position, PlayerCameraTransform.position);
 
-        if(distanceToPlayer < AttackThreshold)
+        if(distanceToPlayer < AttackThreshold && !_explosionActivated)
         {
-            Explode();
+            _explosionActivated = true;
+            _navMeshAgent.SetDestination(this.transform.position);
+            StartCoroutine(DelayExplosion());
         }
+    }
+
+    private IEnumerator DelayExplosion()
+    {
+        yield return new WaitForSeconds(AttackCooldown);
+        Explode();
     }
 
     private void Explode()
     {
-        GameManager.playerEntity.TakeDamage(EnemyDamage);
-        GameManager.visualEffectManager.StartVFX(explodeVisualEffect);
-        GameManager.audioManager.PlaySound(explodeSound);
-        TakeDamage(EntityHealth);
+        if(EntityHealth > 0)
+        {
+            float distanceToPlayer = Vector3.Distance(this.transform.position, PlayerCameraTransform.position);
+
+            if (distanceToPlayer < AttackThreshold)
+            {
+                GameManager.playerEntity.TakeDamage(EnemyDamage);
+            }
+            
+            GameManager.visualEffectManager.StartVFX(explodeVisualEffect);
+            TakeDamage(EntityHealth);
+        }
     }
 }

@@ -23,6 +23,8 @@ public class BaseEntity : MonoBehaviour
 
     private int _damageTimes;
 
+    private bool _isDead;
+
     public int EntityMaxHealth
     {
         get { return entityMaxHealth; }
@@ -42,25 +44,30 @@ public class BaseEntity : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        entityHealth -= amount;
-
-        onTakeDamageEvent.Invoke();
-
-        if(entityHealth <= 0)
+        if(!_isDead)
         {
-            if (_damageTimes > 0)
+            entityHealth -= amount;
+
+            onTakeDamageEvent.Invoke();
+
+            if (entityHealth <= 0)
             {
-                GameManager.visualEffectManager.StopVFX(burningVisualEffect);
+                if (_damageTimes > 0)
+                {
+                    GameManager.visualEffectManager.StopVFX(burningVisualEffect);
+                }
+
+                onDeathEvent.Invoke();
+
+                _isDead = true;
             }
-
-            onDeathEvent.Invoke();
-        }
-        else
-        {
-            if (_damageTimes > 0)
+            else
             {
-                Invoke("DamageOvertime", 1f);
-                _damageTimes--;
+                if (_damageTimes > 0)
+                {
+                    Invoke("DamageOvertime", 1f);
+                    _damageTimes--;
+                }
             }
         }
     }

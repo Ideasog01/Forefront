@@ -135,7 +135,7 @@ MonoBehaviour:
   aiState: 1
   enemyAnimator: {fileID: 2225250922136718708}
   enemyDamage: 15
-  attackThreshold: 10
+  attackThreshold: 5
   attackCooldown: 3
   enemySlider: {fileID: 7455593875535501995}
   disableEnemy: 0

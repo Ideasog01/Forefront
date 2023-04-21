@@ -39,17 +39,20 @@ public class AudioManager : MonoBehaviour
             }
         }
 
-        if(source == null)
+        if(source == null && audioSourcePrefab != null && sound.SoundTransform != null)
         {
             source = Instantiate(audioSourcePrefab.GetComponent<AudioSource>(), sound.SoundTransform.position, Quaternion.identity);
             sound.AudioSourceRef = source;
         }
 
-        source.clip = sound.AudioClipRef;
-        source.volume = sound.Volume;
-        source.pitch = sound.Pitch;
+        if(sound.AudioClipRef != null)
+        {
+            source.clip = sound.AudioClipRef;
+            source.volume = sound.Volume;
+            source.pitch = sound.Pitch;
 
-        source.PlayDelayed(sound.DelayTime);
+            source.PlayDelayed(sound.DelayTime);
+        }
     }
 }
 

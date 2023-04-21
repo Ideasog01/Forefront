@@ -37,7 +37,7 @@ public class TankEntity : EnemyEntity
 
     private void Update()
     {
-        if (_projectilePrefab != null && !DisableEnemy)
+        if (_projectilePrefab != null && !DisableEnemy && EntityHealth > 0)
         {
             if (AIStateRef != AIState.Idle)
             {
@@ -64,8 +64,14 @@ public class TankEntity : EnemyEntity
 
             if (AIStateRef == AIState.Chase)
             {
-                _navMeshAgent.SetDestination(PlayerCameraTransform.position);
+                _navMeshAgent.SetDestination(PlayerCameraTransform.position); 
             }
+
+            EnemyAnimator.SetBool("isMoving", _navMeshAgent.velocity.magnitude != 0);
+        }
+        else
+        {
+            EnemyAnimator.SetBool("isMoving", false);
         }
     }
 

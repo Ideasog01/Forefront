@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class DroneEntity : EnemyEntity
 {
     [SerializeField]
-    private Transform projectileSpawn;
+    private Transform[] projectileSpawn;
 
     private float _attackCooldown;
 
@@ -92,7 +92,11 @@ public class DroneEntity : EnemyEntity
         }
         else
         {
-            GameManager.spawnManager.SpawnEnemyProjectile(_projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
+            foreach(Transform transform in projectileSpawn)
+            {
+                GameManager.spawnManager.SpawnEnemyProjectile(_projectilePrefab, transform.position, transform.rotation);
+            }
+            
             GameManager.audioManager.PlaySound(AttackSound);
 
             if (_attackActivated)
