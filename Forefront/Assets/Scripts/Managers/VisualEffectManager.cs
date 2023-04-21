@@ -13,7 +13,10 @@ public class VisualEffectManager : MonoBehaviour
         }
         else
         {
-            visualEffect.VFXSystem = Instantiate(visualEffect.VFXPrefab.GetComponent<ParticleSystem>(), visualEffect.SpawnPos.position, visualEffect.SpawnPos.rotation);
+            if(visualEffect.VFXPrefab != null)
+            {
+                visualEffect.VFXSystem = Instantiate(visualEffect.VFXPrefab.GetComponent<ParticleSystem>(), visualEffect.SpawnPos.position, visualEffect.SpawnPos.rotation);
+            }
         }
         
         if(visualEffect.VFXDuration != 0)

@@ -8,6 +8,9 @@ public class TankEntity : EnemyEntity
     [SerializeField]
     private Transform projectileSpawn;
 
+    [SerializeField]
+    private int maxAmmo;
+
     private float _attackCooldown;
 
     private bool _attackActivated;
@@ -15,6 +18,8 @@ public class TankEntity : EnemyEntity
     private Transform _projectilePrefab;
 
     private NavMeshAgent _navMeshAgent;
+
+    private int _ammo;
 
     private void Start()
     {
@@ -24,6 +29,8 @@ public class TankEntity : EnemyEntity
             EntityHealth = GameManager.gameSettings.DroneHealth;
             _projectilePrefab = GameManager.gameSettings.DroneProjectilePrefab;
         }
+
+        _ammo = maxAmmo;
 
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
     }
@@ -37,7 +44,6 @@ public class TankEntity : EnemyEntity
                 AIStateMachine();
             }
 
-
             if (AIStateRef == AIState.Chase || AIStateRef == AIState.Attack)
             {
                 LookAtPlayer();
@@ -45,9 +51,9 @@ public class TankEntity : EnemyEntity
 
             if (AIStateRef == AIState.Attack)
             {
-                if (!_attackActivated)
+                if (!_attackActivated && _ammo > 0) //Looped via coroutine
                 {
-                    StartCoroutine(ProjectileAttack());
+                    EnemyAnimator.SetTrigger("attack");
                     _attackActivated = true;
                 }
             }
@@ -80,12 +86,11 @@ public class TankEntity : EnemyEntity
     private void LookAtPlayer()
     {
         this.transform.LookAt(PlayerCameraTransform.transform.position);
+        this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
     }
 
-    private IEnumerator ProjectileAttack()
+    public void ProjectileAttackEvent()
     {
-        yield return new WaitForSeconds(_attackCooldown);
-
         if (GameManager.playerEntity.EntityHealth <= 0)
         {
             AIStateRef = AIState.Idle;
@@ -94,10 +99,30 @@ public class TankEntity : EnemyEntity
         {
             GameManager.spawnManager.SpawnEnemyProjectile(_projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
 
-            if (_attackActivated)
+            _ammo--;
+
+            if(_ammo <= 0)
             {
-                StartCoroutine(ProjectileAttack());
+                EnemyAnimator.SetTrigger("reload");
             }
+
+            StartCoroutine(DelayAttackCooldown());
         }
+    }
+
+    private IEnumerator DelayAttackCooldown()
+    {
+        yield return new WaitForSeconds(AttackCooldown);
+        _attackActivated = false; //Causes a looping effect
+    }
+
+    public void ReloadEvent()
+    {
+        _ammo = maxAmmo;
+    }
+
+    public void PlayDeathAnimation()
+    {
+        EnemyAnimator.SetTrigger("die");
     }
 }

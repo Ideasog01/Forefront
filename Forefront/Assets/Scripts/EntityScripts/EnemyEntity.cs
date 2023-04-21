@@ -17,10 +17,16 @@ public class EnemyEntity : BaseEntity
     private AIState aiState;
 
     [SerializeField]
+    private Animator enemyAnimator;
+
+    [SerializeField]
     private int enemyDamage;
 
     [SerializeField]
     private float attackThreshold;
+
+    [SerializeField]
+    private float attackCooldown;
 
     [Header("Health Display")]
 
@@ -49,6 +55,11 @@ public class EnemyEntity : BaseEntity
         set { aiState = value; }
     }
 
+    public Animator EnemyAnimator
+    {
+        get { return enemyAnimator; }
+    }
+
     public int EnemyDamage
     {
         get { return enemyDamage; }
@@ -58,6 +69,11 @@ public class EnemyEntity : BaseEntity
     public float AttackThreshold
     {
         get { return attackThreshold; }
+    }
+
+    public float AttackCooldown
+    {
+        get { return attackCooldown; }
     }
 
     public bool DisableEnemy
