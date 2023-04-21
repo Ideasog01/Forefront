@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     public static Loadout mainLoadout;
 
+    public static bool gameInProgress;
+
     [SerializeField]
     private Loadout mainLoadoutRef;
 
@@ -42,6 +44,8 @@ public class GameManager : MonoBehaviour
         mainLoadout = mainLoadoutRef;
 
         InitialiseManager();
+
+        gameInProgress = true;
     }
 
     private void InitialiseManager()

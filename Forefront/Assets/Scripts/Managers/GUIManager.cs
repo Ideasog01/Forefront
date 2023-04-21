@@ -130,7 +130,9 @@ public class GUIManager : MonoBehaviour
 
         if(health <= 0)
         {
+            GameManager.controllerManager.DisplayTeleportRay(false);
             DisplayDefeatCanvas();
+            GameManager.gameInProgress = false;
         }
     }
 

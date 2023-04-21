@@ -52,6 +52,11 @@ public class ControllerManager : MonoBehaviour
 
     public void DisplayTeleportRay(bool active)
     {
+        if(!GameManager.gameInProgress && active)
+        {
+            return;
+        }
+
         teleportRay.SetActive(active);
 
         if(teleportRecticle == null)
