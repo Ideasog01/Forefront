@@ -7,6 +7,8 @@ TagManager:
   - Floor
   - Enemy
   - Projectile
+  - EnemyDefault
+  - EnemyCritical
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - GrabIgnoreRay
   - ClipThroughWalls
   - PostProcessing
-  - 
-  - 
+  - PlayerOnly
+  - Enemy
   - 
   - 
   - 

@@ -30,7 +30,25 @@ public class DroneEntity : EnemyEntity
 
     private void Update()
     {
-        if(_projectilePrefab != null && !DisableEnemy)
+        if (InitialTargetLocation != null)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, InitialTargetLocation.position, Time.deltaTime * 2);
+            this.transform.LookAt(PlayerCameraTransform.transform.position);
+
+            float distanceToTarget = Vector3.Distance(this.transform.position, InitialTargetLocation.position);
+
+            if (distanceToTarget < 1.5f)
+            {
+                DoorAnimator.SetBool("open", false);
+                InitialTargetLocation = null;
+
+                Debug.Log(DoorAnimator.GetBool("open"));
+            }
+
+            return;
+        }
+
+        if (_projectilePrefab != null && !DisableEnemy)
         {
             if (AIStateRef != AIState.Idle)
             {

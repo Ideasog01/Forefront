@@ -28,6 +28,22 @@ public class ExploderEntity : EnemyEntity
 
     private void Update()
     {
+        if (InitialTargetLocation != null)
+        {
+            _navMeshAgent.SetDestination(InitialTargetLocation.position);
+            EnemyAnimator.SetBool("isMoving", _navMeshAgent.velocity.magnitude != 0);
+
+            float distanceToTarget = Vector3.Distance(this.transform.position, InitialTargetLocation.position);
+
+            if (distanceToTarget < 0.5f)
+            {
+                InitialTargetLocation = null;
+                DoorAnimator.SetBool("open", false);
+            }
+
+            return;
+        }
+
         if (!DisableEnemy && !_explosionActivated)
         {
             _navMeshAgent.SetDestination(PlayerCameraTransform.position);

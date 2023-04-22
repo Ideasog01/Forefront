@@ -69,16 +69,16 @@ public class WaveManager : MonoBehaviour
     {
         WaveDetails currentWave = waveArray[waveIndex];
 
-        yield return new WaitForSeconds(currentWave.SpawnCooldownArray[spawnIndex]); //Wait for the cooldown
+        yield return new WaitForSeconds(currentWave.SpawnSettingsArray[spawnIndex].SpawnCooldown); //Wait for the cooldown
 
         yield return new WaitUntil(() => SpawnManager.activeHostiles < currentWave.MaxEnemyCount); //Prevents too many enemies from being active
 
-        GameManager.spawnManager.SpawnEnemy(currentWave.EnemyPrefabArray[spawnIndex], currentWave.EnemyTypeArray[spawnIndex], currentWave.SpawnLocationArray[spawnIndex].position, Quaternion.identity);
+        GameManager.spawnManager.SpawnEnemy(currentWave.SpawnSettingsArray[spawnIndex]);
 
 
         Debug.Log("Enemy Spawned!");
 
-        if(spawnIndex + 1 < currentWave.SpawnCooldownArray.Length) //Is NOT the end of the wave
+        if(spawnIndex + 1 < currentWave.SpawnSettingsArray.Length) //Is NOT the end of the wave
         {
             spawnIndex++;
             StartCoroutine(DelaySpawn());
@@ -95,41 +95,16 @@ public class WaveManager : MonoBehaviour
 public struct WaveDetails
 {
     [SerializeField]
-    private Transform[] spawnLocationArray;
-
-    [SerializeField]
-    private Transform[] enemyPrefabArray;
-
-    [SerializeField]
-    private EnemyEntity.EnemyType[] enemyTypeArray;
-
-    [SerializeField]
-    private float[] spawnCooldownArray;
+    private SpawnSettings[] spawnSettingsArray;
 
     [SerializeField]
     private int maxEnemyCount;
 
     [SerializeField]
     private Transform encounterTrigger;
-
-    public Transform[] SpawnLocationArray
+    public SpawnSettings[] SpawnSettingsArray
     {
-        get { return spawnLocationArray; }
-    }
-
-    public Transform[] EnemyPrefabArray
-    {
-        get { return enemyPrefabArray; }
-    }
-
-    public EnemyEntity.EnemyType[] EnemyTypeArray
-    {
-        get { return enemyTypeArray; }
-    }
-
-    public float[] SpawnCooldownArray
-    {
-        get { return spawnCooldownArray; }
+        get { return spawnSettingsArray; }
     }
 
     public int MaxEnemyCount
@@ -140,5 +115,57 @@ public struct WaveDetails
     public Transform EncounterTrigger
     {
         get { return encounterTrigger; }
+    }
+}
+
+[System.Serializable]
+public struct SpawnSettings
+{
+    [SerializeField]
+    private Transform enemyPrefab;
+
+    [SerializeField]
+    private string doorAnimator;
+
+    [SerializeField]
+    private Transform initialTargetLocation;
+
+    [SerializeField]
+    private Transform spawnPosition;
+
+    [SerializeField]
+    private EnemyEntity.EnemyType enemyType;
+
+    [SerializeField]
+    private float spawnCooldown;
+
+    public Transform EnemyPrefab
+    {
+        get { return enemyPrefab; }
+    }
+
+    public string DoorAnimatorObjectName
+    {
+        get { return doorAnimator; }
+    }
+
+    public Transform InitialTargetLocation
+    {
+        get { return initialTargetLocation; }
+    }
+
+    public Transform SpawnPosition
+    {
+        get { return spawnPosition; }
+    }
+
+    public EnemyEntity.EnemyType EnemyType
+    {
+        get { return enemyType; }
+    }
+
+    public float SpawnCooldown
+    {
+        get { return spawnCooldown; }
     }
 }

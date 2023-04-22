@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7334662629239987380}
   - component: {fileID: 8633733265368259354}
   - component: {fileID: 2032719471968585306}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyHealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8943425621609170462}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4673990908799640670}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ProjectileSpawn (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8685472723971871550}
   - component: {fileID: 1537713726900215866}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Attack_AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4058384572598326210}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ProjectileSpawn (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 5667411235365347368}
   - component: {fileID: 5667411235366445800}
   - component: {fileID: 1081752385951707188}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Drone_Mesh
   m_TagString: EnemyDefault
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5398755593832600006}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ProjectileSpawn (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 7682628105532930602}
   - component: {fileID: 1340146000612925924}
   - component: {fileID: 8239356417420938954}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6724016891656478019}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ProjectileSpawn (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 5238690497768351786}
   - component: {fileID: 4439156315522703353}
   - component: {fileID: 7873470883113465527}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyHealthSliderFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 7202138089265187551}
   - component: {fileID: 868264508172783688}
   - component: {fileID: 8970017892380802091}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Drone_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6150794178429676866}
   - component: {fileID: 8372173863478797093}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyCriticalCollider
   m_TagString: EnemyCritical
   m_Icon: {fileID: 0}

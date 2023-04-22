@@ -37,6 +37,26 @@ public class TankEntity : EnemyEntity
 
     private void Update()
     {
+        if(InitialTargetLocation != null)
+        {
+            _navMeshAgent.SetDestination(InitialTargetLocation.position);
+            EnemyAnimator.SetBool("isMoving", _navMeshAgent.velocity.magnitude != 0);
+
+            this.transform.LookAt(PlayerCameraTransform.transform.position);
+            this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+
+            float distanceToTarget = Vector3.Distance(this.transform.position, InitialTargetLocation.position);
+
+            if(distanceToTarget < 0.5f)
+            {
+                _navMeshAgent.stoppingDistance = AttackThreshold - 1; //So the enemy moves into the attack radius
+                InitialTargetLocation = null;
+                DoorAnimator.SetBool("open", false);
+            }
+
+            return;
+        }
+
         if (_projectilePrefab != null && !DisableEnemy && EntityHealth > 0)
         {
             if (AIStateRef != AIState.Idle)
@@ -51,10 +71,23 @@ public class TankEntity : EnemyEntity
 
             if (AIStateRef == AIState.Attack)
             {
-                if (!_attackActivated && _ammo > 0) //Looped via coroutine
+                if(_navMeshAgent.velocity.magnitude == 0)
                 {
-                    EnemyAnimator.SetTrigger("attack");
-                    _attackActivated = true;
+                    if (!_attackActivated) //Looped via coroutine
+                    {
+                        if(_ammo > 0)
+                        {
+                            EnemyAnimator.SetTrigger("attack");
+                        }
+                        else
+                        {
+                            EnemyAnimator.SetTrigger("reload");
+                        }
+
+                        _attackActivated = true;
+                    }
+
+                    EnemyAnimator.SetBool("isMoving", false);
                 }
             }
             else
@@ -64,10 +97,9 @@ public class TankEntity : EnemyEntity
 
             if (AIStateRef == AIState.Chase)
             {
-                _navMeshAgent.SetDestination(PlayerCameraTransform.position); 
+                _navMeshAgent.SetDestination(PlayerCameraTransform.position);
+                EnemyAnimator.SetBool("isMoving", true);
             }
-
-            EnemyAnimator.SetBool("isMoving", _navMeshAgent.velocity.magnitude != 0);
         }
         else
         {
@@ -107,11 +139,6 @@ public class TankEntity : EnemyEntity
 
             _ammo--;
 
-            if(_ammo <= 0)
-            {
-                EnemyAnimator.SetTrigger("reload");
-            }
-
             StartCoroutine(DelayAttackCooldown());
         }
     }
@@ -125,6 +152,7 @@ public class TankEntity : EnemyEntity
     public void ReloadEvent()
     {
         _ammo = maxAmmo;
+        _attackActivated = false;
     }
 
     public void PlayDeathAnimation()

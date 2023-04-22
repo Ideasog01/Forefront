@@ -85,7 +85,7 @@ public class SpawnManager : MonoBehaviour
         projectileToUse.InitialiseProjectile(position, rotation); //Reset the projectile
     }
 
-    public void SpawnEnemy(Transform prefab, EnemyEntity.EnemyType type, Vector3 position, Quaternion rotation)
+    public void SpawnEnemy(SpawnSettings spawnSettings)
     {
         EnemyEntity enemyEntity = null;
 
@@ -93,7 +93,7 @@ public class SpawnManager : MonoBehaviour
         {
             if(!enemy.gameObject.activeSelf)
             {
-                if(enemy.EnemyTypeRef == type)
+                if(enemy.EnemyTypeRef == spawnSettings.EnemyType)
                 {
                     enemy.gameObject.SetActive(true);
                     enemyEntity = enemy;
@@ -104,12 +104,19 @@ public class SpawnManager : MonoBehaviour
 
         if(enemyEntity == null)
         {
-            enemyEntity = Instantiate(prefab.GetComponent<EnemyEntity>(), position, rotation);
+            enemyEntity = Instantiate(spawnSettings.EnemyPrefab.GetComponent<EnemyEntity>(), spawnSettings.SpawnPosition.position, spawnSettings.SpawnPosition.rotation);
             enemyEntity.transform.parent = enemyParent;
             _enemyList.Add(enemyEntity);
         }
 
         enemyEntity.ResetEnemy();
+
+        enemyEntity.InitialTargetLocation = spawnSettings.InitialTargetLocation;
+
+        Animator doorAnimator = GameObject.Find(spawnSettings.DoorAnimatorObjectName).GetComponent<Animator>();
+
+        doorAnimator.SetBool("open", true);
+        enemyEntity.DoorAnimator = doorAnimator;
 
         activeHostiles++;
     }

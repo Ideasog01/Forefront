@@ -44,6 +44,22 @@ public class EnemyEntity : BaseEntity
     [SerializeField]
     private Sound attackSound;
 
+    private Animator _doorAnimator;
+
+    private Transform _initialTargetLocation;
+
+    public Transform InitialTargetLocation
+    {
+        get { return _initialTargetLocation; }
+        set { _initialTargetLocation = value; }
+    }
+
+    public Animator DoorAnimator
+    {
+        get { return _doorAnimator; }
+        set { _doorAnimator = value; }
+    }
+
     public EnemyType EnemyTypeRef
     { 
         get { return enemyType; }

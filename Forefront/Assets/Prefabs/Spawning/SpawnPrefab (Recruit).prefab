@@ -24,10 +24,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573895772906481582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: -2}
+  m_LocalPosition: {x: 8, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1932828701401636410}
   m_Father: {fileID: 2796366844518914476}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -243,16 +244,13 @@ MonoBehaviour:
   playerScore: 0
   hostilesDefeated: 0
   waveArray:
-  - spawnLocationArray:
-    - {fileID: 358596639899135539}
-    - {fileID: 9133765964391555196}
-    enemyPrefabArray:
-    - {fileID: 7202138089265187551, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
-    - {fileID: 7202138089265187551, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
-    enemyTypeArray: 0000000000000000
-    spawnCooldownArray:
-    - 0
-    - 3
+  - spawnSettingsArray:
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (0)
+      initialTargetLocation: {fileID: 1932828701401636410}
+      spawnPosition: {fileID: 358596639899135539}
+      enemyType: 2
+      spawnCooldown: 0
     maxEnemyCount: 3
     encounterTrigger: {fileID: 2796366844518914476}
 --- !u!1 &8020597635092502821
@@ -284,6 +282,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2796366844518914476}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8633940960245335947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932828701401636410}
+  m_Layer: 0
+  m_Name: InitialTargetLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1932828701401636410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633940960245335947}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 358596639899135539}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8725734155649068014

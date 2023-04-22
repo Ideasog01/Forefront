@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2020550971199392901}
   - component: {fileID: 252964328034941550}
   - component: {fileID: 252964328034941553}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Exploder_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3984211535821876848}
   - component: {fileID: 4783490405666052515}
   - component: {fileID: 1350343239718449389}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyHealthSliderFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 1542341614836890736}
   - component: {fileID: 7881428711251044286}
   - component: {fileID: 982137704398096528}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1887191608272739054}
   - component: {fileID: 587856784025247040}
   - component: {fileID: 7191397167098642432}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyHealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 8624580709386973094}
   - component: {fileID: 8624580709385973094}
   - component: {fileID: 8624580709390064902}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Exploder_Mesh
   m_TagString: EnemyDefault
   m_Icon: {fileID: 0}
