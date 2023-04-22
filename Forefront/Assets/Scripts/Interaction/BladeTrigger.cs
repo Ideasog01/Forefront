@@ -8,7 +8,7 @@ public class BladeTrigger : MonoBehaviour
     {
         if(other.gameObject.name == "RightHand Controller")
         {
-            ControllerManager.bladeInReach = true;
+            ControllerManager.shieldInReach = true;
         }
     }
 
@@ -16,7 +16,7 @@ public class BladeTrigger : MonoBehaviour
     {
         if (other.gameObject.name == "RightHand Controller")
         {
-            ControllerManager.bladeInReach = false;
+            ControllerManager.shieldInReach = false;
         }
     }
 }

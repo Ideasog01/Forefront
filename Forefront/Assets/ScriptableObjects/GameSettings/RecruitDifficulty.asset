@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficultyLevel: 0
   spawnPrefab: {fileID: 3924233307356937705, guid: 706b6a90190cb69489b79c00f68e4327, type: 3}
+  shieldChargeRate: 1
+  shieldCooldown: 2
+  shieldMaxHealth: 100
   droneHealth: 50
   droneProjectilePrefab: {fileID: 3876445595443255495, guid: 24dd696601ed0134dbcc8971fac1e8ea, type: 3}
   droneAttackCooldown: 2

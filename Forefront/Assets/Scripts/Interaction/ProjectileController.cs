@@ -59,6 +59,11 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.CompareTag("Shield"))
+        {
+            other.GetComponent<ShieldController>().DamageShield(projectileDamage);
+        }
+
         if (!other.gameObject.CompareTag("Player"))
         {
             GameManager.visualEffectManager.StartVFX(destroyVfx);

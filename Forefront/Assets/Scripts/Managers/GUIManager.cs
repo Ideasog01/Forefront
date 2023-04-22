@@ -31,6 +31,11 @@ public class GUIManager : MonoBehaviour
     [SerializeField]
     private Slider powerChargeSlider;
 
+    [Header("Shield Display")]
+
+    [SerializeField]
+    private Slider shieldSlider;
+
     [Header("Movement Transition")]
 
     [SerializeField]
@@ -159,5 +164,11 @@ public class GUIManager : MonoBehaviour
     public void PlayButtonNegativeSound() //Via Inspector
     {
         GameManager.audioManager.PlaySound(negativeButtonSound);
+    }
+
+    public void DisplayShieldHealth(float health, float maxHealth)
+    {
+        shieldSlider.maxValue = maxHealth;
+        shieldSlider.value = health;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControllerManager : MonoBehaviour
 {
-    public static bool bladeInReach; //Is a controller inside the blade interaction bounds
+    public static bool shieldInReach; //Is a controller inside the blade interaction bounds
 
     [Header("Teleportation")]
 
@@ -29,7 +29,7 @@ public class ControllerManager : MonoBehaviour
     private SelectorController selectorController;
 
     [SerializeField]
-    private GameObject bladeObj;
+    private GameObject shieldObj;
 
     [Header("General")]
 
@@ -91,7 +91,7 @@ public class ControllerManager : MonoBehaviour
 
     public void EnablePlasmaCannon(bool active)
     {
-        if(!bladeObj.activeSelf)
+        if(!shieldObj.activeSelf)
         {
             plasmaCannonObj.SetActive(active);
             rightHandMeshObj.SetActive(!active);
@@ -110,11 +110,11 @@ public class ControllerManager : MonoBehaviour
     {
         //The blade can only be enabled/disabled when in reach. Meaning that the player's right hand must be behind them and right hand grip is being performed.
 
-        if(bladeInReach && !plasmaCannonObj.activeSelf)
+        if(shieldInReach && !plasmaCannonObj.activeSelf)
         {
             if (active)
             {
-                if(!bladeObj.activeSelf) //Ensures the blade is not already active to avoid playing the equip sound when putting the sword away
+                if(!shieldObj.activeSelf) //Ensures the blade is not already active to avoid playing the equip sound when putting the sword away
                 {
                     GameManager.audioManager.PlaySound(swordEquipSound);
                 }
@@ -124,7 +124,7 @@ public class ControllerManager : MonoBehaviour
                 GameManager.audioManager.PlaySound(swordUnequipSound);
             }
 
-            bladeObj.SetActive(active);
+            shieldObj.SetActive(active);
             rightHandMeshObj.SetActive(!active);
         }
     }

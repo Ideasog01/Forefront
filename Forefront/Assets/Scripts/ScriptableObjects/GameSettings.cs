@@ -11,6 +11,17 @@ public class GameSettings : ScriptableObject
     [SerializeField]
     private Transform spawnPrefab;
 
+    [Header("Shield Properties")]
+
+    [SerializeField]
+    private float shieldChargeRate;
+
+    [SerializeField]
+    private float shieldCooldown;
+
+    [SerializeField]
+    private float shieldMaxHealth;
+
     [Header("Drone Properties")]
 
     [SerializeField]
@@ -99,6 +110,23 @@ public class GameSettings : ScriptableObject
     public int TankScoreAmount
     {
         get { return tankScoreAmount; }
+    }
+
+    //Shield
+
+    public float ShieldChargeRate
+    {
+        get { return shieldChargeRate; }
+    }
+
+    public float ShieldCooldown
+    {
+        get { return shieldCooldown; }
+    }
+
+    public float ShieldMaxHealth
+    {
+        get { return shieldMaxHealth; }
     }
 
     //Other
