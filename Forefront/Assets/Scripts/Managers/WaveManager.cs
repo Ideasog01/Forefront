@@ -42,6 +42,7 @@ public class WaveManager : MonoBehaviour
                 {
                     _encounterInProgress = false;
                     Debug.Log("Wave Complete!");
+                    GameManager.guiManager.DisplayWaveCompleteNotification();
                     waveIndex++;
                 }
                 else

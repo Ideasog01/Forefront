@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GUIManager : MonoBehaviour
 {
@@ -87,6 +88,14 @@ public class GUIManager : MonoBehaviour
 
     [SerializeField]
     private Sound victorySound;
+
+    [Header("WaveCompleteScreen")]
+
+    [SerializeField]
+    private GameObject waveCompleteText;
+
+    [SerializeField]
+    private Sound waveCompleteSound;
 
     private void Update()
     {
@@ -186,5 +195,18 @@ public class GUIManager : MonoBehaviour
     {
         shieldSlider.maxValue = maxHealth;
         shieldSlider.value = health;
+    }
+
+    public void DisplayWaveCompleteNotification()
+    {
+        waveCompleteText.SetActive(true);
+        GameManager.audioManager.PlaySound(waveCompleteSound);
+        StartCoroutine(WaveCompleteCloseDelay());
+    }
+
+    private IEnumerator WaveCompleteCloseDelay()
+    {
+        yield return new WaitForSeconds(3);
+        waveCompleteText.SetActive(false);
     }
 }
