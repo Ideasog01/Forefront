@@ -24,6 +24,8 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        activeHostiles = 0;
+
         if(activateGameMode)
         {
             SpawnWaveManager();
@@ -109,9 +111,10 @@ public class SpawnManager : MonoBehaviour
             _enemyList.Add(enemyEntity);
         }
 
-        enemyEntity.ResetEnemy();
-
+        enemyEntity.transform.position = spawnSettings.SpawnPosition.position;
         enemyEntity.InitialTargetLocation = spawnSettings.InitialTargetLocation;
+
+        enemyEntity.ResetEnemy();
 
         Animator doorAnimator = GameObject.Find(spawnSettings.DoorAnimatorObjectName).GetComponent<Animator>();
 

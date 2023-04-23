@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b64624f0925e0f43a61f4af9b234040, type: 3}
   m_Name: Loadout (0)
   m_EditorClassIdentifier: 
-  generalSettingsValueArray: 0200000000000000050000000000000000000000
+  generalSettingsValueArray: 0300000005000000050000000500000005000000
   perk1: {fileID: 11400000, guid: 2d4171b12125737489c774fd178360ef, type: 2}
   perk2: {fileID: 11400000, guid: 1e0bf38f760415344b793715923be77c, type: 2}

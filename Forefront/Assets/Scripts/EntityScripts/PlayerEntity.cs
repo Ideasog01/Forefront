@@ -151,7 +151,7 @@ public class PlayerEntity : BaseEntity
             {
                 if(plasmaCharge >= plasmaChargeTime)
                 {
-                    if(!GameManager.perkManager.perkArray[4])
+                    if(!GameManager.perkManager.perkArray[4].IsActive)
                     {
                         GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
                     }

@@ -382,7 +382,7 @@ Transform:
   m_Children:
   - {fileID: 2796366844518914476}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3924233307356937686
 MonoBehaviour:
@@ -419,26 +419,26 @@ MonoBehaviour:
   - spawnSettingsArray:
     - enemyPrefab: {fileID: 7202138089265187551, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
       doorAnimator: Door (1)
-      initialTargetLocation: {fileID: 1344196067669591113}
+      initialTargetLocation: {fileID: 1612007090107129187}
       spawnPosition: {fileID: 9133765964391555196}
       enemyType: 2
       spawnCooldown: 0
     - enemyPrefab: {fileID: 7202138089265187551, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
       doorAnimator: Door (1)
-      initialTargetLocation: {fileID: 1344196067669591113}
-      spawnPosition: {fileID: 9133765964391555196}
+      initialTargetLocation: {fileID: 358446133380523753}
+      spawnPosition: {fileID: 358446132992401779}
       enemyType: 2
       spawnCooldown: 2
     - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
       doorAnimator: Door (1)
-      initialTargetLocation: {fileID: 1344196067669591113}
-      spawnPosition: {fileID: 9133765964391555196}
+      initialTargetLocation: {fileID: 1612007088707469704}
+      spawnPosition: {fileID: 5272946276097322952}
       enemyType: 2
       spawnCooldown: 6
     - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
       doorAnimator: Door (1)
       initialTargetLocation: {fileID: 1344196067669591113}
-      spawnPosition: {fileID: 9133765964391555196}
+      spawnPosition: {fileID: 358596639899135539}
       enemyType: 2
       spawnCooldown: 6
     maxEnemyCount: 2

@@ -28,6 +28,9 @@ public class EnemyEntity : BaseEntity
     [SerializeField]
     private float attackCooldown;
 
+    [SerializeField]
+    private bool attackActivated;
+
     [Header("Health Display")]
 
     [SerializeField]
@@ -92,6 +95,12 @@ public class EnemyEntity : BaseEntity
         get { return attackCooldown; }
     }
 
+    public bool AttackActivated
+    {
+        get { return attackActivated; }
+        set { attackActivated = value; }
+    }
+
     public bool DisableEnemy
     {
         get { return disableEnemy; }
@@ -105,10 +114,11 @@ public class EnemyEntity : BaseEntity
 
     public void ResetEnemy()
     {
-        EntityMaxHealth = GameManager.gameSettings.DroneHealth;
         EntityHealth = EntityMaxHealth;
         DisplayHealth();
         disableEnemy = false;
+        attackActivated = false;
+        IsDead = false;
     }
 
     public void DisplayHealth()

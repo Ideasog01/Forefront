@@ -13,8 +13,6 @@ public class TankEntity : EnemyEntity
 
     private float _attackCooldown;
 
-    private bool _attackActivated;
-
     private Transform _projectilePrefab;
 
     private NavMeshAgent _navMeshAgent;
@@ -25,8 +23,8 @@ public class TankEntity : EnemyEntity
     {
         if (GameManager.gameSettings != null)
         {
-            _attackCooldown = GameManager.gameSettings.DroneAttackCooldown;
-            EntityHealth = GameManager.gameSettings.DroneHealth;
+            _attackCooldown = GameManager.gameSettings.TankAttackCooldown;
+            EntityHealth = GameManager.gameSettings.TankHealth;
             _projectilePrefab = GameManager.gameSettings.TankProjectilePrefab;
         }
 
@@ -47,7 +45,7 @@ public class TankEntity : EnemyEntity
 
             float distanceToTarget = Vector3.Distance(this.transform.position, InitialTargetLocation.position);
 
-            if(distanceToTarget < 0.5f)
+            if(distanceToTarget < 0.75f)
             {
                 _navMeshAgent.stoppingDistance = AttackThreshold - 1; //So the enemy moves into the attack radius
                 InitialTargetLocation = null;
@@ -73,7 +71,7 @@ public class TankEntity : EnemyEntity
             {
                 if(_navMeshAgent.velocity.magnitude == 0)
                 {
-                    if (!_attackActivated) //Looped via coroutine
+                    if (!AttackActivated) //Looped via coroutine
                     {
                         if(_ammo > 0)
                         {
@@ -84,7 +82,7 @@ public class TankEntity : EnemyEntity
                             EnemyAnimator.SetTrigger("reload");
                         }
 
-                        _attackActivated = true;
+                        AttackActivated = true;
                     }
 
                     EnemyAnimator.SetBool("isMoving", false);
@@ -92,7 +90,7 @@ public class TankEntity : EnemyEntity
             }
             else
             {
-                _attackActivated = false;
+                AttackActivated = false;
             }
 
             if (AIStateRef == AIState.Chase)
@@ -146,13 +144,13 @@ public class TankEntity : EnemyEntity
     private IEnumerator DelayAttackCooldown()
     {
         yield return new WaitForSeconds(AttackCooldown);
-        _attackActivated = false; //Causes a looping effect
+        AttackActivated = false; //Causes a looping effect
     }
 
     public void ReloadEvent()
     {
         _ammo = maxAmmo;
-        _attackActivated = false;
+        AttackActivated = false;
     }
 
     public void PlayDeathAnimation()

@@ -110,7 +110,7 @@ public class ControllerManager : MonoBehaviour
     {
         //The blade can only be enabled/disabled when in reach. Meaning that the player's right hand must be behind them and right hand grip is being performed.
 
-        if(shieldInReach && !plasmaCannonObj.activeSelf)
+        if(shieldInReach)
         {
             if (active)
             {
@@ -125,7 +125,6 @@ public class ControllerManager : MonoBehaviour
             }
 
             shieldObj.SetActive(active);
-            rightHandMeshObj.SetActive(!active);
         }
     }
 }

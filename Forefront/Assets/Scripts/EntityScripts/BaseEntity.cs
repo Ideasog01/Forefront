@@ -25,6 +25,12 @@ public class BaseEntity : MonoBehaviour
 
     private bool _isDead;
 
+    public bool IsDead
+    {
+        get { return _isDead; }
+        set { _isDead = value; }
+    }
+
     public int EntityMaxHealth
     {
         get { return entityMaxHealth; }

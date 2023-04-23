@@ -9,6 +9,7 @@ public class WaveTrigger : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             GameManager.waveManager.BeginEncounter();
+            Debug.Log("Wave Triggered");
         }
     }
 }

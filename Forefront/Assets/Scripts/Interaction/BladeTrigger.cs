@@ -6,7 +6,7 @@ public class BladeTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "RightHand Controller")
+        if(other.gameObject.name == "LeftHand Controller")
         {
             ControllerManager.shieldInReach = true;
         }
@@ -14,7 +14,7 @@ public class BladeTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "RightHand Controller")
+        if (other.gameObject.name == "LeftHand Controller")
         {
             ControllerManager.shieldInReach = false;
         }

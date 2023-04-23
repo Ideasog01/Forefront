@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "GameSettings")]
@@ -57,6 +58,12 @@ public class GameSettings : ScriptableObject
 
     [SerializeField]
     private Transform tankProjectilePrefab;
+
+    [SerializeField]
+    private int tankHealth;
+
+    [SerializeField]
+    private float tankAttackCooldown;
 
     [Header("High Score & Statistics")]
 
@@ -121,6 +128,17 @@ public class GameSettings : ScriptableObject
     public Transform TankProjectilePrefab
     {
         get { return tankProjectilePrefab; }
+    }
+
+    public int TankHealth
+    {
+        get { return tankHealth; }
+        set { tankHealth = value; }
+    }
+
+    public float TankAttackCooldown
+    {
+        get { return tankAttackCooldown; }
     }
 
     //Shield

@@ -76,7 +76,6 @@ public class WaveManager : MonoBehaviour
 
         GameManager.spawnManager.SpawnEnemy(currentWave.SpawnSettingsArray[spawnIndex]);
 
-
         Debug.Log("Enemy Spawned!");
 
         if(spawnIndex + 1 < currentWave.SpawnSettingsArray.Length) //Is NOT the end of the wave
