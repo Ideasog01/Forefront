@@ -1,13 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-
+using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     private static List<AudioSource> _audioSourceList = new List<AudioSource>();
 
     [SerializeField]
     private Transform audioSourcePrefab;
+
+    [SerializeField]
+    private AudioMixerGroup musicMixer;
+
+    [SerializeField]
+    private AudioMixerGroup sfxMixer;
 
     public void PlaySound(Sound sound)
     {
@@ -24,6 +30,18 @@ public class AudioManager : MonoBehaviour
     public void StopSound(Sound sound)
     {
         sound.AudioSourceRef.Stop();
+    }
+
+    public void UpdateSoundEffectVolume(TDSlider slider) //Via Inspector
+    {
+        sfxMixer.audioMixer.SetFloat("SFXVolume", Mathf.Log10(slider.SliderValue) * 20);
+        Debug.Log("Sound Volume: " + slider.SliderValue);
+    }
+
+    public void UpdateMusicVolume(TDSlider slider) //Via Inspector
+    {
+        musicMixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(slider.SliderValue) * 20);
+        Debug.Log("Music Volume: " + slider.SliderValue);
     }
 
     private void SpawnSound(Sound sound)
@@ -47,6 +65,15 @@ public class AudioManager : MonoBehaviour
 
         if(sound.AudioClipRef != null)
         {
+            if(sound.IsMusic)
+            {
+                source.outputAudioMixerGroup = musicMixer;
+            }
+            else
+            {
+                source.outputAudioMixerGroup = sfxMixer;
+            }
+            
             source.clip = sound.AudioClipRef;
             source.volume = sound.Volume;
             source.pitch = sound.Pitch;
@@ -77,6 +104,9 @@ public struct Sound
     [SerializeField]
     private Transform soundTransform;
 
+    [SerializeField]
+    private bool isMusic;
+
     public AudioClip AudioClipRef
     {
         get { return audioClip; }
@@ -106,5 +136,10 @@ public struct Sound
     public Transform SoundTransform
     {
         get { return soundTransform; }
+    }
+
+    public bool IsMusic
+    {
+        get { return isMusic; }
     }
 }

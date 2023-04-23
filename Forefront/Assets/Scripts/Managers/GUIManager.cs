@@ -55,6 +55,9 @@ public class GUIManager : MonoBehaviour
     [SerializeField]
     private GameObject damageCriticalText;
 
+    [SerializeField]
+    private Sound damageCriticalSound;
+
     [Header("UI Sounds")]
 
     [SerializeField]
@@ -68,6 +71,9 @@ public class GUIManager : MonoBehaviour
     [SerializeField]
     private GameObject defeatCanvas;
 
+    [SerializeField]
+    private Sound defeatSound;
+
     [Header("Victory Canvas")]
 
     [SerializeField]
@@ -78,6 +84,9 @@ public class GUIManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI victoryAdditionalDetailsText;
+
+    [SerializeField]
+    private Sound victorySound;
 
     private void Update()
     {
@@ -131,6 +140,11 @@ public class GUIManager : MonoBehaviour
 
         playerHealthText.text = health.ToString();
 
+        if (health < 30 && !damageCriticalText.gameObject.activeSelf)
+        {
+            GameManager.audioManager.PlaySound(damageCriticalSound);
+        }
+
         damageCriticalText.gameObject.SetActive(health < 30);
 
         if(health <= 0)
@@ -148,12 +162,14 @@ public class GUIManager : MonoBehaviour
             + "\nMISSION FAILS: " + WaveManager.missionFails.ToString();
         victoryCanvas.transform.position = GameObject.Find("Main Camera").transform.position + new Vector3(0, 1, 2);
         victoryAdditionalDetailsText.text = "Level: " + SceneManager.GetActiveScene().name + "\nHigh Score: " + GameManager.gameSettings.HighScore.ToString();
+        GameManager.audioManager.PlaySound(victorySound);
     }
 
     public void DisplayDefeatCanvas() //Display/Position the canvas
     {
         defeatCanvas.SetActive(true);
         defeatCanvas.transform.position = GameObject.Find("Main Camera").transform.position + new Vector3(0, 1, 2);
+        GameManager.audioManager.PlaySound(defeatSound);
     }
 
     public void PlayButtonPositiveSound() //Via Inspector

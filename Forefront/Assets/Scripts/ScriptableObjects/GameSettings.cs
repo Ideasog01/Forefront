@@ -17,10 +17,13 @@ public class GameSettings : ScriptableObject
     private float shieldChargeRate;
 
     [SerializeField]
-    private float shieldCooldown;
+    private float shieldCooldown; //The amount of time the shield is disabled after its health reaches <= 0
 
     [SerializeField]
     private float shieldMaxHealth;
+
+    [SerializeField]
+    private float shieldRegenerateWaitTime; //The time to wait after damage to regenerate the shield
 
     [Header("Drone Properties")]
 
@@ -127,6 +130,11 @@ public class GameSettings : ScriptableObject
     public float ShieldMaxHealth
     {
         get { return shieldMaxHealth; }
+    }
+
+    public float ShieldRegenerateWaitTime
+    {
+        get { return shieldRegenerateWaitTime; }
     }
 
     //Other
