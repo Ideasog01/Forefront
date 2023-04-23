@@ -55,6 +55,9 @@ public class GameSettings : ScriptableObject
     [SerializeField]
     private int tankScoreAmount;
 
+    [SerializeField]
+    private Transform tankProjectilePrefab;
+
     [Header("High Score & Statistics")]
 
     [SerializeField]
@@ -113,6 +116,11 @@ public class GameSettings : ScriptableObject
     public int TankScoreAmount
     {
         get { return tankScoreAmount; }
+    }
+
+    public Transform TankProjectilePrefab
+    {
+        get { return tankProjectilePrefab; }
     }
 
     //Shield

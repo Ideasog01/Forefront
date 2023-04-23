@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2863556168254716074}
   - component: {fileID: 6696603226929251549}
   m_Layer: 0
-  m_Name: DroneProjectile_Recruit
+  m_Name: TankProjectile (Recruit)
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   projectileType: 3
   projectileDuration: 2
   destroyVfx:
-    vfxPrefab: {fileID: 8908821665875586058, guid: 809ccf3f72defec48a65eb0bc1bee5b5, type: 3}
+    vfxPrefab: {fileID: 8908821665875586058, guid: a89020767f053b54fbf7b98091b7e91f, type: 3}
     vfxSystem: {fileID: 0}
     spawnPos: {fileID: 3876445595443255495}
     vfxDuration: 2
@@ -63,6 +63,7 @@ MonoBehaviour:
     pitch: 1
     delayTime: 0
     soundTransform: {fileID: 3876445595443255495}
+    isMusic: 0
 --- !u!54 &2863556168254716074
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e352330ec3c95d43b719296e1c613a8, type: 2}
+  - {fileID: 2100000, guid: 4e7428d37fa291d45833cf4b73f847d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

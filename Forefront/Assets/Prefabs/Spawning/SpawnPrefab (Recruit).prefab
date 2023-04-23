@@ -1,5 +1,68 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &358446132992401776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358446132992401779}
+  m_Layer: 0
+  m_Name: SpawnPos (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358446132992401779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358446132992401776}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 358446133380523753}
+  m_Father: {fileID: 2796366844518914476}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &358446133380523758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358446133380523753}
+  m_Layer: 0
+  m_Name: InitialTargetLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358446133380523753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358446133380523758}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 358446132992401779}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1344196067669591112
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,42 +87,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344196067669591112}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: -4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5272946276097322952}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1344196069063481505
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1344196069063481506}
-  m_Layer: 0
-  m_Name: InitialTargetLocation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1344196069063481506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344196069063481505}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9133765964391555196}
+  m_Father: {fileID: 358596639899135539}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1573895772906481582
@@ -90,8 +122,70 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1932828701401636410}
+  - {fileID: 1344196067669591113}
   m_Father: {fileID: 2796366844518914476}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1612007088707469705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1612007088707469704}
+  m_Layer: 0
+  m_Name: InitialTargetLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1612007088707469704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612007088707469705}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5272946276097322952}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1612007090107129184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1612007090107129187}
+  m_Layer: 0
+  m_Name: InitialTargetLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1612007090107129187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612007090107129184}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9133765964391555196}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2055046386388781566
@@ -253,6 +347,7 @@ Transform:
   - {fileID: 358596639899135539}
   - {fileID: 9133765964391555196}
   - {fileID: 5272946276097322952}
+  - {fileID: 358446132992401779}
   m_Father: {fileID: 3924233307356937705}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -309,11 +404,155 @@ MonoBehaviour:
   - spawnSettingsArray:
     - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
       doorAnimator: Door (0)
-      initialTargetLocation: {fileID: 1932828701401636410}
+      initialTargetLocation: {fileID: 1344196067669591113}
       spawnPosition: {fileID: 358596639899135539}
       enemyType: 2
       spawnCooldown: 0
-    maxEnemyCount: 3
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (3)
+      initialTargetLocation: {fileID: 358446133380523753}
+      spawnPosition: {fileID: 358446132992401779}
+      enemyType: 2
+      spawnCooldown: 2
+    maxEnemyCount: 1
+    encounterTrigger: {fileID: 2796366844518914476}
+  - spawnSettingsArray:
+    - enemyPrefab: {fileID: 7202138089265187551, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 0
+    - enemyPrefab: {fileID: 7202138089265187551, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 2
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 6
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 6
+    maxEnemyCount: 2
+    encounterTrigger: {fileID: 2796366844518914476}
+  - spawnSettingsArray:
+    - enemyPrefab: {fileID: 7202138089265187551, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 0
+    - enemyPrefab: {fileID: 7202138089265187551, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 2
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 6
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 6
+    maxEnemyCount: 2
+    encounterTrigger: {fileID: 2796366844518914476}
+  - spawnSettingsArray:
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (0)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 358596639899135539}
+      enemyType: 2
+      spawnCooldown: 2
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1612007090107129187}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 2
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (2)
+      initialTargetLocation: {fileID: 1612007088707469704}
+      spawnPosition: {fileID: 5272946276097322952}
+      enemyType: 2
+      spawnCooldown: 4
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (3)
+      initialTargetLocation: {fileID: 358446133380523753}
+      spawnPosition: {fileID: 358446132992401779}
+      enemyType: 2
+      spawnCooldown: 6
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (2)
+      initialTargetLocation: {fileID: 1612007088707469704}
+      spawnPosition: {fileID: 5272946276097322952}
+      enemyType: 2
+      spawnCooldown: 4
+    maxEnemyCount: 2
+    encounterTrigger: {fileID: 2796366844518914476}
+  - spawnSettingsArray:
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (0)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 358596639899135539}
+      enemyType: 2
+      spawnCooldown: 2
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1612007090107129187}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 2
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (2)
+      initialTargetLocation: {fileID: 1612007090107129187}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 4
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (3)
+      initialTargetLocation: {fileID: 358446133380523753}
+      spawnPosition: {fileID: 358446132992401779}
+      enemyType: 2
+      spawnCooldown: 6
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (2)
+      initialTargetLocation: {fileID: 1344196067669591113}
+      spawnPosition: {fileID: 358596639899135539}
+      enemyType: 2
+      spawnCooldown: 4
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (3)
+      initialTargetLocation: {fileID: 1612007090107129187}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 4
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (2)
+      initialTargetLocation: {fileID: 1612007088707469704}
+      spawnPosition: {fileID: 5272946276097322952}
+      enemyType: 2
+      spawnCooldown: 4
+    - enemyPrefab: {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
+      doorAnimator: Door (1)
+      initialTargetLocation: {fileID: 1612007090107129187}
+      spawnPosition: {fileID: 9133765964391555196}
+      enemyType: 2
+      spawnCooldown: 4
+    maxEnemyCount: 2
     encounterTrigger: {fileID: 2796366844518914476}
 --- !u!1 &8020597635092502821
 GameObject:
@@ -343,39 +582,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1344196067669591113}
+  - {fileID: 1612007088707469704}
   m_Father: {fileID: 2796366844518914476}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8633940960245335947
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1932828701401636410}
-  m_Layer: 0
-  m_Name: InitialTargetLocation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1932828701401636410
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8633940960245335947}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 358596639899135539}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8725734155649068014
@@ -406,7 +614,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1344196069063481506}
+  - {fileID: 1612007090107129187}
   m_Father: {fileID: 2796366844518914476}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

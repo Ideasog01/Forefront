@@ -127,32 +127,34 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   burningVisualEffect:
-    vfxPrefab: {fileID: 0}
+    vfxPrefab: {fileID: 1906707347795268070, guid: 9426b8e127539f244b0d095ade86f0c2, type: 3}
     vfxSystem: {fileID: 0}
-    spawnPos: {fileID: 0}
-    vfxDuration: 0
+    spawnPos: {fileID: 1779237244534281774}
+    vfxDuration: 2
   enemyType: 2
   aiState: 1
   enemyAnimator: {fileID: 2225250922136718708}
   enemyDamage: 25
   attackThreshold: 5
-  attackCooldown: 3
+  attackCooldown: 1.72
   enemySlider: {fileID: 7455593875535501995}
   disableEnemy: 0
   destroySound:
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 16458abe8d5a64f7a8082f0de46d643f, type: 3}
     audioSource: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 0.25
+    pitch: 1
     delayTime: 0
-    soundTransform: {fileID: 0}
+    soundTransform: {fileID: 1779237244534281774}
+    isMusic: 0
   attackSound:
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 5ff823f546b52574a931e1d9b44290a6, type: 3}
     audioSource: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 0.5
+    pitch: 1
     delayTime: 0
-    soundTransform: {fileID: 0}
+    soundTransform: {fileID: 1779237244534281774}
+    isMusic: 0
   projectileSpawn: {fileID: 1891265169322608077}
   maxAmmo: 5
 --- !u!195 &520688062064976090

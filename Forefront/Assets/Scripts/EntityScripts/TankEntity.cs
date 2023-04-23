@@ -27,7 +27,7 @@ public class TankEntity : EnemyEntity
         {
             _attackCooldown = GameManager.gameSettings.DroneAttackCooldown;
             EntityHealth = GameManager.gameSettings.DroneHealth;
-            _projectilePrefab = GameManager.gameSettings.DroneProjectilePrefab;
+            _projectilePrefab = GameManager.gameSettings.TankProjectilePrefab;
         }
 
         _ammo = maxAmmo;
