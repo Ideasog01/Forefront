@@ -14,8 +14,6 @@ public class DroneEntity : EnemyEntity
 
     private Transform _projectilePrefab;
 
-    private NavMeshAgent _navMeshAgent;
-
     private void Start()
     {
         if(GameManager.gameSettings != null)
@@ -25,24 +23,25 @@ public class DroneEntity : EnemyEntity
             _projectilePrefab = GameManager.gameSettings.DroneProjectilePrefab;
         }
 
-        _navMeshAgent = this.GetComponent<NavMeshAgent>();
+        EnemyAgent = this.GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
         if (InitialTargetLocation != null)
         {
-            this.transform.position = Vector3.MoveTowards(this.transform.position, InitialTargetLocation.position, Time.deltaTime * 2);
+            EnemyAgent.SetDestination(InitialTargetLocation.position);
+
             this.transform.LookAt(PlayerCameraTransform.transform.position);
+            this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
 
             float distanceToTarget = Vector3.Distance(this.transform.position, InitialTargetLocation.position);
 
-            if (distanceToTarget < 1.5f)
+            if (distanceToTarget < 0.75f)
             {
-                DoorAnimator.SetBool("open", false);
+                EnemyAgent.stoppingDistance = AttackThreshold - 1; //So the enemy moves into the attack radius
                 InitialTargetLocation = null;
-
-                Debug.Log(DoorAnimator.GetBool("open"));
+                DoorAnimator.SetBool("open", false);
             }
 
             return;
@@ -76,7 +75,7 @@ public class DroneEntity : EnemyEntity
 
             if(AIStateRef == AIState.Chase)
             {
-                _navMeshAgent.SetDestination(PlayerCameraTransform.position);
+                EnemyAgent.SetDestination(PlayerCameraTransform.position);
             }
         }
     }

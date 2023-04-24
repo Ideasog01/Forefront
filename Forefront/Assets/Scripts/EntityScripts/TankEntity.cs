@@ -15,8 +15,6 @@ public class TankEntity : EnemyEntity
 
     private Transform _projectilePrefab;
 
-    private NavMeshAgent _navMeshAgent;
-
     private int _ammo;
 
     private void Start()
@@ -24,21 +22,22 @@ public class TankEntity : EnemyEntity
         if (GameManager.gameSettings != null)
         {
             _attackCooldown = GameManager.gameSettings.TankAttackCooldown;
-            EntityHealth = GameManager.gameSettings.TankHealth;
+            EntityMaxHealth = GameManager.gameSettings.TankHealth;
+            EntityHealth = EntityMaxHealth;
             _projectilePrefab = GameManager.gameSettings.TankProjectilePrefab;
         }
 
         _ammo = maxAmmo;
 
-        _navMeshAgent = this.GetComponent<NavMeshAgent>();
+        EnemyAgent = this.GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
         if(InitialTargetLocation != null)
         {
-            _navMeshAgent.SetDestination(InitialTargetLocation.position);
-            EnemyAnimator.SetBool("isMoving", _navMeshAgent.velocity.magnitude != 0);
+            EnemyAgent.SetDestination(InitialTargetLocation.position);
+            EnemyAnimator.SetBool("isMoving", EnemyAgent.velocity.magnitude != 0);
 
             this.transform.LookAt(PlayerCameraTransform.transform.position);
             this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
@@ -47,7 +46,7 @@ public class TankEntity : EnemyEntity
 
             if(distanceToTarget < 0.75f)
             {
-                _navMeshAgent.stoppingDistance = AttackThreshold - 1; //So the enemy moves into the attack radius
+                EnemyAgent.stoppingDistance = AttackThreshold - 1; //So the enemy moves into the attack radius
                 InitialTargetLocation = null;
                 DoorAnimator.SetBool("open", false);
             }
@@ -69,7 +68,7 @@ public class TankEntity : EnemyEntity
 
             if (AIStateRef == AIState.Attack)
             {
-                if(_navMeshAgent.velocity.magnitude == 0)
+                if(EnemyAgent.velocity.magnitude == 0)
                 {
                     if (!AttackActivated) //Looped via coroutine
                     {
@@ -95,7 +94,7 @@ public class TankEntity : EnemyEntity
 
             if (AIStateRef == AIState.Chase)
             {
-                _navMeshAgent.SetDestination(PlayerCameraTransform.position);
+                EnemyAgent.SetDestination(PlayerCameraTransform.position);
                 EnemyAnimator.SetBool("isMoving", true);
             }
         }

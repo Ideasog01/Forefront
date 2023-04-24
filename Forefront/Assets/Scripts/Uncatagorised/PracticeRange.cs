@@ -15,6 +15,6 @@ public class PracticeRange : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         entity.gameObject.SetActive(true);
-        entity.ResetEnemy();
+        entity.ResetEnemy(entity.transform.position);
     }
 }

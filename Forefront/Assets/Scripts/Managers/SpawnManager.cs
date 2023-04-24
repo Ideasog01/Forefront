@@ -111,10 +111,8 @@ public class SpawnManager : MonoBehaviour
             _enemyList.Add(enemyEntity);
         }
 
-        enemyEntity.transform.position = spawnSettings.SpawnPosition.position;
+        enemyEntity.ResetEnemy(spawnSettings.SpawnPosition.position);
         enemyEntity.InitialTargetLocation = spawnSettings.InitialTargetLocation;
-
-        enemyEntity.ResetEnemy();
 
         Animator doorAnimator = GameObject.Find(spawnSettings.DoorAnimatorObjectName).GetComponent<Animator>();
 

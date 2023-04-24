@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class EnemyEntity : BaseEntity
@@ -49,12 +50,21 @@ public class EnemyEntity : BaseEntity
 
     private Animator _doorAnimator;
 
+    [SerializeField]
     private Transform _initialTargetLocation;
+
+    private NavMeshAgent _navMeshAgent;
 
     public Transform InitialTargetLocation
     {
         get { return _initialTargetLocation; }
         set { _initialTargetLocation = value; }
+    }
+
+    public NavMeshAgent EnemyAgent
+    {
+        get { return _navMeshAgent; }
+        set { _navMeshAgent = value; }
     }
 
     public Animator DoorAnimator
@@ -112,8 +122,13 @@ public class EnemyEntity : BaseEntity
         get { return attackSound; }
     }
 
-    public void ResetEnemy()
+    public void ResetEnemy(Vector3 newPosition)
     {
+        _navMeshAgent = this.GetComponent<NavMeshAgent>();
+        _navMeshAgent.Warp(newPosition);
+        _navMeshAgent.ResetPath();
+        _navMeshAgent.stoppingDistance = 0;
+
         EntityHealth = EntityMaxHealth;
         DisplayHealth();
         disableEnemy = false;

@@ -11,8 +11,6 @@ public class ExploderEntity : EnemyEntity
     [SerializeField]
     private GameObject enemyMesh;
 
-    private NavMeshAgent _navMeshAgent;
-
     private bool _explosionActivated;
 
     private void Start()
@@ -23,15 +21,15 @@ public class ExploderEntity : EnemyEntity
             EntityHealth = GameManager.gameSettings.DroneHealth;
         }
 
-        _navMeshAgent = this.GetComponent<NavMeshAgent>();
+        EnemyAgent = this.GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
         if (InitialTargetLocation != null)
         {
-            _navMeshAgent.SetDestination(InitialTargetLocation.position);
-            EnemyAnimator.SetBool("isMoving", _navMeshAgent.velocity.magnitude != 0);
+            EnemyAgent.SetDestination(InitialTargetLocation.position);
+            EnemyAnimator.SetBool("isMoving", EnemyAgent.velocity.magnitude != 0);
 
             float distanceToTarget = Vector3.Distance(this.transform.position, InitialTargetLocation.position);
 
@@ -46,7 +44,7 @@ public class ExploderEntity : EnemyEntity
 
         if (!DisableEnemy && !_explosionActivated)
         {
-            _navMeshAgent.SetDestination(PlayerCameraTransform.position);
+            EnemyAgent.SetDestination(PlayerCameraTransform.position);
 
             CheckDistanceToPlayer();
         }
@@ -59,7 +57,7 @@ public class ExploderEntity : EnemyEntity
         if(distanceToPlayer < AttackThreshold && !_explosionActivated)
         {
             _explosionActivated = true;
-            _navMeshAgent.SetDestination(this.transform.position);
+            EnemyAgent.SetDestination(this.transform.position);
             StartCoroutine(DelayExplosion());
         }
     }

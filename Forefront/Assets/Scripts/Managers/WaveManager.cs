@@ -43,6 +43,8 @@ public class WaveManager : MonoBehaviour
                     _encounterInProgress = false;
                     Debug.Log("Wave Complete!");
                     GameManager.guiManager.DisplayWaveCompleteNotification();
+                    GameManager.playerEntity.EntityHealth = GameManager.playerEntity.EntityMaxHealth;
+                    GameManager.guiManager.DisplayPlayerHealth();
                     waveIndex++;
                 }
                 else
