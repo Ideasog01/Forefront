@@ -93,6 +93,7 @@ public class WaveManager : MonoBehaviour
                     GameManager.guiManager.DisplayWaveCompleteNotification();
                     GameManager.playerEntity.EntityHealth = GameManager.playerEntity.EntityMaxHealth;
                     GameManager.guiManager.DisplayPlayerHealth();
+                    GameManager.specialManager.DisplaySpecialMenu();
                     waveIndex++;
                 }
                 else

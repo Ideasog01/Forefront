@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public static PerkManager perkManager;
 
+    public static SpecialManager specialManager;
+
     public static Loadout mainLoadout;
 
     public static bool gameInProgress;
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour
         audioManager = this.GetComponent<AudioManager>();
         visualEffectManager = this.GetComponent<VisualEffectManager>();
         perkManager = this.GetComponent<PerkManager>();
+        specialManager = this.GetComponent<SpecialManager>();
         waveManager = GameObject.FindObjectOfType<WaveManager>(); //Find type as this is a prefab for multiple difficulty levels with different names
 
         playerEntity = GameObject.Find("XR Origin").GetComponent<PlayerEntity>();

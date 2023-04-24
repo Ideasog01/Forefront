@@ -10,6 +10,7 @@ public class WaveTrigger : MonoBehaviour
         {
             GameManager.waveManager.BeginEncounter();
             Debug.Log("Wave Triggered");
+            this.gameObject.SetActive(false);
         }
     }
 }
