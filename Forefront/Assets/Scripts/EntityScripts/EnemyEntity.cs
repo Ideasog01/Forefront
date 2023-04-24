@@ -126,7 +126,6 @@ public class EnemyEntity : BaseEntity
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         _navMeshAgent.Warp(newPosition);
-        _navMeshAgent.ResetPath();
         _navMeshAgent.stoppingDistance = 0;
 
         EntityHealth = EntityMaxHealth;

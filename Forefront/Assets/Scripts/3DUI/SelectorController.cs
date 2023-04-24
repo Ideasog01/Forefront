@@ -49,12 +49,16 @@ public class SelectorController : MonoBehaviour
 
     public void ConfirmOption()
     {
-        //0 = disable all, 1 = enable plasma cannon, 2 = cancel, 3 = enable pulse cannon
+        //0 = disable all, 1 = enable plasma cannon, 2 = cancel, 3 = activate special
 
-        if(_selectOption != 2)
+        if(_selectOption != 2 && _selectOption != 3)
         {
             GameManager.controllerManager.EnablePlasmaCannon(_selectOption == 1 && _selectOption != 0);
-            GameManager.controllerManager.EnableLaser(_selectOption == 3 && _selectOption != 0);
+        }
+
+        if (_selectOption == 3)
+        {
+            GameManager.specialManager.ActivateSpecial();
         }
     }
 }

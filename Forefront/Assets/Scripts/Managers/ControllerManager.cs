@@ -23,9 +23,6 @@ public class ControllerManager : MonoBehaviour
     private GameObject plasmaCannonObj;
 
     [SerializeField]
-    private GameObject laserObj;
-
-    [SerializeField]
     private SelectorController selectorController;
 
     [SerializeField]
@@ -99,14 +96,7 @@ public class ControllerManager : MonoBehaviour
         }
     }
 
-    public void EnableLaser(bool active)
-    {
-        laserObj.SetActive(active);
-        leftHandMeshObj.SetActive(!active);
-        PlayerEntity.laserActive = active;
-    }
-
-    public void EnableBlade(bool active)
+    public void EnableShield(bool active)
     {
         //The blade can only be enabled/disabled when in reach. Meaning that the player's right hand must be behind them and right hand grip is being performed.
 

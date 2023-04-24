@@ -4,7 +4,11 @@ using UnityEngine.UI;
 
 public class SpecialManager : MonoBehaviour
 {
-    public SpecialProperties selectedSpecial;
+    public bool specialActive;
+
+    public enum SpecialType { Grenade, HealingStation, EMP, Turret, Blade, Laser}
+
+    public SpecialType activeSpecial;
 
     [Header("General")]
 
@@ -33,7 +37,17 @@ public class SpecialManager : MonoBehaviour
     [SerializeField]
     private int[] specialIndex;
 
+    [SerializeField]
+    private Transform leftHand;
+
+    [Header("Special Objects")]
+
+    [SerializeField]
+    private GameObject grenadeObj;
+
     private bool _specialSelected;
+
+    #region SpecialSelection
 
     public void DisplaySpecialMenu()
     {
@@ -63,9 +77,9 @@ public class SpecialManager : MonoBehaviour
 
     public void SelectSpecial(int index) //Index is from 0 - 2, as there are three options for the player to choose from
     {
-        selectedSpecial = specialArray[specialIndex[index]];
         _specialSelected = true;
         nextWaveButton.interactable = true;
+        activeSpecial = (SpecialType)index;
 
         for(int i = 0; i < specialNames.Length; i++)
         {
@@ -91,6 +105,7 @@ public class SpecialManager : MonoBehaviour
             GameManager.audioManager.PlaySound(nextWaveSound);
             GameManager.waveManager.BeginEncounter();
             specialMenu.SetActive(false);
+            specialActive = true;
             _specialSelected = false;
         }
     }
@@ -100,16 +115,40 @@ public class SpecialManager : MonoBehaviour
         int randomIndex = Random.Range(0, specialArray.Length - 1);
         return randomIndex;
     }
+
+    #endregion
+
+    #region SpecialActions
+
+    public void ActivateSpecial()
+    {
+        if(specialActive)
+        {
+            if(activeSpecial == SpecialType.Grenade)
+            {
+                grenadeObj.SetActive(true);
+                grenadeObj.transform.position = leftHand.position;
+            }
+
+            specialActive = false;
+            Debug.Log("Special Activated");
+        }
+    }
+
+    #endregion
 }
 
 [System.Serializable]
-public struct SpecialProperties
+public struct SpecialProperties //The properties for each special ability
 {
     [SerializeField]
     private string specialName;
 
     [SerializeField]
     private Sprite specialIcon;
+
+    [SerializeField]
+    private SpecialManager.SpecialType specialType;
 
     public string SpecialName
     {
@@ -119,5 +158,10 @@ public struct SpecialProperties
     public Sprite SpecialIcon
     {
         get { return specialIcon; }
+    }
+
+    public SpecialManager.SpecialType SpecialTypeRef
+    {
+        get { return specialType; }
     }
 }

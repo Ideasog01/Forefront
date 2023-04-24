@@ -26,8 +26,8 @@ TagManager:
   - PlayerOnly
   - Enemy
   - Projectile
-  - 
-  - 
+  - IgnorePlayer
+  - Player
   - 
   - 
   - 
