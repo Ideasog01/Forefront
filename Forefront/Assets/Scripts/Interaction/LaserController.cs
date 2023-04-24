@@ -11,6 +11,14 @@ public class LaserController : MonoBehaviour
     [SerializeField]
     private GameObject laserEndVfx;
 
+    [SerializeField]
+    private int laserDamage;
+
+    [SerializeField]
+    private float damageCooldown;
+
+    private bool _damageInactive;
+
     private LineRenderer _lineRenderer;
 
     private void Start()
@@ -24,6 +32,11 @@ public class LaserController : MonoBehaviour
         {
             CheckCollision();
         }
+    }
+
+    private void OnEnable()
+    {
+        _damageInactive = false;
     }
 
     private void CheckCollision()
@@ -45,6 +58,20 @@ public class LaserController : MonoBehaviour
                 hit.collider.gameObject.SetActive(false);
             }
 
+            if(!_damageInactive)
+            {
+                if (hit.collider.CompareTag("EnemyDefault"))
+                {
+                    hit.transform.parent.GetComponent<EnemyEntity>().TakeDamage(laserDamage);
+                }
+                else if (hit.collider.CompareTag("EnemyCritical"))
+                {
+                    hit.transform.parent.GetComponent<EnemyEntity>().TakeDamage(laserDamage * 2);
+                }
+
+                StartCoroutine(DelayDamage());
+            }
+
             laserEndVfx.transform.position = hit.point;
             laserEndVfx.SetActive(true);
 
@@ -55,5 +82,14 @@ public class LaserController : MonoBehaviour
             _lineRenderer.SetPosition(1, end);
             laserEndVfx.SetActive(false);
         }
+    }
+
+    private IEnumerator DelayDamage()
+    {
+        _damageInactive = true;
+
+        yield return new WaitForSeconds(damageCooldown);
+
+        _damageInactive = false;
     }
 }

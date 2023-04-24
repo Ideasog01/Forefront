@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 210491508}
   - component: {fileID: 210491509}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: DamageSound_AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1124,7 +1124,7 @@ GameObject:
   - component: {fileID: 1931490899}
   - component: {fileID: 1931490900}
   - component: {fileID: 1931490901}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: DamageCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2979,7 +2979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2160503284428973878
 Transform:
   m_ObjectHideFlags: 0
@@ -3332,7 +3332,7 @@ GameObject:
   - component: {fileID: 3416094431169040656}
   - component: {fileID: 3416094431169040659}
   - component: {fileID: 1850934579}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: Hand_Left
   m_TagString: GameController
   m_Icon: {fileID: 0}
@@ -3587,6 +3587,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineOrigin: {fileID: 5073328640367068059}
   laserEndVfx: {fileID: 7169882382516892539}
+  laserDamage: 30
+  damageCooldown: 0.5
 --- !u!120 &5073328639234606477
 LineRenderer:
   serializedVersion: 2
@@ -3702,7 +3704,7 @@ GameObject:
   - component: {fileID: 5073328639301792348}
   - component: {fileID: 5073328639301792351}
   - component: {fileID: 8573680672958217912}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Backpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4070,26 +4072,27 @@ MonoBehaviour:
   teleportRecticle: {fileID: 0}
   weaponSelectObj: {fileID: 5073328640687196511}
   plasmaCannonObj: {fileID: 5073328640677879947}
+  laserObj: {fileID: 5073328640550217417}
   selectorController: {fileID: 5073328639498468982}
   shieldObj: {fileID: 8573680673740424466}
   leftHandControllerObj: {fileID: 6736485292547284943}
   rightHandMeshObj: {fileID: 6524210886025892549}
   leftHandMeshObj: {fileID: 3416094430803441412}
-  swordEquipSound:
-    audioClip: {fileID: 0}
-    audioSource: {fileID: 880144321}
+  shieldEquipSound:
+    audioClip: {fileID: 8300000, guid: 6a55b1210d28e48f9be508821dfab1d3, type: 3}
+    audioSource: {fileID: 0}
     volume: 1
-    pitch: 1
+    pitch: 0.5
     delayTime: 0
-    soundTransform: {fileID: 0}
+    soundTransform: {fileID: 6736485293017990855}
     isMusic: 0
-  swordUnequipSound:
-    audioClip: {fileID: 0}
-    audioSource: {fileID: 1041304953}
+  shieldUnequipSound:
+    audioClip: {fileID: 8300000, guid: 84e427d6b66ab4066b6a4dcd0ce819ee, type: 3}
+    audioSource: {fileID: 0}
     volume: 1
-    pitch: 1
+    pitch: 0.5
     delayTime: 0
-    soundTransform: {fileID: 0}
+    soundTransform: {fileID: 6736485293017990855}
     isMusic: 0
 --- !u!114 &5073328639373400719
 MonoBehaviour:
@@ -4210,18 +4213,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fa2d32359ac9c4f881db90beec6bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  specialActive: 1
-  activeSpecial: 0
+  isSpecialActive: 1
+  activeSpecial:
+    specialName: Laser
+    specialIcon: {fileID: 0}
+    specialType: 5
+    specialObject: {fileID: 0}
+    objectSpawn: {fileID: 0}
   specialArray:
   - specialName: Grenade
-    specialIcon: {fileID: 21300000, guid: 10506c6cfdfeb0141a5a98ab78a2a9fe, type: 3}
+    specialIcon: {fileID: 21300000, guid: 0be54ad9c856cb646a51f518a4af7586, type: 3}
     specialType: 0
+    specialObject: {fileID: 0}
+    objectSpawn: {fileID: 6736485292547284928}
   - specialName: Healing Station
     specialIcon: {fileID: 21300000, guid: 75ebf8450cb6c8d47a27c5da43974a3e, type: 3}
     specialType: 1
+    specialObject: {fileID: 0}
+    objectSpawn: {fileID: 6736485292897130080}
   - specialName: Laser
     specialIcon: {fileID: 21300000, guid: 238f9761c764875408a8a4ee678ca775, type: 3}
     specialType: 5
+    specialObject: {fileID: 0}
+    objectSpawn: {fileID: 0}
+  leftHand: {fileID: 3416094430803441412}
   specialMenu: {fileID: 5953965241906623464}
   specialIcons:
   - {fileID: 5953965242440569735}
@@ -4240,9 +4255,6 @@ MonoBehaviour:
     delayTime: 0.2
     soundTransform: {fileID: 6736485293017990855}
     isMusic: 0
-  specialIndex: 000000000000000000000000
-  leftHand: {fileID: 6736485292547284928}
-  grenadeObj: {fileID: 0}
 --- !u!1 &5073328639403520177
 GameObject:
   m_ObjectHideFlags: 0
@@ -4464,6 +4476,7 @@ MonoBehaviour:
   - {fileID: 2615934722907193333}
   selectColor: {r: 0.6544144, g: 0.78158313, b: 0.8113208, a: 1}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 0.8867924, g: 0.17150229, b: 0.17150229, a: 1}
 --- !u!135 &5073328639498468979
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8385,7 +8398,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953965241871664908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8644,7 +8657,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953965241991806849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8720,7 +8733,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953965242042908834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8796,7 +8809,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953965242057447123}
   m_LocalRotation: {x: -0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8805,7 +8818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.4, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2, y: 0.19999999}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5953965242057447120
@@ -8863,8 +8876,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.1
-  m_fontSizeBase: 0.1
+  m_fontSize: 0.05
+  m_fontSizeBase: 0.05
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10602,7 +10615,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953965243103725121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10611,7 +10624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.67, y: 0}
+  m_AnchoredPosition: {x: -0.67, y: -0}
   m_SizeDelta: {x: 0.2, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5953965243103725126
@@ -10811,7 +10824,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953965243284441130}
   m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: 0, z: 0.056}
+  m_LocalPosition: {x: 0, y: 0, z: 0.34199995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10820,7 +10833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.155}
+  m_AnchoredPosition: {x: 0, y: -0.405}
   m_SizeDelta: {x: 1, y: 0.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5953965243284441135
@@ -10878,8 +10891,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.12
-  m_fontSizeBase: 0.12
+  m_fontSize: 0.07
+  m_fontSizeBase: 0.07
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11497,7 +11510,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953965243557572161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11573,7 +11586,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5953965243674014513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11833,7 +11846,7 @@ GameObject:
   - component: {fileID: 9178594472599272071}
   - component: {fileID: 6524210885625842636}
   - component: {fileID: 1168867124}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: Hand_Right
   m_TagString: GameController
   m_Icon: {fileID: 0}

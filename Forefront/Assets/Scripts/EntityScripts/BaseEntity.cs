@@ -78,6 +78,21 @@ public class BaseEntity : MonoBehaviour
         }
     }
 
+    public void Heal(int amount)
+    {
+        if(entityHealth > 0)
+        {
+            entityHealth += amount;
+
+            if(entityHealth >= entityMaxHealth)
+            {
+                entityHealth = entityMaxHealth;
+            }
+
+            GameManager.guiManager.DisplayPlayerHealth();
+        }
+    }
+
     public void DamageOvertime()
     {
         if(_damageTimes == 0)

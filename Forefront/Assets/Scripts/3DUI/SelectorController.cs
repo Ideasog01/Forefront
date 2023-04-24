@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,9 @@ public class SelectorController : MonoBehaviour
 
     [SerializeField]
     private Color defaultColor;
+
+    [SerializeField]
+    private Color disabledColor;
 
     private int _selectOption;
 
@@ -33,16 +37,25 @@ public class SelectorController : MonoBehaviour
     private void SelectOption(int index) //Display active button and store index
     {
         _selectOption = index;
+        UpdateMenuDisplay(index);
+    }
 
-        for(int i = 0; i < optionImages.Length; i++)
+    public void UpdateMenuDisplay(int index)
+    {
+        for (int i = 0; i < optionImages.Length; i++)
         {
-            if(i == index)
+            if (i == index)
             {
                 optionImages[i].color = selectColor;
             }
             else
             {
                 optionImages[i].color = defaultColor;
+            }
+
+            if (i == 3 && !GameManager.specialManager.isSpecialActive)
+            {
+                optionImages[i].color = disabledColor;
             }
         }
     }

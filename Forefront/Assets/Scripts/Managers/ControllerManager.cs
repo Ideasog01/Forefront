@@ -23,6 +23,9 @@ public class ControllerManager : MonoBehaviour
     private GameObject plasmaCannonObj;
 
     [SerializeField]
+    private GameObject laserObj;
+
+    [SerializeField]
     private SelectorController selectorController;
 
     [SerializeField]
@@ -42,10 +45,10 @@ public class ControllerManager : MonoBehaviour
     [Header("Sounds")]
 
     [SerializeField]
-    private Sound swordEquipSound;
+    private Sound shieldEquipSound;
 
     [SerializeField]
-    private Sound swordUnequipSound;
+    private Sound shieldUnequipSound;
 
     public void DisplayTeleportRay(bool active)
     {
@@ -79,6 +82,7 @@ public class ControllerManager : MonoBehaviour
         {
             weaponSelectObj.transform.rotation = leftHandControllerObj.transform.rotation;
             weaponSelectObj.transform.position = leftHandControllerObj.transform.position;
+            selectorController.UpdateMenuDisplay(0);
         }
         else
         {
@@ -88,17 +92,20 @@ public class ControllerManager : MonoBehaviour
 
     public void EnablePlasmaCannon(bool active)
     {
-        if(!shieldObj.activeSelf)
-        {
-            plasmaCannonObj.SetActive(active);
-            rightHandMeshObj.SetActive(!active);
-            PlayerEntity.plasmaActive = active;
-        }
+        plasmaCannonObj.SetActive(active);
+        rightHandMeshObj.SetActive(!active);
+        PlayerEntity.plasmaActive = active;
+    }
+
+    public void EnableLaser(bool active)
+    {
+        laserObj.SetActive(active);
+        PlayerEntity.laserActive = active;
     }
 
     public void EnableShield(bool active)
     {
-        //The blade can only be enabled/disabled when in reach. Meaning that the player's right hand must be behind them and right hand grip is being performed.
+        //The shield can only be enabled/disabled when in reach. Meaning that the player's right hand must be behind them and right hand grip is being performed.
 
         if(shieldInReach)
         {
@@ -106,12 +113,12 @@ public class ControllerManager : MonoBehaviour
             {
                 if(!shieldObj.activeSelf) //Ensures the blade is not already active to avoid playing the equip sound when putting the sword away
                 {
-                    GameManager.audioManager.PlaySound(swordEquipSound);
+                    GameManager.audioManager.PlaySound(shieldEquipSound);
                 }
             }
             else
             {
-                GameManager.audioManager.PlaySound(swordUnequipSound);
+                GameManager.audioManager.PlaySound(shieldUnequipSound);
             }
 
             shieldObj.SetActive(active);

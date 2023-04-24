@@ -47,9 +47,6 @@ public class PlayerEntity : BaseEntity
     private LineRenderer laserLineRenderer;
 
     [SerializeField]
-    private float laserChargeCost;
-
-    [SerializeField]
     private Transform laserEnd;
 
     [SerializeField]
@@ -125,13 +122,6 @@ public class PlayerEntity : BaseEntity
 
         if(_isLaserFiring)
         {
-            powerChargeAmount -= Time.deltaTime * laserChargeCost;
-
-            if(powerChargeAmount <= 0)
-            {
-                FireLaser(false);
-            }
-
             laserEnd.Rotate(new Vector3(0, 0, 1) * laserRotationSpeed);
         }
 

@@ -1,19 +1,24 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SpecialManager : MonoBehaviour
 {
-    public bool specialActive;
+    public bool isSpecialActive;
+
+    //[HideInInspector]
+    public SpecialProperties activeSpecial;
 
     public enum SpecialType { Grenade, HealingStation, EMP, Turret, Blade, Laser}
-
-    public SpecialType activeSpecial;
 
     [Header("General")]
 
     [SerializeField]
     private SpecialProperties[] specialArray;
+
+    [SerializeField]
+    private GameObject leftHand;
 
     [Header("Display")]
 
@@ -34,16 +39,9 @@ public class SpecialManager : MonoBehaviour
     [SerializeField]
     private Sound nextWaveSound;
 
-    [SerializeField]
-    private int[] specialIndex;
-
-    [SerializeField]
-    private Transform leftHand;
+    private int[] _specialIndex;
 
     [Header("Special Objects")]
-
-    [SerializeField]
-    private GameObject grenadeObj;
 
     private bool _specialSelected;
 
@@ -63,10 +61,10 @@ public class SpecialManager : MonoBehaviour
         nextWaveButton.interactable = false;
 
         //Select random specials for the player to choose from
-        for (int i = 0; i < specialIndex.Length; i++)
+        for (int i = 0; i < _specialIndex.Length; i++)
         {
             int index = SelectRandomSpecial();
-            specialIndex[i] = index;
+            _specialIndex[i] = index;
 
             //Display the selected special
 
@@ -79,9 +77,10 @@ public class SpecialManager : MonoBehaviour
     {
         _specialSelected = true;
         nextWaveButton.interactable = true;
-        activeSpecial = (SpecialType)index;
 
-        for(int i = 0; i < specialNames.Length; i++)
+        activeSpecial = specialArray[_specialIndex[index]];
+
+        for (int i = 0; i < specialNames.Length; i++)
         {
             Button button = specialNames[i].transform.parent.GetComponent<Button>();
 
@@ -105,7 +104,7 @@ public class SpecialManager : MonoBehaviour
             GameManager.audioManager.PlaySound(nextWaveSound);
             GameManager.waveManager.BeginEncounter();
             specialMenu.SetActive(false);
-            specialActive = true;
+            isSpecialActive = true;
             _specialSelected = false;
         }
     }
@@ -122,17 +121,33 @@ public class SpecialManager : MonoBehaviour
 
     public void ActivateSpecial()
     {
-        if(specialActive)
+        if(isSpecialActive)
         {
-            if(activeSpecial == SpecialType.Grenade)
+            if(activeSpecial.SpecialObject != null)
             {
-                grenadeObj.SetActive(true);
-                grenadeObj.transform.position = leftHand.position;
+                activeSpecial.SpecialObject.SetActive(true);
+                activeSpecial.SpecialObject.transform.position = activeSpecial.ObjectSpawn.position;
+            }
+            else
+            {
+                if(activeSpecial.SpecialTypeRef == SpecialType.Laser)
+                {
+                    GameManager.controllerManager.EnableLaser(true);
+                    StartCoroutine(DelayDisableLaser());
+                    leftHand.SetActive(false);
+                }
             }
 
-            specialActive = false;
+            isSpecialActive = false;
             Debug.Log("Special Activated");
         }
+    }
+
+    private IEnumerator DelayDisableLaser()
+    {
+        yield return new WaitForSeconds(8);
+        GameManager.controllerManager.EnableLaser(false);
+        leftHand.SetActive(true);
     }
 
     #endregion
@@ -150,6 +165,12 @@ public struct SpecialProperties //The properties for each special ability
     [SerializeField]
     private SpecialManager.SpecialType specialType;
 
+    [SerializeField]
+    private GameObject specialObject;
+
+    [SerializeField]
+    private Transform objectSpawn;
+
     public string SpecialName
     {
         get { return specialName; }
@@ -163,5 +184,15 @@ public struct SpecialProperties //The properties for each special ability
     public SpecialManager.SpecialType SpecialTypeRef
     {
         get { return specialType; }
+    }
+
+    public GameObject SpecialObject
+    {
+        get { return specialObject; }
+    }
+
+    public Transform ObjectSpawn
+    {
+        get { return objectSpawn; }
     }
 }
