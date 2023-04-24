@@ -554,6 +554,14 @@ MonoBehaviour:
       spawnCooldown: 4
     maxEnemyCount: 2
     encounterTrigger: {fileID: 2796366844518914476}
+  multiEnemyDefeatSound:
+    audioClip: {fileID: 8300000, guid: 2d18bd53c9a924bd8941d83971358957, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0
+    pitch: 0
+    delayTime: 0
+    soundTransform: {fileID: 0}
+    isMusic: 0
 --- !u!1 &8020597635092502821
 GameObject:
   m_ObjectHideFlags: 0

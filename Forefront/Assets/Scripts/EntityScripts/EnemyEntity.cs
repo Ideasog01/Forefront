@@ -144,25 +144,7 @@ public class EnemyEntity : BaseEntity
 
     public void OnEnemyDeath()
     {
-        SpawnManager.activeHostiles--;
-        GameManager.waveManager.hostilesDefeated++;
-
-        Debug.Log(SpawnManager.activeHostiles);
-
-        switch (EnemyTypeRef)
-        {
-            case EnemyType.Drone:
-                GameManager.waveManager.playerScore += GameManager.gameSettings.DroneScoreAmount;
-                break;
-            case EnemyType.Exploder:
-                GameManager.waveManager.playerScore += GameManager.gameSettings.ExploderScoreAmount;
-                break;
-            case EnemyType.Tank:
-                GameManager.waveManager.playerScore += GameManager.gameSettings.TankScoreAmount;
-                break;
-        }
-
-        GameManager.guiManager.DisplayScore();
+        GameManager.waveManager.EnemyDefeated(EnemyTypeRef);
 
         GameManager.audioManager.PlaySound(destroySound);
 

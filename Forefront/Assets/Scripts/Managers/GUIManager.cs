@@ -75,6 +75,12 @@ public class GUIManager : MonoBehaviour
     [SerializeField]
     private Sound defeatSound;
 
+    [SerializeField]
+    private TextMeshProUGUI defeatScoreText;
+
+    [SerializeField]
+    private TextMeshProUGUI defeatHighScoreText;
+
     [Header("Victory Canvas")]
 
     [SerializeField]
@@ -92,10 +98,19 @@ public class GUIManager : MonoBehaviour
     [Header("WaveCompleteScreen")]
 
     [SerializeField]
-    private GameObject waveCompleteText;
+    private Sound waveCompleteSound;
+
+    [Header("Big Message Display")]
 
     [SerializeField]
-    private Sound waveCompleteSound;
+    private Animator bigMessageAnimator;
+
+    [SerializeField]
+    private TextMeshProUGUI bigMessageText;
+
+    [Header("Other")]
+
+    public Sound multiEnemyDefeatSound;
 
     private void Update()
     {
@@ -126,7 +141,7 @@ public class GUIManager : MonoBehaviour
 
     public void DisplayScore()
     {
-        scoreText.text = "Score: " + PlayerEntity.scoreAmount.ToString();
+        scoreText.text = "Score: " + GameManager.waveManager.playerScore.ToString();
     }
 
     public void DisplayPowerCharge()
@@ -154,7 +169,7 @@ public class GUIManager : MonoBehaviour
             GameManager.audioManager.PlaySound(damageCriticalSound);
         }
 
-        damageCriticalText.gameObject.SetActive(health < 30);
+        damageCriticalText.gameObject.SetActive(health < 30 && health > 0);
 
         if(health <= 0)
         {
@@ -176,7 +191,14 @@ public class GUIManager : MonoBehaviour
 
     public void DisplayDefeatCanvas() //Display/Position the canvas
     {
+        if (GameManager.waveManager.playerScore > GameManager.gameSettings.HighScore)
+        {
+            GameManager.gameSettings.HighScore = GameManager.waveManager.playerScore;
+        }
+
         defeatCanvas.SetActive(true);
+        defeatScoreText.text = GameManager.waveManager.playerScore.ToString();
+        defeatHighScoreText.text = GameManager.gameSettings.HighScore.ToString();
         defeatCanvas.transform.position = GameObject.Find("Main Camera").transform.position + new Vector3(0, 1, 2);
         GameManager.audioManager.PlaySound(defeatSound);
     }
@@ -199,14 +221,13 @@ public class GUIManager : MonoBehaviour
 
     public void DisplayWaveCompleteNotification()
     {
-        waveCompleteText.SetActive(true);
+        DisplayBigMessage("Wave Complete");
         GameManager.audioManager.PlaySound(waveCompleteSound);
-        StartCoroutine(WaveCompleteCloseDelay());
     }
 
-    private IEnumerator WaveCompleteCloseDelay()
+    public void DisplayBigMessage(string messageContent)
     {
-        yield return new WaitForSeconds(3);
-        waveCompleteText.SetActive(false);
+        bigMessageText.text = messageContent;
+        bigMessageAnimator.SetTrigger("active");
     }
 }

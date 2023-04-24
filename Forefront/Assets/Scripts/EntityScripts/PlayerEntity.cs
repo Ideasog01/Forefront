@@ -8,8 +8,6 @@ public class PlayerEntity : BaseEntity
 
     public static float plasmaCharge;
 
-    public static int scoreAmount;
-
     public static float powerChargeAmount = 100;
 
     [Header("Plasma Cannon")]

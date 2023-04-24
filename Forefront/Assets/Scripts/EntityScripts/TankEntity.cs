@@ -54,7 +54,7 @@ public class TankEntity : EnemyEntity
             return;
         }
 
-        if (_projectilePrefab != null && !DisableEnemy && EntityHealth > 0)
+        if (_projectilePrefab != null && !DisableEnemy && EntityHealth > 0 && GameManager.gameInProgress)
         {
             if (AIStateRef != AIState.Idle)
             {

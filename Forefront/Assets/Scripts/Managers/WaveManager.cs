@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static EnemyEntity;
 
 public class WaveManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class WaveManager : MonoBehaviour
 
     private bool _encounterInProgress;
 
+    private int _recentEnemyDefeats;
+
     public void BeginEncounter()
     {
         if(!_encounterInProgress && waveIndex < waveArray.Length)
@@ -28,6 +31,51 @@ public class WaveManager : MonoBehaviour
             spawnIndex = 0;
             _encounterInProgress = true;
             StartCoroutine(DelaySpawn());
+        }
+    }
+
+    public void EnemyDefeated(EnemyType type)
+    {
+        SpawnManager.activeHostiles--;
+        GameManager.waveManager.hostilesDefeated++;
+
+        Debug.Log(SpawnManager.activeHostiles);
+
+        switch (type)
+        {
+            case EnemyType.Drone:
+                GameManager.waveManager.playerScore += GameManager.gameSettings.DroneScoreAmount;
+                break;
+            case EnemyType.Exploder:
+                GameManager.waveManager.playerScore += GameManager.gameSettings.ExploderScoreAmount;
+                break;
+            case EnemyType.Tank:
+                GameManager.waveManager.playerScore += GameManager.gameSettings.TankScoreAmount;
+                break;
+        }
+
+        GameManager.guiManager.DisplayScore();
+
+        _recentEnemyDefeats++;
+
+        if(_recentEnemyDefeats >= 4)
+        {
+            Debug.Log("Recent Enemy Defeats: " + _recentEnemyDefeats);
+            GameManager.audioManager.PlaySound(GameManager.guiManager.multiEnemyDefeatSound);
+            GameManager.guiManager.DisplayBigMessage("Quadruple Elimination!");
+        }
+
+        StartCoroutine(ResetRecentEnemyDefeats());
+
+    }
+
+    private IEnumerator ResetRecentEnemyDefeats()
+    {
+        int recentOld = _recentEnemyDefeats;
+        yield return new WaitForSeconds(1.5f);
+        if(_recentEnemyDefeats <= recentOld) //Then player defeated enemy within time
+        {
+            _recentEnemyDefeats = 0;
         }
     }
 

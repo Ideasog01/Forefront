@@ -47,7 +47,7 @@ public class DroneEntity : EnemyEntity
             return;
         }
 
-        if (_projectilePrefab != null && !DisableEnemy)
+        if (_projectilePrefab != null && !DisableEnemy && GameManager.gameInProgress)
         {
             if (AIStateRef != AIState.Idle)
             {
