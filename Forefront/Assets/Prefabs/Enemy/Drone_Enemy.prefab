@@ -5559,7 +5559,8 @@ MonoBehaviour:
   enemyAnimator: {fileID: 0}
   enemyDamage: 10
   attackThreshold: 5
-  attackCooldown: 0
+  attackCooldown: 1
+  attackActivated: 0
   enemySlider: {fileID: 2032719471968585306}
   disableEnemy: 0
   destroySound:
@@ -5578,6 +5579,7 @@ MonoBehaviour:
     delayTime: 0
     soundTransform: {fileID: 6724016891656478019}
     isMusic: 0
+  _initialTargetLocation: {fileID: 0}
   projectileSpawn:
   - {fileID: 6724016891656478019}
   - {fileID: 8258594446916001485}

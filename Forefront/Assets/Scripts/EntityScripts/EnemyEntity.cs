@@ -103,6 +103,7 @@ public class EnemyEntity : BaseEntity
     public float AttackCooldown
     {
         get { return attackCooldown; }
+        set { attackCooldown = value; }
     }
 
     public bool AttackActivated

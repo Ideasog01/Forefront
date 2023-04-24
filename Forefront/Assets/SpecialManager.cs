@@ -39,7 +39,8 @@ public class SpecialManager : MonoBehaviour
     [SerializeField]
     private Sound nextWaveSound;
 
-    private int[] _specialIndex;
+    [SerializeField]
+    private int[] specialIndex;
 
     [Header("Special Objects")]
 
@@ -61,10 +62,10 @@ public class SpecialManager : MonoBehaviour
         nextWaveButton.interactable = false;
 
         //Select random specials for the player to choose from
-        for (int i = 0; i < _specialIndex.Length; i++)
+        for (int i = 0; i < specialIndex.Length; i++)
         {
             int index = SelectRandomSpecial();
-            _specialIndex[i] = index;
+            specialIndex[i] = index;
 
             //Display the selected special
 
@@ -78,7 +79,7 @@ public class SpecialManager : MonoBehaviour
         _specialSelected = true;
         nextWaveButton.interactable = true;
 
-        activeSpecial = specialArray[_specialIndex[index]];
+        activeSpecial = specialArray[specialIndex[index]];
 
         for (int i = 0; i < specialNames.Length; i++)
         {

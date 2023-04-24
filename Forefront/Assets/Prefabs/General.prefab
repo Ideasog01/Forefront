@@ -2979,7 +2979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2160503284428973878
 Transform:
   m_ObjectHideFlags: 0
@@ -4213,7 +4213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fa2d32359ac9c4f881db90beec6bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSpecialActive: 1
+  isSpecialActive: 0
   activeSpecial:
     specialName: Laser
     specialIcon: {fileID: 0}
@@ -12447,7 +12447,6 @@ MonoBehaviour:
     isMusic: 0
   laserOrigin: {fileID: 5073328640550217422}
   laserLineRenderer: {fileID: 5073328639234606477}
-  laserChargeCost: 20
   laserEnd: {fileID: 8165123244223913521}
   laserEndVFX: {fileID: 7169882382516892539}
   laserRotationSpeed: 10

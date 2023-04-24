@@ -11,8 +11,6 @@ public class TankEntity : EnemyEntity
     [SerializeField]
     private int maxAmmo;
 
-    private float _attackCooldown;
-
     private Transform _projectilePrefab;
 
     private int _ammo;
@@ -21,7 +19,7 @@ public class TankEntity : EnemyEntity
     {
         if (GameManager.gameSettings != null)
         {
-            _attackCooldown = GameManager.gameSettings.TankAttackCooldown;
+            AttackCooldown = GameManager.gameSettings.TankAttackCooldown;
             EntityMaxHealth = GameManager.gameSettings.TankHealth;
             EntityHealth = EntityMaxHealth;
             _projectilePrefab = GameManager.gameSettings.TankProjectilePrefab;

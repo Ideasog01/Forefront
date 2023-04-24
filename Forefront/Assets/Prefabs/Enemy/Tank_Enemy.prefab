@@ -135,8 +135,9 @@ MonoBehaviour:
   aiState: 1
   enemyAnimator: {fileID: 2225250922136718708}
   enemyDamage: 25
-  attackThreshold: 5
+  attackThreshold: 8
   attackCooldown: 1.72
+  attackActivated: 0
   enemySlider: {fileID: 7455593875535501995}
   disableEnemy: 0
   destroySound:
@@ -155,6 +156,7 @@ MonoBehaviour:
     delayTime: 0
     soundTransform: {fileID: 1779237244534281774}
     isMusic: 0
+  _initialTargetLocation: {fileID: 0}
   projectileSpawn: {fileID: 1891265169322608077}
   maxAmmo: 5
 --- !u!195 &520688062064976090

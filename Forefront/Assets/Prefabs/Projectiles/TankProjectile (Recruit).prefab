@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileMovementSpeed: 4
-  projectileDamage: 25
+  projectileDamage: 30
   projectileType: 3
   projectileDuration: 2
   destroyVfx:
