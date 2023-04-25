@@ -3077,7 +3077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2160503284428973878
 Transform:
   m_ObjectHideFlags: 0
@@ -4139,6 +4139,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30917e57310bc9f448a7cd9931da7317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  doorAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemyPrefabs:
+  - {fileID: 7202138089265187551, guid: 359c2e1242dd5c44c920f3b5d59f02b9, type: 3}
+  - {fileID: 2020550971199392901, guid: d2713222216f24f40b901cf08792b465, type: 3}
+  - {fileID: 1779237244534281774, guid: 6025dd68edc163a4ba780c5f923131b5, type: 3}
   projectileParent: {fileID: 5073328640363114272}
   enemyParent: {fileID: 5073328639110476963}
   activateGameMode: 1
@@ -4282,6 +4318,14 @@ MonoBehaviour:
     delayTime: 0.5
     soundTransform: {fileID: 6736485293017990855}
     isMusic: 0
+  nextWaveSound:
+    audioClip: {fileID: 8300000, guid: ef5b81f56a2dc48638de75b1ca40797c, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    delayTime: 0.5
+    soundTransform: {fileID: 6736485292897130080}
+    isMusic: 0
   displaySpawn: {fileID: 1716450264}
 --- !u!114 &5062677448030228054
 MonoBehaviour:
@@ -4362,14 +4406,6 @@ MonoBehaviour:
   - {fileID: 5953965242668198643}
   - {fileID: 5953965242265088534}
   nextWaveButton: {fileID: 5953965241835286956}
-  nextWaveSound:
-    audioClip: {fileID: 8300000, guid: ef5b81f56a2dc48638de75b1ca40797c, type: 3}
-    audioSource: {fileID: 0}
-    volume: 0.5
-    pitch: 1
-    delayTime: 0.2
-    soundTransform: {fileID: 6736485293017990855}
-    isMusic: 0
   specialIndex: 000000000000000000000000
 --- !u!1 &5073328639403520177
 GameObject:

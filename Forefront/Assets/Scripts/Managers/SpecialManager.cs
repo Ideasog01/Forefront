@@ -37,9 +37,6 @@ public class SpecialManager : MonoBehaviour
     [Header("Other")]
 
     [SerializeField]
-    private Sound nextWaveSound;
-
-    [SerializeField]
     private int[] specialIndex;
 
     [Header("Special Objects")]
@@ -102,9 +99,19 @@ public class SpecialManager : MonoBehaviour
     {
         if(_specialSelected)
         {
+            WaveTrigger waveTrigger = GameManager.waveManager.waveArray[GameManager.waveManager.waveIndex].WaveTriggerRef; //A wave trigger is neccessary for a new room
+
+            if(waveTrigger == null) //The wave will take place in the same room as the last one, so start the next wave now
+            {
+                GameManager.waveManager.BeginEncounter();
+            }
+            else
+            {
+                waveTrigger.gameObject.SetActive(true); //Wait for the player to travel to the next room
+                GameManager.guiManager.DisplayBigMessage("TRAVEL TO NEXT ROOM");
+            }
+
             GameManager.controllerManager.EnablePlasmaCannon(true);
-            GameManager.audioManager.PlaySound(nextWaveSound);
-            GameManager.waveManager.BeginEncounter();
             specialMenu.SetActive(false);
             isSpecialActive = true;
             _specialSelected = false;

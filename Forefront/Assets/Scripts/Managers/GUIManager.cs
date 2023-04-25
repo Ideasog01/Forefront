@@ -112,6 +112,8 @@ public class GUIManager : MonoBehaviour
 
     public Sound multiEnemyDefeatSound;
 
+    public Sound nextWaveSound;
+
     [SerializeField]
     private Transform displaySpawn; //The position of where the victory, defeat and wave complete canvas should spawn
 
@@ -202,8 +204,8 @@ public class GUIManager : MonoBehaviour
         }
 
         defeatCanvas.SetActive(true);
-        defeatScoreText.text = GameManager.waveManager.playerScore.ToString();
-        defeatHighScoreText.text = GameManager.gameSettings.HighScore.ToString();
+        defeatScoreText.text = "Score: " + GameManager.waveManager.playerScore.ToString();
+        defeatHighScoreText.text = "High Score: " + GameManager.gameSettings.HighScore.ToString();
 
         SetDisplayLocation(defeatCanvas.transform);
 

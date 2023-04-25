@@ -22,12 +22,12 @@ MonoBehaviour:
   droneProjectilePrefab: {fileID: 3876445595443255495, guid: 24dd696601ed0134dbcc8971fac1e8ea, type: 3}
   droneAttackCooldown: 2
   droneScoreAmount: 5
-  exploderHealth: 20
+  exploderHealth: 40
   exploderAttackDamage: 40
   exploderScoreAmount: 10
   tankScoreAmount: 20
   tankProjectilePrefab: {fileID: 3876445595443255495, guid: 442e70ac78bedd8478d83e96c6cfe1b1, type: 3}
-  tankHealth: 200
+  tankHealth: 150
   tankAttackCooldown: 1
   highScore: 445
   hostilesDefeated: 0

@@ -15,8 +15,7 @@ public class WaveManager : MonoBehaviour
 
     public int hostilesDefeated;
 
-    [SerializeField]
-    private WaveDetails[] waveArray;
+    public WaveDetails[] waveArray;
 
     private bool _enemiesSpawned;
 
@@ -30,6 +29,9 @@ public class WaveManager : MonoBehaviour
         {
             spawnIndex = 0;
             _encounterInProgress = true;
+
+            GameManager.audioManager.PlaySound(GameManager.guiManager.nextWaveSound);
+
             StartCoroutine(DelaySpawn());
         }
     }
@@ -114,6 +116,8 @@ public class WaveManager : MonoBehaviour
             GameManager.gameSettings.HighScore = playerScore;
         }
 
+        GameManager.playerEntity.Heal(GameManager.playerEntity.EntityMaxHealth);
+
         GameManager.guiManager.DisplayVictoryCanvas();
         Debug.Log("GameMode Ended");
     }
@@ -153,7 +157,8 @@ public struct WaveDetails
     private int maxEnemyCount;
 
     [SerializeField]
-    private Transform encounterTrigger;
+    private WaveTrigger waveTrigger;
+
     public SpawnSettings[] SpawnSettingsArray
     {
         get { return spawnSettingsArray; }
@@ -164,9 +169,9 @@ public struct WaveDetails
         get { return maxEnemyCount; }
     }
 
-    public Transform EncounterTrigger
+    public WaveTrigger WaveTriggerRef
     {
-        get { return encounterTrigger; }
+        get { return waveTrigger; }
     }
 }
 
@@ -174,46 +179,23 @@ public struct WaveDetails
 public struct SpawnSettings
 {
     [SerializeField]
-    private Transform enemyPrefab;
+    private EnemyType enemyTypeToSpawn;
 
+    [Range(0, 14)]
     [SerializeField]
-    private string doorAnimator;
-
-    [SerializeField]
-    private Transform initialTargetLocation;
-
-    [SerializeField]
-    private Transform spawnPosition;
-
-    [SerializeField]
-    private EnemyEntity.EnemyType enemyType;
+    private int spawnLocationIndex;
 
     [SerializeField]
     private float spawnCooldown;
 
-    public Transform EnemyPrefab
+    public EnemyType EnemyTypeToSpawn
     {
-        get { return enemyPrefab; }
+        get { return enemyTypeToSpawn; }
     }
 
-    public string DoorAnimatorObjectName
+    public int SpawnLocationIndex
     {
-        get { return doorAnimator; }
-    }
-
-    public Transform InitialTargetLocation
-    {
-        get { return initialTargetLocation; }
-    }
-
-    public Transform SpawnPosition
-    {
-        get { return spawnPosition; }
-    }
-
-    public EnemyEntity.EnemyType EnemyType
-    {
-        get { return enemyType; }
+        get { return spawnLocationIndex; }
     }
 
     public float SpawnCooldown

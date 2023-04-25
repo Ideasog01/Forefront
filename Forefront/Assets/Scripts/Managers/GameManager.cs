@@ -30,11 +30,14 @@ public class GameManager : MonoBehaviour
 
     public static bool gameInProgress;
 
+    [Header("Game Settings")]
+
     [SerializeField]
     private Loadout mainLoadoutRef;
 
     [SerializeField]
     private GameSettings testSettings;
+
 
     private void Awake()
     {

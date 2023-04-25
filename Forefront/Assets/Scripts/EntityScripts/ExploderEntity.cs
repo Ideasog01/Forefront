@@ -45,7 +45,7 @@ public class ExploderEntity : EnemyEntity
             return;
         }
 
-        if (!DisableEnemy && !_explosionActivated)
+        if (!DisableEnemy && !_explosionActivated && GameManager.gameInProgress)
         {
             EnemyAgent.SetDestination(PlayerCameraTransform.position);
 

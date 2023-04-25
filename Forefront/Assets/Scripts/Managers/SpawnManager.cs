@@ -7,6 +7,17 @@ public class SpawnManager : MonoBehaviour
 {
     public static int activeHostiles;
 
+    [Header("Spawn Settings")]
+
+    public Transform[] spawnArray;
+
+    public Animator[] doorAnimators;
+
+    [Header("Other")]
+
+    [SerializeField]
+    private Transform[] enemyPrefabs;
+
     [SerializeField]
     private Transform projectileParent;
 
@@ -95,7 +106,7 @@ public class SpawnManager : MonoBehaviour
         {
             if(!enemy.gameObject.activeSelf)
             {
-                if(enemy.EnemyTypeRef == spawnSettings.EnemyType)
+                if(enemy.EnemyTypeRef == spawnSettings.EnemyTypeToSpawn)
                 {
                     enemy.gameObject.SetActive(true);
                     enemyEntity = enemy;
@@ -104,20 +115,24 @@ public class SpawnManager : MonoBehaviour
             }
         }
 
-        if(enemyEntity == null)
+        int spawnIndex = spawnSettings.SpawnLocationIndex;
+        Transform spawnPos = spawnArray[spawnIndex];
+        Transform initialTargetPos = spawnPos.GetChild(0);
+        Animator door = doorAnimators[spawnIndex];
+
+
+        if (enemyEntity == null)
         {
-            enemyEntity = Instantiate(spawnSettings.EnemyPrefab.GetComponent<EnemyEntity>(), spawnSettings.SpawnPosition.position, spawnSettings.SpawnPosition.rotation);
+            enemyEntity = Instantiate(enemyPrefabs[(int)spawnSettings.EnemyTypeToSpawn].GetComponent<EnemyEntity>(), spawnPos.position, spawnPos.rotation);
             enemyEntity.transform.parent = enemyParent;
             enemyList.Add(enemyEntity);
         }
 
-        enemyEntity.ResetEnemy(spawnSettings.SpawnPosition.position);
-        enemyEntity.InitialTargetLocation = spawnSettings.InitialTargetLocation;
+        enemyEntity.ResetEnemy(spawnPos.position);
+        enemyEntity.InitialTargetLocation = initialTargetPos;
 
-        Animator doorAnimator = GameObject.Find(spawnSettings.DoorAnimatorObjectName).GetComponent<Animator>();
-
-        doorAnimator.SetBool("open", true);
-        enemyEntity.DoorAnimator = doorAnimator;
+        door.SetBool("open", true);
+        enemyEntity.DoorAnimator = door;
 
         activeHostiles++;
     }
