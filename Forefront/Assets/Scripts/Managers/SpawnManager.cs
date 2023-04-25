@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private bool activateGameMode;
 
-    private List<EnemyEntity> _enemyList = new List<EnemyEntity>();
+    public List<EnemyEntity> enemyList = new List<EnemyEntity>();
 
     private List<PlayerProjectileController> _activePlayerProjectiles = new List<PlayerProjectileController>();
 
@@ -63,7 +63,7 @@ public class SpawnManager : MonoBehaviour
         return projectileToUse;
     }
 
-    public void SpawnEnemyProjectile(Transform prefab, Vector3 position, Quaternion rotation)
+    public void SpawnProjectile(Transform prefab, Vector3 position, Quaternion rotation)
     {
         ProjectileController projectileToUse = null;
 
@@ -91,7 +91,7 @@ public class SpawnManager : MonoBehaviour
     {
         EnemyEntity enemyEntity = null;
 
-        foreach(EnemyEntity enemy in _enemyList)
+        foreach(EnemyEntity enemy in enemyList)
         {
             if(!enemy.gameObject.activeSelf)
             {
@@ -108,7 +108,7 @@ public class SpawnManager : MonoBehaviour
         {
             enemyEntity = Instantiate(spawnSettings.EnemyPrefab.GetComponent<EnemyEntity>(), spawnSettings.SpawnPosition.position, spawnSettings.SpawnPosition.rotation);
             enemyEntity.transform.parent = enemyParent;
-            _enemyList.Add(enemyEntity);
+            enemyList.Add(enemyEntity);
         }
 
         enemyEntity.ResetEnemy(spawnSettings.SpawnPosition.position);

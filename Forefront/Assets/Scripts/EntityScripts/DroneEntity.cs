@@ -111,7 +111,7 @@ public class DroneEntity : EnemyEntity
         {
             foreach(Transform transform in projectileSpawn)
             {
-                GameManager.spawnManager.SpawnEnemyProjectile(_projectilePrefab, transform.position, transform.rotation);
+                GameManager.spawnManager.SpawnProjectile(_projectilePrefab, transform.position, transform.rotation);
             }
             
             GameManager.audioManager.PlaySound(AttackSound);

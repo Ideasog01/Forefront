@@ -109,13 +109,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2420590159277017802}
   - component: {fileID: 2420590159277017803}
+  - component: {fileID: 2400988102694097354}
   m_Layer: 0
   m_Name: HealingStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2420590159277017802
 Transform:
   m_ObjectHideFlags: 0
@@ -130,7 +131,7 @@ Transform:
   m_Children:
   - {fileID: 2420590158926396781}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2420590159277017803
 MonoBehaviour:
@@ -147,7 +148,6 @@ MonoBehaviour:
   healTime: 2
   healAmount: 20
   healingRadius: 5
-  duration: 12
   healSound:
     audioClip: {fileID: 8300000, guid: 38a17a92b9d9748c6a1e67972041b833, type: 3}
     audioSource: {fileID: 0}
@@ -156,6 +156,19 @@ MonoBehaviour:
     delayTime: 0
     soundTransform: {fileID: 2420590159277017802}
     isMusic: 0
+--- !u!114 &2400988102694097354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420590159277017804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409f93525bcbc6141bd59b25c6f0e6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
 --- !u!1 &2420590160022074143
 GameObject:
   m_ObjectHideFlags: 0

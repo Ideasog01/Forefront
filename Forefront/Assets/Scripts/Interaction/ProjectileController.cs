@@ -22,7 +22,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField]
     private Sound destroySound;
 
-    public enum ProjectileType { PlasmaProjectileSmall, PlasmaProjectileMedium, PlasmaProjectileLarge, DroneProjectile };
+    public enum ProjectileType { PlayerProjectile, DroneProjectile, TankProjectile };
 
     public ProjectileType ProjectileTypeRef
     {
@@ -59,16 +59,34 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Shield"))
+        if(projectileType != ProjectileType.PlayerProjectile)
         {
-            other.GetComponent<ShieldController>().DamageShield(projectileDamage);
-        }
+            if (other.gameObject.CompareTag("Shield"))
+            {
+                other.GetComponent<ShieldController>().DamageShield(projectileDamage);
+            }
 
-        if (!other.gameObject.CompareTag("Player"))
+            if (!other.gameObject.CompareTag("Player"))
+            {
+                GameManager.visualEffectManager.StartVFX(destroyVfx);
+                GameManager.audioManager.PlaySound(destroySound);
+            }
+        }
+        else
         {
+            if(other.gameObject.CompareTag("EnemyDefault"))
+            {
+                other.transform.parent.GetComponent<EnemyEntity>().TakeDamage(projectileDamage);
+            }
+            else if(other.gameObject.CompareTag("EnemyCritical"))
+            {
+                other.transform.parent.GetComponent<EnemyEntity>().TakeDamage(projectileDamage * 2);
+            }
+
             GameManager.visualEffectManager.StartVFX(destroyVfx);
             GameManager.audioManager.PlaySound(destroySound);
-            this.gameObject.SetActive(false);
         }
+
+        this.gameObject.SetActive(false);
     }
 }

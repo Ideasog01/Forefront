@@ -154,7 +154,7 @@ public class EnemyEntity : BaseEntity
 
     public void Disable(float duration)
     {
-        if(this.isActiveAndEnabled)
+        if(!disableEnemy)
         {
             StartCoroutine(DisableEnemyForSeconds(duration));
         }

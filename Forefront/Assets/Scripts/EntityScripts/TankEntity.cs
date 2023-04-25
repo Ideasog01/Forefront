@@ -130,7 +130,7 @@ public class TankEntity : EnemyEntity
         }
         else
         {
-            GameManager.spawnManager.SpawnEnemyProjectile(_projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
+            GameManager.spawnManager.SpawnProjectile(_projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
 
             _ammo--;
 

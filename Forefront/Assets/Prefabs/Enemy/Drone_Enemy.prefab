@@ -5011,7 +5011,7 @@ GameObject:
   - component: {fileID: 911371732439584284}
   - component: {fileID: 3116808198363036374}
   - component: {fileID: 1991448414422311158}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Drone_Model
   m_TagString: EnemyDefault
   m_Icon: {fileID: 0}
@@ -5096,7 +5096,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2403283451262950110, guid: 548abcac1ed050b47bdec08e986c0a1d, type: 3}
 --- !u!1 &4205726127995936249

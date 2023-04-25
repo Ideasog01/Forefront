@@ -14,9 +14,6 @@ public class HealingStation : MonoBehaviour
     private float healingRadius;
 
     [SerializeField]
-    private float duration;
-
-    [SerializeField]
     private Sound healSound;
 
     private bool _playerIsNear;
@@ -28,11 +25,6 @@ public class HealingStation : MonoBehaviour
     private void Start()
     {
         _player = GameManager.playerEntity;
-    }
-
-    private void OnEnable()
-    {
-        StartCoroutine(InactiveDelay());
     }
 
     private void Update()
@@ -69,11 +61,5 @@ public class HealingStation : MonoBehaviour
         {
             _isHealing = false;
         }
-    }
-
-    private IEnumerator InactiveDelay()
-    {
-        yield return new WaitForSeconds(duration);
-        this.gameObject.SetActive(false);
     }
 }
