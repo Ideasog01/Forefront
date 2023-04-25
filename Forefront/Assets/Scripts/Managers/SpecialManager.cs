@@ -51,7 +51,7 @@ public class SpecialManager : MonoBehaviour
     public void DisplaySpecialMenu()
     {
         specialMenu.SetActive(true);
-        specialMenu.transform.position = GameObject.Find("Main Camera").transform.position + new Vector3(0, 1, 2);
+        GameManager.guiManager.SetDisplayLocation(specialMenu.transform);
 
         for (int i = 0; i < specialNames.Length; i++)
         {
@@ -102,6 +102,7 @@ public class SpecialManager : MonoBehaviour
     {
         if(_specialSelected)
         {
+            GameManager.controllerManager.EnablePlasmaCannon(true);
             GameManager.audioManager.PlaySound(nextWaveSound);
             GameManager.waveManager.BeginEncounter();
             specialMenu.SetActive(false);

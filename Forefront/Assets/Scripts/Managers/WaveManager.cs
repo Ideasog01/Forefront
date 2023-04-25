@@ -94,6 +94,7 @@ public class WaveManager : MonoBehaviour
                     GameManager.playerEntity.EntityHealth = GameManager.playerEntity.EntityMaxHealth;
                     GameManager.guiManager.DisplayPlayerHealth();
                     GameManager.specialManager.DisplaySpecialMenu();
+                    GameManager.controllerManager.EnablePlasmaCannon(false);
                     waveIndex++;
                 }
                 else

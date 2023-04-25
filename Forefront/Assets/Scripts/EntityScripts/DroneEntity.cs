@@ -18,8 +18,9 @@ public class DroneEntity : EnemyEntity
     {
         if(GameManager.gameSettings != null)
         {
+            EntityMaxHealth = GameManager.gameSettings.DroneHealth;
+            EntityHealth = EntityMaxHealth;
             _attackCooldown = GameManager.gameSettings.DroneAttackCooldown;
-            EntityHealth = GameManager.gameSettings.DroneHealth;
             _projectilePrefab = GameManager.gameSettings.DroneProjectilePrefab;
         }
 

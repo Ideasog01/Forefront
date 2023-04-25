@@ -112,6 +112,9 @@ public class GUIManager : MonoBehaviour
 
     public Sound multiEnemyDefeatSound;
 
+    [SerializeField]
+    private Transform displaySpawn; //The position of where the victory, defeat and wave complete canvas should spawn
+
     private void Update()
     {
         DisplayPowerCharge();
@@ -184,7 +187,9 @@ public class GUIManager : MonoBehaviour
         victoryCanvas.SetActive(true);
         victoryStatisticsText.text = "SCORE: " + GameManager.waveManager.playerScore.ToString() + "\nHOSTILES DEFEATED: " + GameManager.waveManager.hostilesDefeated.ToString()
             + "\nMISSION FAILS: " + WaveManager.missionFails.ToString();
-        victoryCanvas.transform.position = GameObject.Find("Main Camera").transform.position + new Vector3(0, 1, 2);
+
+        SetDisplayLocation(victoryCanvas.transform);
+        
         victoryAdditionalDetailsText.text = "Level: " + SceneManager.GetActiveScene().name + "\nHigh Score: " + GameManager.gameSettings.HighScore.ToString();
         GameManager.audioManager.PlaySound(victorySound);
     }
@@ -199,7 +204,9 @@ public class GUIManager : MonoBehaviour
         defeatCanvas.SetActive(true);
         defeatScoreText.text = GameManager.waveManager.playerScore.ToString();
         defeatHighScoreText.text = GameManager.gameSettings.HighScore.ToString();
-        defeatCanvas.transform.position = GameObject.Find("Main Camera").transform.position + new Vector3(0, 1, 2);
+
+        SetDisplayLocation(defeatCanvas.transform);
+
         GameManager.audioManager.PlaySound(defeatSound);
     }
 
@@ -229,5 +236,12 @@ public class GUIManager : MonoBehaviour
     {
         bigMessageText.text = messageContent;
         bigMessageAnimator.SetTrigger("active");
+    }
+
+    public void SetDisplayLocation(Transform display)
+    {
+        display.position = displaySpawn.position;
+        display.rotation = displaySpawn.rotation;
+        display.eulerAngles = new Vector3(0, displaySpawn.eulerAngles.y, 0);
     }
 }

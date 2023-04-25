@@ -22,12 +22,6 @@ public class BombController : MonoBehaviour
     [SerializeField]
     private Sound explodeSound;
 
-    public bool IsActive
-    {
-        get { return isActive; }
-        set { isActive = value; }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if(isActive)
@@ -62,6 +56,17 @@ public class BombController : MonoBehaviour
         this.GetComponent<Rigidbody>().useGravity = false;
         meshObj.SetActive(true);
         this.gameObject.SetActive(false);
+    }
+
+    public void Activate()
+    {
+        StartCoroutine(DelayActive());
+    }
+
+    private IEnumerator DelayActive()
+    {
+        yield return new WaitForSeconds(1);
+        isActive = true;
     }
 
 }

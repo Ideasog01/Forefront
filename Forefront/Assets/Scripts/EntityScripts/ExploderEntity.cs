@@ -18,7 +18,8 @@ public class ExploderEntity : EnemyEntity
         if (GameManager.gameSettings != null)
         {
             EnemyDamage = GameManager.gameSettings.ExploderAttackDamage;
-            EntityHealth = GameManager.gameSettings.DroneHealth;
+            EntityMaxHealth = GameManager.gameSettings.ExploderHealth;
+            EntityHealth = EntityMaxHealth;
         }
 
         EnemyAgent = this.GetComponent<NavMeshAgent>();
@@ -29,12 +30,14 @@ public class ExploderEntity : EnemyEntity
         if (InitialTargetLocation != null)
         {
             EnemyAgent.SetDestination(InitialTargetLocation.position);
-            EnemyAnimator.SetBool("isMoving", EnemyAgent.velocity.magnitude != 0);
+
+            this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
 
             float distanceToTarget = Vector3.Distance(this.transform.position, InitialTargetLocation.position);
 
-            if (distanceToTarget < 0.5f)
+            if (distanceToTarget < 0.75f)
             {
+                EnemyAgent.stoppingDistance = AttackThreshold - 1; //So the enemy moves into the attack radius
                 InitialTargetLocation = null;
                 DoorAnimator.SetBool("open", false);
             }
