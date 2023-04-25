@@ -13,12 +13,22 @@ MonoBehaviour:
   m_Name: HeroDifficulty
   m_EditorClassIdentifier: 
   difficultyLevel: 1
-  spawnPrefab: {fileID: 3924233307356937705, guid: 706b6a90190cb69489b79c00f68e4327, type: 3}
-  droneHealth: 50
-  droneProjectilePrefab: {fileID: 3876445595443255495, guid: 24dd696601ed0134dbcc8971fac1e8ea, type: 3}
+  spawnPrefab: {fileID: 3924233307356937705, guid: 97c83640395b75d4080c92ff25a0f151, type: 3}
+  shieldChargeRate: 5
+  shieldCooldown: 10
+  shieldMaxHealth: 50
+  shieldRegenerateWaitTime: 4
+  droneHealth: 70
+  droneProjectilePrefab: {fileID: 3876445595443255495, guid: dc2c9144ca291c645b4f0ef6a015813a, type: 3}
   droneAttackCooldown: 2
-  exploderHealth: 20
+  droneScoreAmount: 5
+  exploderHealth: 60
   exploderAttackDamage: 40
+  exploderScoreAmount: 10
+  tankScoreAmount: 20
+  tankProjectilePrefab: {fileID: 3876445595443255495, guid: cc46c62a75c1ee640bfa9cc7af344c27, type: 3}
+  tankHealth: 200
+  tankAttackCooldown: 2
   highScore: 0
   hostilesDefeated: 0
   playerDeaths: 0

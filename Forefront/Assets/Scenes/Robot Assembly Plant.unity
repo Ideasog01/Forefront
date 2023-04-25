@@ -9610,11 +9610,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 473198, guid: c70dd99c5cd1cbf4c9b8f226c3284b85, type: 3}
   m_PrefabInstance: {fileID: 2111925769}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &308938847 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6736485292897130080, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-  m_PrefabInstance: {fileID: 5953965241817510835}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &310905136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 05e2bef7f8188c943aea2993fc97504b, type: 3}
@@ -62737,26 +62732,6 @@ PrefabInstance:
       propertyPath: doorAnimators.Array.data[14]
       value: 
       objectReference: {fileID: 1661057412}
-    - target: {fileID: 5073328639373400719, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-      propertyPath: nextWaveSound.pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5073328639373400719, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-      propertyPath: nextWaveSound.volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5073328639373400719, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-      propertyPath: nextWaveSound.audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: ef5b81f56a2dc48638de75b1ca40797c, type: 3}
-    - target: {fileID: 5073328639373400719, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-      propertyPath: nextWaveSound.delayTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5073328639373400719, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-      propertyPath: nextWaveSound.soundTransform
-      value: 
-      objectReference: {fileID: 308938847}
     - target: {fileID: 5073328639955315425, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
       propertyPath: m_Name
       value: General
@@ -62803,18 +62778,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5073328639955315430, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5073328640582595363, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5073328640582595363, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5073328640710746348, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

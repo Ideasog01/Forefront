@@ -181,6 +181,7 @@ public class GUIManager : MonoBehaviour
             GameManager.controllerManager.DisplayTeleportRay(false);
             DisplayDefeatCanvas();
             GameManager.gameInProgress = false;
+
         }
     }
 

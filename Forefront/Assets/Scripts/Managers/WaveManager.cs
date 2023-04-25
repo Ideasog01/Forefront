@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.VirtualTexturing;
 using static EnemyEntity;
 
 public class WaveManager : MonoBehaviour
@@ -114,6 +116,9 @@ public class WaveManager : MonoBehaviour
         if(playerScore > GameManager.gameSettings.HighScore)
         {
             GameManager.gameSettings.HighScore = playerScore;
+            GameManager.gameSettings.HostilesDefeated = hostilesDefeated;
+            GameManager.gameSettings.PlayerDeaths = missionFails;
+            GameManager.gameSettings.DateCompleted = DateTime.Now.Date.ToString();
         }
 
         GameManager.playerEntity.Heal(GameManager.playerEntity.EntityMaxHealth);

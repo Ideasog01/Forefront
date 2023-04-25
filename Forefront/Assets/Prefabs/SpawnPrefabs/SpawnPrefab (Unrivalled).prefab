@@ -1,0 +1,924 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2055046386388781566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2270261410992739170}
+  - component: {fileID: 5976541414226617730}
+  - component: {fileID: 739431162874023881}
+  - component: {fileID: 2744713108592511898}
+  m_Layer: 0
+  m_Name: WaveTrigger (0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2270261410992739170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055046386388781566}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 14}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3924233307356937705}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5976541414226617730
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055046386388781566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &739431162874023881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055046386388781566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa4291d3986462479970c6bb7fe9e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &2744713108592511898
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055046386388781566}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &2907104601659626456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4555246946200762845}
+  - component: {fileID: 1453479251271354211}
+  - component: {fileID: 1745717515157761631}
+  - component: {fileID: 8906762671125325946}
+  m_Layer: 0
+  m_Name: WaveTrigger (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4555246946200762845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907104601659626456}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 32, y: 1, z: 28}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3924233307356937705}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1453479251271354211
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907104601659626456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1745717515157761631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907104601659626456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa4291d3986462479970c6bb7fe9e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &8906762671125325946
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907104601659626456}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &3924233307356937704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3924233307356937705}
+  - component: {fileID: 3924233307356937686}
+  m_Layer: 0
+  m_Name: SpawnPrefab (Unrivalled)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3924233307356937705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3924233307356937704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2270261410992739170}
+  - {fileID: 4555246946200762845}
+  - {fileID: 8454935634488706290}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3924233307356937686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3924233307356937704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733d6814a826e28479629d6c78c355da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveIndex: 0
+  spawnIndex: 0
+  playerScore: 0
+  hostilesDefeated: 0
+  waveArray:
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 0
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 1
+      spawnCooldown: 1
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 2
+      spawnCooldown: 1
+    maxEnemyCount: 1
+    waveTrigger: {fileID: 0}
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 0
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 1
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 3
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 4
+      spawnCooldown: 4
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 0
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 2
+      spawnCooldown: 2
+    maxEnemyCount: 4
+    waveTrigger: {fileID: 0}
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 3
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 0
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 4
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 1
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 3
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 4
+      spawnCooldown: 1
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 0
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 2
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 1
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 4
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 3
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 0
+      spawnCooldown: 2
+    maxEnemyCount: 5
+    waveTrigger: {fileID: 0}
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 0
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 1
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 2
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 3
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 4
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 2
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 3
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 4
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 0
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 1
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 2
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 4
+      spawnCooldown: 4
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 1
+      spawnCooldown: 4
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 0
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 4
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 1
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 2
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 4
+      spawnCooldown: 0
+    maxEnemyCount: 6
+    waveTrigger: {fileID: 0}
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 7
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 9
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 8
+      spawnCooldown: 8
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 6
+      spawnCooldown: 4
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 7
+      spawnCooldown: 8
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 5
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 5
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 8
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 9
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 6
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 20
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 6
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 7
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 8
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 9
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 7
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 5
+    maxEnemyCount: 7
+    waveTrigger: {fileID: 1745717515157761631}
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 7
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 9
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 8
+      spawnCooldown: 8
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 6
+      spawnCooldown: 4
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 7
+      spawnCooldown: 8
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 6
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 5
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 8
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 8
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 6
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 20
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 6
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 7
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 8
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 9
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 7
+      spawnCooldown: 5
+    maxEnemyCount: 7
+    waveTrigger: {fileID: 0}
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 7
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 9
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 8
+      spawnCooldown: 8
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 6
+      spawnCooldown: 4
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 7
+      spawnCooldown: 8
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 6
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 5
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 8
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 8
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 6
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 20
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 6
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 7
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 8
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 9
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 7
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 5
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 8
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 9
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 5
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 6
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 9
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 8
+      spawnCooldown: 10
+    maxEnemyCount: 7
+    waveTrigger: {fileID: 0}
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 11
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 12
+      spawnCooldown: 6
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 12
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 14
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 7
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 7
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 10
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 13
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 14
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 11
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 11
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 12
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 13
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 12
+      spawnCooldown: 12
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 13
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 5
+    maxEnemyCount: 8
+    waveTrigger: {fileID: 2936119994110392869}
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 10
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 11
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 12
+      spawnCooldown: 6
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 14
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 10
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 12
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 7
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 7
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 13
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 11
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 11
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 12
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 12
+      spawnCooldown: 12
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 13
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 13
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 10
+    maxEnemyCount: 10
+    waveTrigger: {fileID: 0}
+  - spawnSettingsArray:
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 10
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 11
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 12
+      spawnCooldown: 6
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 14
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 10
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 12
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 7
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 7
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 2
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 13
+      spawnCooldown: 15
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 10
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 11
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 11
+      spawnCooldown: 0
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 12
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 12
+      spawnCooldown: 12
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 13
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 11
+      spawnCooldown: 5
+    - enemyTypeToSpawn: 0
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 14
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 1
+      spawnLocationIndex: 13
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 10
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 12
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 13
+      spawnCooldown: 10
+    - enemyTypeToSpawn: 2
+      spawnLocationIndex: 14
+      spawnCooldown: 10
+    maxEnemyCount: 12
+    waveTrigger: {fileID: 0}
+--- !u!1 &4418180258833750639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8454935634488706290}
+  - component: {fileID: 7865674445628210259}
+  - component: {fileID: 2936119994110392869}
+  - component: {fileID: 4373097355409540289}
+  m_Layer: 0
+  m_Name: WaveTrigger (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8454935634488706290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418180258833750639}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 32, y: 5, z: 55}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3924233307356937705}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7865674445628210259
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418180258833750639}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 7
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2936119994110392869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418180258833750639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa4291d3986462479970c6bb7fe9e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &4373097355409540289
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418180258833750639}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

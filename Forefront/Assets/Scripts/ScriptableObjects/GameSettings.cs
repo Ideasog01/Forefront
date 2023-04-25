@@ -179,15 +179,18 @@ public class GameSettings : ScriptableObject
     public int HostilesDefeated
     {
         get { return hostilesDefeated; }
+        set { hostilesDefeated = value; }
     }
 
     public int PlayerDeaths
     {
         get { return playerDeaths; }
+        set { playerDeaths = value; }
     }
 
     public string DateCompleted
     {
         get { return dateCompleted; }
+        set { dateCompleted = value; }
     }
 }

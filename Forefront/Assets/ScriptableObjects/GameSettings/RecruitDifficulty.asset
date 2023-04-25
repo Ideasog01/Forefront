@@ -28,8 +28,8 @@ MonoBehaviour:
   tankScoreAmount: 20
   tankProjectilePrefab: {fileID: 3876445595443255495, guid: 442e70ac78bedd8478d83e96c6cfe1b1, type: 3}
   tankHealth: 150
-  tankAttackCooldown: 1
-  highScore: 445
+  tankAttackCooldown: 3
+  highScore: 0
   hostilesDefeated: 0
   playerDeaths: 0
   dateCompleted: 00/00/00
