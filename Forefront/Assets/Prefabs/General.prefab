@@ -12791,12 +12791,12 @@ MonoBehaviour:
   - 5
   - 6
   projectileVelocity:
-  - 20
-  - 25
-  - 30
-  - 35
   - 40
   - 45
+  - 50
+  - 55
+  - 60
+  - 65
   powerEffectiveness:
   - 20
   - 18

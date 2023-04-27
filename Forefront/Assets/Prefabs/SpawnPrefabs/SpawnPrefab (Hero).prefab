@@ -230,7 +230,7 @@ MonoBehaviour:
     - enemyTypeToSpawn: 2
       spawnLocationIndex: 4
       spawnCooldown: 1
-    maxEnemyCount: 4
+    maxEnemyCount: 3
     waveTrigger: {fileID: 0}
   - spawnSettingsArray:
     - enemyTypeToSpawn: 2
@@ -263,7 +263,7 @@ MonoBehaviour:
     - enemyTypeToSpawn: 0
       spawnLocationIndex: 4
       spawnCooldown: 1
-    maxEnemyCount: 5
+    maxEnemyCount: 4
     waveTrigger: {fileID: 0}
   - spawnSettingsArray:
     - enemyTypeToSpawn: 2
@@ -302,7 +302,7 @@ MonoBehaviour:
     - enemyTypeToSpawn: 2
       spawnLocationIndex: 9
       spawnCooldown: 0
-    maxEnemyCount: 6
+    maxEnemyCount: 4
     waveTrigger: {fileID: 1745717515157761631}
   - spawnSettingsArray:
     - enemyTypeToSpawn: 2
@@ -350,7 +350,7 @@ MonoBehaviour:
     - enemyTypeToSpawn: 0
       spawnLocationIndex: 6
       spawnCooldown: 0
-    maxEnemyCount: 7
+    maxEnemyCount: 4
     waveTrigger: {fileID: 0}
   - spawnSettingsArray:
     - enemyTypeToSpawn: 0
@@ -413,7 +413,7 @@ MonoBehaviour:
     - enemyTypeToSpawn: 0
       spawnLocationIndex: 9
       spawnCooldown: 0
-    maxEnemyCount: 8
+    maxEnemyCount: 4
     waveTrigger: {fileID: 0}
   - spawnSettingsArray:
     - enemyTypeToSpawn: 1
@@ -491,7 +491,7 @@ MonoBehaviour:
     - enemyTypeToSpawn: 2
       spawnLocationIndex: 14
       spawnCooldown: 0
-    maxEnemyCount: 9
+    maxEnemyCount: 4
     waveTrigger: {fileID: 2936119994110392869}
   - spawnSettingsArray:
     - enemyTypeToSpawn: 2
@@ -584,7 +584,7 @@ MonoBehaviour:
     - enemyTypeToSpawn: 0
       spawnLocationIndex: 12
       spawnCooldown: 0
-    maxEnemyCount: 10
+    maxEnemyCount: 6
     waveTrigger: {fileID: 0}
   - spawnSettingsArray:
     - enemyTypeToSpawn: 1
@@ -677,7 +677,7 @@ MonoBehaviour:
     - enemyTypeToSpawn: 2
       spawnLocationIndex: 11
       spawnCooldown: 0
-    maxEnemyCount: 11
+    maxEnemyCount: 6
     waveTrigger: {fileID: 0}
 --- !u!1 &4418180258833750639
 GameObject:
