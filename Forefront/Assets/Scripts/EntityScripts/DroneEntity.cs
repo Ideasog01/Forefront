@@ -38,7 +38,7 @@ public class DroneEntity : EnemyEntity
 
             float distanceToTarget = Vector3.Distance(this.transform.position, InitialTargetLocation.position);
 
-            if (distanceToTarget < 0.75f)
+            if (distanceToTarget < 1f)
             {
                 EnemyAgent.stoppingDistance = AttackThreshold - 1; //So the enemy moves into the attack radius
                 InitialTargetLocation = null;

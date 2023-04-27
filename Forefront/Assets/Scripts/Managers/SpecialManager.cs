@@ -120,7 +120,13 @@ public class SpecialManager : MonoBehaviour
 
     private int SelectRandomSpecial()
     {
-        int randomIndex = Random.Range(0, specialArray.Length - 1);
+        int randomIndex = Random.Range(0, (specialArray.Length)); 
+
+        if(randomIndex > specialArray.Length - 1) //So the number last element is more common (not minus 1). In testing, the last value (blade special) was very rare.
+        {
+            randomIndex = specialArray.Length - 1;
+        }
+
         return randomIndex;
     }
 

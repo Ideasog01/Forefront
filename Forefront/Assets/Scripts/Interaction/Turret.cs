@@ -23,9 +23,6 @@ public class Turret : MonoBehaviour
     [SerializeField]
     private Transform turretTop;
 
-    [SerializeField]
-    private LayerMask enemyLayerMask;
-
     [Header("Effects")]
 
     [SerializeField]
@@ -34,6 +31,7 @@ public class Turret : MonoBehaviour
     [SerializeField]
     private Sound fireSound;
 
+    [SerializeField]
     private EnemyEntity _nearestEnemy;
 
     private SpawnManager _spawnManager;
@@ -43,6 +41,11 @@ public class Turret : MonoBehaviour
     private void Start()
     {
         _spawnManager = GameObject.Find("GameManager").GetComponent<SpawnManager>();
+    }
+
+    private void OnEnable()
+    {
+        _hasAttacked = false; //In case the turret was deactivated during cooldown (coroutine)
     }
 
     private void Update()
@@ -56,21 +59,13 @@ public class Turret : MonoBehaviour
     {
         foreach(EnemyEntity enemy in _spawnManager.enemyList)
         {
-            if(enemy.isActiveAndEnabled)
+            if(enemy.gameObject.activeSelf)
             {
                 float distance = Vector3.Distance(this.transform.position, enemy.transform.position);
 
                 if(distance < attackThreshold)
                 {
-                    RaycastHit hit;
-
-                    if(Physics.Raycast(this.transform.position, enemy.transform.position, out hit, attackThreshold, enemyLayerMask))
-                    {
-                        if(hit.collider.CompareTag("EnemyDefault"))
-                        {
-                            _nearestEnemy = enemy;
-                        }
-                    }
+                    _nearestEnemy = enemy;
                 }
             }
         }
@@ -94,7 +89,7 @@ public class Turret : MonoBehaviour
     {
         if(_nearestEnemy != null && !_hasAttacked)
         {
-            GameManager.spawnManager.SpawnProjectile(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
+            GameManager.spawnManager.SpawnTurretProjectile(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             GameManager.audioManager.PlaySound(fireSound);
             GameManager.visualEffectManager.StartVFX(fireEffect);
 

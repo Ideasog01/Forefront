@@ -2,9 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.Audio;
+using static Unity.VisualScripting.Member;
+
 public class AudioManager : MonoBehaviour
 {
     private static List<AudioSource> _audioSourceList = new List<AudioSource>();
+
+    [Header("General")]
 
     [SerializeField]
     private Transform audioSourcePrefab;
@@ -15,11 +19,42 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioMixerGroup sfxMixer;
 
+    [Header("Music")]
+
+    public Sound defeatMusic;
+
+    public Sound waveCompleteMusic;
+
+    public Sound gameCompleteMusic;
+
+    [SerializeField]
+    private AudioSource musicAudioSource; //There is only one audio source for music, to avoid multiple music audio playing at the same time.
+
+    [SerializeField]
+    private Sound[] combatMusicArray;
+
+    public void PlayRandomCombatMusic()
+    {
+        PlaySound(combatMusicArray[Random.Range(0, combatMusicArray.Length - 1)]);
+    }
+
+    public void StopMusic() //So music does not play at the same time
+    {
+        musicAudioSource.Stop();
+    }
+
     public void PlaySound(Sound sound)
     {
-        if(sound.AudioSourceRef != null)
+        AudioSource source = sound.AudioSourceRef;
+
+        if(source != null)
         {
-            sound.AudioSourceRef.PlayDelayed(sound.DelayTime);
+            if(sound.IsMusic)
+            {
+                source.clip = sound.AudioClipRef;
+            }
+
+            source.PlayDelayed(sound.DelayTime);
         }
         else
         {
@@ -48,19 +83,26 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource source = null;
 
-        foreach(AudioSource audio in _audioSourceList)
+        if(sound.IsMusic) //Make sure to use the music audio source if this sound is music
         {
-            if(!audio.isPlaying)
+            source = musicAudioSource;
+        }
+        else
+        {
+            foreach (AudioSource audio in _audioSourceList)
             {
-                source = audio;
-                break;
+                if (!audio.isPlaying)
+                {
+                    source = audio;
+                    break;
+                }
             }
         }
 
         if(source == null && audioSourcePrefab != null && sound.SoundTransform != null)
         {
             source = Instantiate(audioSourcePrefab.GetComponent<AudioSource>(), sound.SoundTransform.position, Quaternion.identity);
-            sound.AudioSourceRef = source;
+            sound.AudioSourceRef = source; //In case you want to stop the sound
         }
 
         if(sound.AudioClipRef != null)

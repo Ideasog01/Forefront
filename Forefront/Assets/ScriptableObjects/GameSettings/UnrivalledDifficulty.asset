@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: UnrivalledDifficulty
   m_EditorClassIdentifier: 
   difficultyLevel: 3
-  spawnPrefab: {fileID: 3924233307356937705, guid: 7c6d2a7b848104145bff8c5531a7c8ee, type: 3}
+  spawnPrefab: {fileID: 3924233307356937705, guid: 54b5cfc0dc1a5264a9054d857efe5d10, type: 3}
   shieldChargeRate: 5
-  shieldCooldown: 10
-  shieldMaxHealth: 50
+  shieldCooldown: 5
+  shieldMaxHealth: 100
   shieldRegenerateWaitTime: 4
-  droneHealth: 200
+  droneHealth: 100
   droneProjectilePrefab: {fileID: 3876445595443255495, guid: e4e83337fc0571343b6e29e088ccfb94, type: 3}
   droneAttackCooldown: 2
   droneScoreAmount: 5
-  exploderHealth: 200
-  exploderAttackDamage: 40
+  exploderHealth: 75
+  exploderAttackDamage: 25
   exploderScoreAmount: 10
   tankScoreAmount: 20
   tankProjectilePrefab: {fileID: 3876445595443255495, guid: dfbc4aa65adebd046bf158e2d90f511c, type: 3}
-  tankHealth: 400
+  tankHealth: 120
   tankAttackCooldown: 1
-  highScore: 0
+  highScore: 25
   hostilesDefeated: 0
   playerDeaths: 0
   dateCompleted: 00/00/00

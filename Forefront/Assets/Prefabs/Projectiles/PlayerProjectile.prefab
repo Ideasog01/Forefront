@@ -133,6 +133,7 @@ MonoBehaviour:
   projectileBlastRadius: 0
   projectileMovementSpeed: 0
   projectileDamage: 0
+  seekerProjectilePrefab: {fileID: 3876445595443255495, guid: 04af2c20d1017ca4089e71aae9e8198c, type: 3}
   projectileDuration: 4
   collisionSound:
     audioClip: {fileID: 8300000, guid: df0e60887b63f45c7801a38fccae1f8f, type: 3}

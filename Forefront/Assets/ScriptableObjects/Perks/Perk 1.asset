@@ -15,4 +15,4 @@ MonoBehaviour:
   perkName: Recycle
   perkDescription: Projectiles bounce from walls.
   perkIcon: {fileID: 21300000, guid: 8c27f27f721c286448525b0b2549c3fd, type: 3}
-  isActive: 1
+  isActive: 0

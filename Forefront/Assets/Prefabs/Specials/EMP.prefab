@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startRadius: 1
-  endRadius: 10
+  endRadius: 20
   increaseOvertime: 10
   disableDuration: 4
   enemyLayer:

@@ -133,38 +133,18 @@ public class PlayerEntity : BaseEntity
 
     public void FireCannon(bool release)
     {
-        if(plasmaActive)
+        if (!GameManager.gameInProgress && !release)
+        {
+            return;
+        }
+
+        if (plasmaActive)
         {
             if(release)
             {
                 if(plasmaCharge >= plasmaChargeTime)
                 {
-                    if(!GameManager.perkManager.perkArray[4].IsActive)
-                    {
-                        GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
-                    }
-                    else
-                    {
-                        RaycastHit hit;
-
-                        if(Physics.Raycast(plasmaSpawnPos.position, plasmaSpawnPos.forward, out hit, 40))
-                        {
-                            if(hit.collider.CompareTag("EnemyDefault") || hit.collider.CompareTag("EnemyCritical"))
-                            {
-                                PlayerProjectileController projectile = GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
-                                projectile.ProjectileTarget = hit.transform;
-                                Debug.Log("Tracking Enemy");
-                            }
-                            else
-                            {
-                                GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
-                            }
-                        }
-                        else
-                        {
-                            GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
-                        }
-                    }
+                    GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
 
                     GameManager.visualEffectManager.StartVFX(plasmaFireEffect);
                     GameManager.audioManager.PlaySound(plasmaFireSound);
@@ -219,7 +199,15 @@ public class PlayerEntity : BaseEntity
         if (plasmaCharge < plasmaChargeTime) //Increment the plasma charge to the charge time
         {
             plasmaCharge += Time.deltaTime * plasmaChargeRate;
-            powerChargeAmount -= Time.deltaTime * plasmaChargeCost;
+
+            float chargePowerMod = 1; //Multiply by charge time, as the time allowed for power to decrease is less
+
+            if (GameManager.mainLoadout.GeneralSettingsValueArray[3] > 0) //So the multiplier is not 0, resulting in an incorrect result
+            {
+                chargePowerMod = GameManager.mainLoadout.GeneralSettingsValueArray[3];
+            }
+
+            powerChargeAmount -= Time.deltaTime * plasmaChargeCost * chargePowerMod; 
 
             if (powerChargeAmount <= 0)
             {

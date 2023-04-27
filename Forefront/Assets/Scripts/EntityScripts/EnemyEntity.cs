@@ -148,6 +148,11 @@ public class EnemyEntity : BaseEntity
 
         GameManager.audioManager.PlaySound(destroySound);
 
+        if(DoorAnimator != null && InitialTargetLocation != null)
+        {
+            DoorAnimator.SetBool("open", false);
+        }
+
         disableEnemy = true;
         this.gameObject.SetActive(false);
     }

@@ -148,6 +148,7 @@ public class TankEntity : EnemyEntity
     {
         _ammo = maxAmmo;
         AttackActivated = false;
+        Debug.Log("Tank Reloaded");
     }
 
     public void PlayDeathAnimation()

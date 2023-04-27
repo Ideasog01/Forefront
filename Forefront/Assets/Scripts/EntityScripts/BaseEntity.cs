@@ -16,9 +16,6 @@ public class BaseEntity : MonoBehaviour
     [SerializeField]
     private UnityEvent onDeathEvent;
 
-    [SerializeField]
-    private VisualEffect burningVisualEffect;
-
     private Transform _playerCameraTransform;
 
     private int _damageTimes;
@@ -50,6 +47,11 @@ public class BaseEntity : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if(!GameManager.gameInProgress)
+        {
+            return;
+        }
+
         if(!_isDead)
         {
             entityHealth -= amount;
@@ -58,11 +60,6 @@ public class BaseEntity : MonoBehaviour
 
             if (entityHealth <= 0)
             {
-                if (_damageTimes > 0)
-                {
-                    GameManager.visualEffectManager.StopVFX(burningVisualEffect);
-                }
-
                 onDeathEvent.Invoke();
 
                 _isDead = true;
@@ -80,7 +77,12 @@ public class BaseEntity : MonoBehaviour
 
     public void Heal(int amount)
     {
-        if(entityHealth > 0)
+        if (!GameManager.gameInProgress)
+        {
+            return;
+        }
+
+        if (entityHealth > 0)
         {
             entityHealth += amount;
 
@@ -98,7 +100,6 @@ public class BaseEntity : MonoBehaviour
         if(_damageTimes == 0)
         {
             _damageTimes = 3;
-            GameManager.visualEffectManager.StartVFX(burningVisualEffect);
         }
 
         TakeDamage(10);

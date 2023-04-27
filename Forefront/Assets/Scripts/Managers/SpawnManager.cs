@@ -33,6 +33,10 @@ public class SpawnManager : MonoBehaviour
 
     private List<ProjectileController> _activeProjectiles = new List<ProjectileController>();
 
+    private List<ProjectileController> _activeTurretProjectiles = new List<ProjectileController>();
+
+    private List<ProjectileController> _seekerProjectiles = new List<ProjectileController>();
+
     private void Start()
     {
         activeHostiles = 0;
@@ -96,6 +100,57 @@ public class SpawnManager : MonoBehaviour
         }
 
         projectileToUse.InitialiseProjectile(position, rotation); //Reset the projectile
+    }
+
+
+    public void SpawnTurretProjectile(Transform prefab, Vector3 position, Quaternion rotation)
+    {
+        ProjectileController projectileToUse = null;
+
+        foreach (ProjectileController projectile in _activeTurretProjectiles) //Reuse projectile (avoids uneccessary use of memory)
+        {
+            if (!projectile.gameObject.activeSelf)
+            {
+                projectile.gameObject.SetActive(true);
+                projectileToUse = projectile;
+                break;
+            }
+        }
+
+        if (projectileToUse == null) //Projectile not found, create a new one
+        {
+            projectileToUse = Instantiate(prefab.GetComponent<ProjectileController>(), position, rotation);
+            projectileToUse.transform.parent = projectileParent;
+            _activeTurretProjectiles.Add(projectileToUse);
+        }
+
+        projectileToUse.InitialiseProjectile(position, rotation); //Reset the projectile
+    }
+
+    public ProjectileController SpawnSeekerProjectile(Transform prefab, Vector3 position, Quaternion rotation)
+    {
+        ProjectileController projectileToUse = null;
+
+        foreach (ProjectileController projectile in _seekerProjectiles) //Reuse projectile (avoids uneccessary use of memory)
+        {
+            if (!projectile.gameObject.activeSelf)
+            {
+                projectile.gameObject.SetActive(true);
+                projectileToUse = projectile;
+                break;
+            }
+        }
+
+        if (projectileToUse == null) //Projectile not found, create a new one
+        {
+            projectileToUse = Instantiate(prefab.GetComponent<ProjectileController>(), position, rotation);
+            projectileToUse.transform.parent = projectileParent;
+            _seekerProjectiles.Add(projectileToUse);
+        }
+
+        projectileToUse.InitialiseProjectile(position, rotation); //Reset the projectile
+
+        return projectileToUse;
     }
 
     public void SpawnEnemy(SpawnSettings spawnSettings)

@@ -120,6 +120,7 @@ public class GUIManager : MonoBehaviour
     private void Update()
     {
         DisplayPowerCharge();
+        DisplayHostileCount();
     }
 
     public void DisplayPlasmaCharge()
@@ -192,7 +193,9 @@ public class GUIManager : MonoBehaviour
             + "\nMISSION FAILS: " + WaveManager.missionFails.ToString();
 
         SetDisplayLocation(victoryCanvas.transform);
-        
+
+        GameManager.audioManager.PlaySound(GameManager.audioManager.gameCompleteMusic);
+
         victoryAdditionalDetailsText.text = "Level: " + SceneManager.GetActiveScene().name + "\nHigh Score: " + GameManager.gameSettings.HighScore.ToString();
         GameManager.audioManager.PlaySound(victorySound);
     }
@@ -207,6 +210,8 @@ public class GUIManager : MonoBehaviour
         defeatCanvas.SetActive(true);
         defeatScoreText.text = "Score: " + GameManager.waveManager.playerScore.ToString();
         defeatHighScoreText.text = "High Score: " + GameManager.gameSettings.HighScore.ToString();
+
+        GameManager.audioManager.PlaySound(GameManager.audioManager.defeatMusic);
 
         SetDisplayLocation(defeatCanvas.transform);
 

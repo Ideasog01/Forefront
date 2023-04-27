@@ -18,6 +18,9 @@ public class PlayerProjectileController : MonoBehaviour
     [Header("General Settings")]
 
     [SerializeField]
+    private Transform seekerProjectilePrefab;
+
+    [SerializeField]
     private float projectileDuration;
 
     [Header("Sound Effects")]
@@ -30,6 +33,13 @@ public class PlayerProjectileController : MonoBehaviour
 
     [SerializeField]
     private Sound bounceSound;
+
+    private Transform _projectTarget;
+
+    public Transform ProjectileTarget
+    {
+        set { _projectTarget = value; }
+    }
 
 
     [Header("Visual Effects")]
@@ -49,18 +59,6 @@ public class PlayerProjectileController : MonoBehaviour
     private Vector3 _lastVelocity;
     private float _curveSpeed;
     private Vector3 _direction;
-
-    private EnemyEntity _ignoreCollisionEnemy;
-
-    public EnemyEntity IgnoreCollisionEnemy
-    {
-        set { _ignoreCollisionEnemy = value; }
-    }
-
-    public Transform ProjectileTarget
-    {
-        set { projectileTarget = value; }
-    }
 
     private void Awake()
     {
@@ -107,24 +105,37 @@ public class PlayerProjectileController : MonoBehaviour
         {
             EnemyEntity enemy = collision.transform.parent.GetComponent<EnemyEntity>();
 
-            if (_ignoreCollisionEnemy != null)
-            {
-                if (_ignoreCollisionEnemy == enemy)
-                {
-                    return;
-                }
-            }
-
             PerkEffects(enemy);
 
             if(collision.collider.CompareTag("EnemyCritical"))
             {
-                enemy.TakeDamage(projectileDamage * 2);
+                int multiplier = 0;
+
+                if (_perkArray[4].IsActive)
+                {
+                    multiplier = 3;
+                }
+                else
+                {
+                    multiplier = 2;
+                }
+
+                enemy.TakeDamage(projectileDamage * multiplier);
                 GameManager.audioManager.PlaySound(criticalHitSound);
+
+                if(enemy.EntityHealth <= 0 && _perkArray[2].IsActive)
+                {
+                    SeekerProjectiles(collision);
+                }
             }
             else
             {
                 enemy.TakeDamage(projectileDamage);
+
+                if (enemy.EntityHealth <= 0 && _perkArray[2].IsActive)
+                {
+                    SeekerProjectiles(collision);
+                }
             }
 
             Debug.Log("Enemy Collision!");
@@ -135,13 +146,22 @@ public class PlayerProjectileController : MonoBehaviour
 
             this.gameObject.SetActive(false);
         }
-        else if (_perkArray[1] && _projectileRb.velocity.magnitude != 0) //Projectile Bounce Perk
+        else if (_perkArray[1].IsActive && _projectileRb.velocity.magnitude != 0) //Projectile Bounce Perk
         {
-            var speed = Mathf.Abs(_lastVelocity.magnitude) * 2; //Increases the speed on bounce
+            var speed = Mathf.Abs(_lastVelocity.magnitude);
             _direction = Vector3.Reflect(_lastVelocity.normalized, collision.contacts[0].normal); //Gets the oppositite direction from the hit point
             _projectileRb.velocity = _direction * Mathf.Max(speed, 0); //Assign the new velocity (movement direction)
             Debug.Log("Bounce!");
             GameManager.audioManager.PlaySound(bounceSound);
+        }
+        else
+        {
+            GameManager.audioManager.PlaySound(collisionSound);
+            GameManager.visualEffectManager.StartVFX(collisionVisualEffect);
+
+            DamageNearbyEnemies(collision);
+
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -184,15 +204,25 @@ public class PlayerProjectileController : MonoBehaviour
                 {
                     enemy.TakeDamage(projectileDamage);
                 }
+            }
+        }
+    }
 
-                if (_perkArray[2].IsActive)
+    private void SeekerProjectiles(Collision collision)
+    {
+        Collider[] enemyColliders = Physics.OverlapSphere(this.transform.position, 10);
+
+        foreach (Collider collider in enemyColliders)
+        {
+            if (collider.CompareTag("EnemyDefault") && collider != collision.collider)
+            {
+                EnemyEntity enemy = collider.transform.parent.GetComponent<EnemyEntity>();
+
+                if (enemy.EntityHealth > 0)
                 {
-                    if (enemy.EntityHealth > 0)
-                    {
-                        PlayerProjectileController projectile = GameManager.spawnManager.SpawnPlayerProjectile(GameManager.playerEntity.plasmaProjectilePrefab, this.transform.position, this.transform.rotation);
-                        projectile.IgnoreCollisionEnemy = collision.transform.parent.GetComponent<EnemyEntity>();
-                        projectile.ProjectileTarget = enemy.transform;
-                    }
+                    ProjectileController projectile = GameManager.spawnManager.SpawnSeekerProjectile(seekerProjectilePrefab, this.transform.position, this.transform.rotation);
+                    projectile.IgnoreCollisionEnemy = collision.transform.parent.GetComponent<EnemyEntity>();
+                    projectile.ProjectileTarget = enemy.transform;
                 }
             }
         }

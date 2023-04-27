@@ -61,7 +61,6 @@ public class PerksMenu : MonoBehaviour
 
     public void PerkReleased() //Via Inspector
     {
-
         //Is near a slot? Then assign it.
 
         float distanceToPerkSlot1 = Vector3.Distance(perkGrabbable.transform.position, perkSlot1.transform.position);

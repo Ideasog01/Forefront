@@ -62612,6 +62612,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5073328639234606467, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: laserDamage
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 5073328639373400718, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
       propertyPath: spawnArray.Array.data[0]
       value: 
@@ -62779,6 +62783,26 @@ PrefabInstance:
     - target: {fileID: 5073328639955315430, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073328640582595363, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073328640582595363, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073328640710746348, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953965242386575786, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: attackThreshold
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7072269079534287225, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -33,6 +33,7 @@ public class WaveManager : MonoBehaviour
             _encounterInProgress = true;
 
             GameManager.audioManager.PlaySound(GameManager.guiManager.nextWaveSound);
+            GameManager.audioManager.PlayRandomCombatMusic();
 
             StartCoroutine(DelaySpawn());
         }
@@ -67,6 +68,7 @@ public class WaveManager : MonoBehaviour
             Debug.Log("Recent Enemy Defeats: " + _recentEnemyDefeats);
             GameManager.audioManager.PlaySound(GameManager.guiManager.multiEnemyDefeatSound);
             GameManager.guiManager.DisplayBigMessage("Quadruple Elimination!");
+            _recentEnemyDefeats = 0;
         }
 
         StartCoroutine(ResetRecentEnemyDefeats());
@@ -99,6 +101,7 @@ public class WaveManager : MonoBehaviour
                     GameManager.guiManager.DisplayPlayerHealth();
                     GameManager.specialManager.DisplaySpecialMenu();
                     GameManager.controllerManager.EnablePlasmaCannon(false);
+                    GameManager.audioManager.PlaySound(GameManager.audioManager.waveCompleteMusic);
                     waveIndex++;
                 }
                 else

@@ -15,21 +15,21 @@ MonoBehaviour:
   difficultyLevel: 0
   spawnPrefab: {fileID: 3924233307356937705, guid: 706b6a90190cb69489b79c00f68e4327, type: 3}
   shieldChargeRate: 5
-  shieldCooldown: 10
-  shieldMaxHealth: 50
+  shieldCooldown: 5
+  shieldMaxHealth: 20
   shieldRegenerateWaitTime: 4
   droneHealth: 50
   droneProjectilePrefab: {fileID: 3876445595443255495, guid: 24dd696601ed0134dbcc8971fac1e8ea, type: 3}
   droneAttackCooldown: 2
   droneScoreAmount: 5
-  exploderHealth: 40
-  exploderAttackDamage: 40
+  exploderHealth: 50
+  exploderAttackDamage: 5
   exploderScoreAmount: 10
   tankScoreAmount: 20
   tankProjectilePrefab: {fileID: 3876445595443255495, guid: 442e70ac78bedd8478d83e96c6cfe1b1, type: 3}
-  tankHealth: 150
+  tankHealth: 60
   tankAttackCooldown: 3
-  highScore: 0
-  hostilesDefeated: 0
+  highScore: 2010
+  hostilesDefeated: 150
   playerDeaths: 0
-  dateCompleted: 00/00/00
+  dateCompleted: 27/04/2023 00:00:00

@@ -13,6 +13,11 @@ public class ExploderEntity : EnemyEntity
 
     private bool _explosionActivated;
 
+    public bool ExplosionActivated //Via Inspector
+    {
+        set { _explosionActivated = value; }
+    }
+
     private void Start()
     {
         if (GameManager.gameSettings != null)

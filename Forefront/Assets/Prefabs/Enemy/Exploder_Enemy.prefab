@@ -69,6 +69,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 252964328034941550}
+        m_TargetAssemblyTypeName: ExploderEntity, Assembly-CSharp
+        m_MethodName: set_ExplosionActivated
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252964328034941550}
         m_TargetAssemblyTypeName: EnemyEntity, Assembly-CSharp
         m_MethodName: OnEnemyDeath
         m_Mode: 1
@@ -89,7 +101,7 @@ MonoBehaviour:
   aiState: 1
   enemyAnimator: {fileID: 0}
   enemyDamage: 40
-  attackThreshold: 1.5
+  attackThreshold: 2.5
   attackCooldown: 2
   attackActivated: 0
   enemySlider: {fileID: 2408292236365903563}
@@ -127,7 +139,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.8
-  m_Speed: 1.25
+  m_Speed: 3
   m_Acceleration: 1.25
   avoidancePriority: 50
   m_AngularSpeed: 90
