@@ -105,13 +105,13 @@ public class PlayerProjectileController : MonoBehaviour
         {
             EnemyEntity enemy = collision.transform.parent.GetComponent<EnemyEntity>();
 
-            PerkEffects(enemy);
+            PerkEffects(enemy); //These perks interact with the enemy directly
 
             if(collision.collider.CompareTag("EnemyCritical"))
             {
-                int multiplier = 0;
+                int multiplier = 0; //The multplier for the critical hit damage.
 
-                if (_perkArray[4].IsActive)
+                if (_perkArray[4].IsActive) //Critical hits deal more damage perk
                 {
                     multiplier = 3;
                 }
@@ -121,9 +121,9 @@ public class PlayerProjectileController : MonoBehaviour
                 }
 
                 enemy.TakeDamage(projectileDamage * multiplier);
-                GameManager.audioManager.PlaySound(criticalHitSound);
+                GameManager.audioManager.PlaySound(criticalHitSound); //Play a critical hit sound for player feedback
 
-                if(enemy.EntityHealth <= 0 && _perkArray[2].IsActive)
+                if(enemy.EntityHealth <= 0 && _perkArray[2].IsActive) //Releases projectiles that find and track nearby enemies
                 {
                     SeekerProjectiles(collision);
                 }

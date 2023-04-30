@@ -126,11 +126,13 @@ public class EnemyEntity : BaseEntity
     public void ResetEnemy(Vector3 newPosition)
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
-        _navMeshAgent.Warp(newPosition);
+        _navMeshAgent.Warp(newPosition); //Teleports the enemy to the new position
         _navMeshAgent.stoppingDistance = 0;
 
         EntityHealth = EntityMaxHealth;
         DisplayHealth();
+
+        //Set enemy enabled
         disableEnemy = false;
         attackActivated = false;
         IsDead = false;

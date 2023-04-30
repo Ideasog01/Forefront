@@ -39,7 +39,7 @@ public class BombController : MonoBehaviour
     {
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, explosionRadius);
 
-        foreach(Collider collider in colliders)
+        foreach(Collider collider in colliders) //Get all nearby enemies inside the explosion radius and damage them
         {
             if(collider.CompareTag("EnemyDefault"))
             {
@@ -49,7 +49,7 @@ public class BombController : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayInactive()
+    private IEnumerator DelayInactive() //Ensures the vfx plays and the object is reset ready for the next time it is used.
     {
         yield return new WaitForSeconds(2);
         this.GetComponent<Rigidbody>().isKinematic = true;
@@ -63,7 +63,7 @@ public class BombController : MonoBehaviour
         StartCoroutine(DelayActive());
     }
 
-    private IEnumerator DelayActive()
+    private IEnumerator DelayActive() //To ensure the grenade does not colide with the player or hands after being thrown.
     {
         yield return new WaitForSeconds(0.2f);
         isActive = true;

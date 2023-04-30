@@ -62612,6 +62612,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2160503284428973880, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5073328639234606467, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
       propertyPath: laserDamage
       value: 80
@@ -62802,7 +62806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7072269079534287225, guid: 01a12e9506940a0438f19b45c1a197ec, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 16777215
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

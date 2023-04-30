@@ -161,7 +161,7 @@ public class SpawnManager : MonoBehaviour
         {
             if(!enemy.gameObject.activeSelf)
             {
-                if(enemy.EnemyTypeRef == spawnSettings.EnemyTypeToSpawn)
+                if(enemy.EnemyTypeRef == spawnSettings.EnemyTypeToSpawn) //Is the same enemy, and is inactive, then use this enemy object for the new enemy
                 {
                     enemy.gameObject.SetActive(true);
                     enemyEntity = enemy;
@@ -170,24 +170,25 @@ public class SpawnManager : MonoBehaviour
             }
         }
 
+        //Spawn settings
         int spawnIndex = spawnSettings.SpawnLocationIndex;
         Transform spawnPos = spawnArray[spawnIndex];
         Transform initialTargetPos = spawnPos.GetChild(0);
         Animator door = doorAnimators[spawnIndex];
 
 
-        if (enemyEntity == null)
+        if (enemyEntity == null) //An inactive enemy was not found, so instantiate a new enemy object
         {
             enemyEntity = Instantiate(enemyPrefabs[(int)spawnSettings.EnemyTypeToSpawn].GetComponent<EnemyEntity>(), spawnPos.position, spawnPos.rotation);
             enemyEntity.transform.parent = enemyParent;
             enemyList.Add(enemyEntity);
         }
 
-        enemyEntity.ResetEnemy(spawnPos.position);
+        enemyEntity.ResetEnemy(spawnPos.position); //Resets the enemy properties to their default state
         enemyEntity.InitialTargetLocation = initialTargetPos;
 
-        door.SetBool("open", true);
-        enemyEntity.DoorAnimator = door;
+        door.SetBool("open", true); //Opens the door. The door will be open until it is closed by this enemy when it reaches the inital target location
+        enemyEntity.DoorAnimator = door; //Assigns the door animator to the enemy for later
 
         activeHostiles++;
     }
