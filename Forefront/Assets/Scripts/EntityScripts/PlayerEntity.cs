@@ -122,10 +122,10 @@ public class PlayerEntity : BaseEntity
 
         if(_isLaserFiring)
         {
-            laserEnd.Rotate(new Vector3(0, 0, 1) * laserRotationSpeed);
+            laserEnd.Rotate(new Vector3(0, 0, 1) * laserRotationSpeed); //Visual
         }
 
-        if(powerChargeAmount < 100)
+        if(powerChargeAmount < 100) //Recharge power (Power allows the player to use their main equipment)
         {
             powerChargeAmount += Time.deltaTime * powerRechargeRate;
         }
@@ -142,16 +142,18 @@ public class PlayerEntity : BaseEntity
         {
             if(release)
             {
-                if(plasmaCharge >= plasmaChargeTime)
+                if(plasmaCharge >= plasmaChargeTime) //Is plasma cannon ready to fire?
                 {
                     GameManager.spawnManager.SpawnPlayerProjectile(plasmaProjectilePrefab, plasmaSpawnPos.position, plasmaSpawnPos.rotation);
 
+                    //Visuals
                     GameManager.visualEffectManager.StartVFX(plasmaFireEffect);
                     GameManager.audioManager.PlaySound(plasmaFireSound);
                     Debug.Log("Cannon Fired");
 
                 }
 
+                //Reset plasma cannon
                 plasmaCharge = 0;
                 _isPlasmaCharging = false;
 
@@ -161,7 +163,7 @@ public class PlayerEntity : BaseEntity
                 GameManager.guiManager.DisplayPlasmaCharge();
                 GameManager.guiManager.TogglePlasmaCharge(false);
             }
-            else
+            else //Start charging the plasma cannon
             {
                 plasmaChargeTime = chargeTime[GameManager.mainLoadout.GeneralSettingsValueArray[3]];
                 plasmaChargeCost = powerEffectiveness[GameManager.mainLoadout.GeneralSettingsValueArray[2]];
